@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习路径 - 软件测试学习平台</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/learning.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">QA Study</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="learning.html" class="active">学习路径</a></li>
+                <li><a href="projects.html">项目展示</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 学习路径主体 -->
+    <div class="learning-container">
+        <!-- 左侧导航栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 学习路径</h2>
+                <p>v2.0</p>
+            </div>
+            
+            <div class="sidebar-search">
+                <input type="text" placeholder="搜索内容..." id="searchInput">
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="#chapter1" class="nav-item active">
+                        <span class="nav-number">1</span>
+                        <span>软件测试基础</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section1-1">1.1 什么是软件测试</a>
+                        <a href="#section1-2">1.2 软件测试模型</a>
+                        <a href="#section1-3">1.3 测试流程</a>
+                        <a href="#section1-4">1.4 测试类型</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter2" class="nav-item">
+                        <span class="nav-number">2</span>
+                        <span>功能测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section2-1">2.1 测试用例设计</a>
+                        <a href="#section2-2">2.2 缺陷管理</a>
+                        <a href="#section2-3">2.3 测试文档</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter3" class="nav-item">
+                        <span class="nav-number">3</span>
+                        <span>接口测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section3-1">3.1 接口测试基础</a>
+                        <a href="#section3-2">3.2 Postman工具</a>
+                        <a href="#section3-3">3.3 接口测试要点</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter4" class="nav-item">
+                        <span class="nav-number">4</span>
+                        <span>自动化测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section4-1">4.1 自动化测试概述</a>
+                        <a href="#section4-2">4.2 Selenium Web自动化</a>
+                        <a href="#section4-3">4.3 Pytest框架</a>
+                        <a href="#section4-4">4.4 接口自动化</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter5" class="nav-item">
+                        <span class="nav-number">5</span>
+                        <span>性能测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section5-1">5.1 性能测试基础</a>
+                        <a href="#section5-2">5.2 JMeter工具</a>
+                        <a href="#section5-3">5.3 性能测试实施</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter6" class="nav-item">
+                        <span class="nav-number">6</span>
+                        <span>进阶技能</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section6-1">6.1 CI/CD</a>
+                        <a href="#section6-2">6.2 Docker容器化</a>
+                        <a href="#section6-3">6.3 测试开发</a>
+                        <a href="#section6-4">6.4 移动端测试</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 右侧内容区 -->
+        <main class="content-area">
+            <!-- 面包屑导航 -->
+            <div class="breadcrumb">
+                <a href="index.html">🏠 首页</a>
+                <span>/</span>
+                <span>学习路径</span>
+            </div>
+
+            <!-- 内容容器 -->
+            <div class="content-container">
+                <!-- 第一章：软件测试基础 -->
+                <section id="chapter1" class="chapter-content active">
+                    <div class="chapter-header">
+                        <h1>1. 欢迎进入软件测试的世界</h1>
+                        <p class="chapter-intro">软件测试是保证软件质量的重要环节，本章将带你了解软件测试的基础知识。</p>
+                    </div>
+
+                    <div class="sections-container">
+                        <article id="section1-1" class="section active">
+                            <h2>1.1 什么是软件测试</h2>
+                    <div class="content-box">
+                        <p class="intro-text">软件测试是使用人工或自动化手段来运行或测定某个软件系统的过程，其目的在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别。</p>
+                        
+                        <div class="highlight-box">
+                            <h3>🎯 测试的目的</h3>
+                            <ul class="feature-list">
+                                <li>
+                                    <strong>发现缺陷：</strong>
+                                    <span>在软件发布前发现并修复尽可能多的缺陷</span>
+                                </li>
+                                <li>
+                                    <strong>质量保证：</strong>
+                                    <span>确保软件产品符合用户需求和质量标准</span>
+                                </li>
+                                <li>
+                                    <strong>风险控制：</strong>
+                                    <span>降低软件在生产环境中出现问题的风险</span>
+                                </li>
+                                <li>
+                                    <strong>提升信心：</strong>
+                                    <span>为产品发布提供质量保证，增强团队和用户信心</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="principle-section">
+                            <h3>📋 测试的七大原则</h3>
+                            <div class="principle-grid">
+                                <div class="principle-card">
+                                    <div class="principle-num">1</div>
+                                    <h4>测试显示缺陷存在</h4>
+                                    <p>测试能证明缺陷存在，但不能证明不存在缺陷</p>
+                                </div>
+                                <div class="principle-card">
+                                    <div class="principle-num">2</div>
+                                    <h4>穷尽测试不可能</h4>
+                                    <p>除非是极简单的程序，否则不可能进行穷尽测试</p>
+                                </div>
+                                <div class="principle-card">
+                                    <div class="principle-num">3</div>
+                                    <h4>早期测试</h4>
+                                    <p>测试活动应尽早开始，越早发现缺陷，修复成本越低</p>
+                                </div>
+                                <div class="principle-card">
+                                    <div class="principle-num">4</div>
+                                    <h4>缺陷集群性</h4>
+                                    <p>少数模块往往包含大多数缺陷（80/20原则）</p>
+                                </div>
+                                <div class="principle-card">
+                                    <div class="principle-num">5</div>
+                                    <h4>杀虫剂悖论</h4>
+                                    <p>重复使用相同的测试用例，将无法发现新的缺陷</p>
+                                </div>
+                                <div class="principle-card">
+                                    <div class="principle-num">6</div>
+                                    <h4>测试依赖于环境</h4>
+                                    <p>不同类型的软件需要采用不同的测试方法</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section1-2" class="section">
+                    <h2>1.2 软件测试模型</h2>
+                    <div class="content-box">
+                        <div class="model-card">
+                            <h3>V模型</h3>
+                            <p>V模型是最经典的软件测试模型，它将开发过程和测试过程对应起来，强调测试的层次性。</p>
+                            <div class="model-mapping">
+                                <div class="mapping-item">
+                                    <span class="left">单元测试</span>
+                                    <span class="arrow">↔</span>
+                                    <span class="right">详细设计</span>
+                                </div>
+                                <div class="mapping-item">
+                                    <span class="left">集成测试</span>
+                                    <span class="arrow">↔</span>
+                                    <span class="right">概要设计</span>
+                                </div>
+                                <div class="mapping-item">
+                                    <span class="left">系统测试</span>
+                                    <span class="arrow">↔</span>
+                                    <span class="right">需求分析</span>
+                                </div>
+                                <div class="mapping-item">
+                                    <span class="left">验收测试</span>
+                                    <span class="arrow">↔</span>
+                                    <span class="right">用户需求</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="model-card">
+                            <h3>W模型</h3>
+                            <p>W模型是V模型的发展，强调测试伴随着整个软件开发周期，测试与开发同步进行。</p>
+                            <ul class="check-list">
+                                <li>测试活动尽早介入，与开发并行</li>
+                                <li>每个开发阶段都有对应的测试活动</li>
+                                <li>强调测试计划和测试设计的重要性</li>
+                            </ul>
+                        </div>
+
+                        <div class="model-card">
+                            <h3>敏捷测试模型</h3>
+                            <p>适应敏捷开发的测试模型，强调快速迭代、持续集成和自动化测试。</p>
+                            <ul class="check-list">
+                                <li>测试人员全程参与开发过程</li>
+                                <li>采用测试驱动开发（TDD）</li>
+                                <li>持续集成和持续测试</li>
+                                <li>快速反馈和迭代优化</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section1-3" class="section">
+                    <h2>1.3 测试流程</h2>
+                    <div class="content-box">
+                        <div class="process-timeline">
+                            <div class="process-item">
+                                <div class="process-icon">1</div>
+                                <div class="process-content">
+                                    <h4>需求分析</h4>
+                                    <p>理解业务需求，识别测试范围和测试重点</p>
+                                    <ul>
+                                        <li>参与需求评审会议</li>
+                                        <li>分析需求文档</li>
+                                        <li>识别测试点和风险点</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="process-item">
+                                <div class="process-icon">2</div>
+                                <div class="process-content">
+                                    <h4>测试计划</h4>
+                                    <p>制定测试策略，规划测试资源和时间</p>
+                                    <ul>
+                                        <li>编写测试计划文档</li>
+                                        <li>确定测试范围和目标</li>
+                                        <li>分配测试资源</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="process-item">
+                                <div class="process-icon">3</div>
+                                <div class="process-content">
+                                    <h4>用例设计</h4>
+                                    <p>根据需求设计测试用例，覆盖各种测试场景</p>
+                                    <ul>
+                                        <li>设计测试用例</li>
+                                        <li>评审测试用例</li>
+                                        <li>准备测试数据</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="process-item">
+                                <div class="process-icon">4</div>
+                                <div class="process-content">
+                                    <h4>测试执行</h4>
+                                    <p>执行测试用例，记录测试结果</p>
+                                    <ul>
+                                        <li>搭建测试环境</li>
+                                        <li>执行测试用例</li>
+                                        <li>提交缺陷报告</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="process-item">
+                                <div class="process-icon">5</div>
+                                <div class="process-content">
+                                    <h4>缺陷管理</h4>
+                                    <p>跟踪缺陷状态，验证缺陷修复</p>
+                                    <ul>
+                                        <li>提交缺陷到管理系统</li>
+                                        <li>跟踪修复进度</li>
+                                        <li>回归测试</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="process-item">
+                                <div class="process-icon">6</div>
+                                <div class="process-content">
+                                    <h4>测试报告</h4>
+                                    <p>总结测试结果，评估产品质量</p>
+                                    <ul>
+                                        <li>编写测试报告</li>
+                                        <li>统计测试数据</li>
+                                        <li>提出改进建议</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section1-4" class="section">
+                    <h2>1.4 测试类型</h2>
+                    <div class="content-box">
+                        <div class="type-grid">
+                            <div class="type-card">
+                                <div class="type-icon">✅</div>
+                                <h4>功能测试</h4>
+                                <p>验证软件功能是否符合需求规格说明</p>
+                                <ul>
+                                    <li>黑盒测试方法</li>
+                                    <li>关注功能实现</li>
+                                    <li>用户角度验证</li>
+                                </ul>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-icon">⚡</div>
+                                <h4>性能测试</h4>
+                                <p>测试系统在特定负载下的性能表现</p>
+                                <ul>
+                                    <li>负载测试</li>
+                                    <li>压力测试</li>
+                                    <li>并发测试</li>
+                                </ul>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-icon">🔒</div>
+                                <h4>安全测试</h4>
+                                <p>检测系统的安全漏洞和风险</p>
+                                <ul>
+                                    <li>SQL注入测试</li>
+                                    <li>XSS攻击测试</li>
+                                    <li>权限验证测试</li>
+                                </ul>
+                            </div>
+                            <div class="type-card">
+                                <div class="type-icon">📱</div>
+                                <h4>兼容性测试</h4>
+                                <p>验证软件在不同环境下的兼容性</p>
+                                <ul>
+                                    <li>浏览器兼容性</li>
+                                    <li>操作系统兼容性</li>
+                                    <li>设备兼容性</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </section>
+
+            <!-- 第二章：功能测试 -->
+            <section id="chapter2" class="chapter-content">
+                <div class="chapter-header">
+                    <h1>2. 功能测试实战</h1>
+                    <p class="chapter-intro">功能测试是软件测试的基础，本章将详细介绍测试用例设计方法和缺陷管理。</p>
+                </div>
+
+                <div class="sections-container">
+                    <article id="section2-1" class="section active">
+                        <h2>2.1 测试用例设计方法</h2>
+                    <div class="content-box">
+                        <div class="method-card">
+                            <h3>等价类划分法</h3>
+                            <p>将输入域划分为若干等价类，从每个等价类中选取代表性数据进行测试。</p>
+                            <div class="example-box">
+                                <h4>📝 示例：用户年龄输入</h4>
+                                <p><strong>有效等价类：</strong>18-65岁（正常年龄范围）</p>
+                                <p><strong>无效等价类：</strong>小于18岁、大于65岁、非数字字符、空值</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <h3>边界值分析法</h3>
+                            <p>测试边界值及其附近的值，因为缺陷往往出现在边界处。</p>
+                            <div class="example-box">
+                                <h4>📝 示例：密码长度验证（6-20位）</h4>
+                                <p><strong>测试值：</strong>5位、6位、7位、19位、20位、21位</p>
+                            </div>
+                        </div>
+
+                        <div class="method-card">
+                            <h3>场景法</h3>
+                            <p>模拟用户实际使用场景，设计端到端的测试用例。</p>
+                            <div class="scenario-flow">
+                                <div class="flow-step">用户登录</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">浏览商品</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">加入购物车</div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">结算支付</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section2-2" class="section">
+                    <h2>2.2 缺陷管理</h2>
+                    <div class="content-box">
+                        <h3>缺陷生命周期</h3>
+                        <div class="lifecycle-flow">
+                            <div class="lifecycle-item">
+                                <span class="status new">新建</span>
+                                <p>测试人员发现并提交</p>
+                            </div>
+                            <span class="arrow">→</span>
+                            <div class="lifecycle-item">
+                                <span class="status assigned">已分配</span>
+                                <p>分配给开发人员</p>
+                            </div>
+                            <span class="arrow">→</span>
+                            <div class="lifecycle-item">
+                                <span class="status fixed">已修复</span>
+                                <p>开发人员修复完成</p>
+                            </div>
+                            <span class="arrow">→</span>
+                            <div class="lifecycle-item">
+                                <span class="status closed">已关闭</span>
+                                <p>验证通过并关闭</p>
+                            </div>
+                        </div>
+
+                        <h3>缺陷严重程度</h3>
+                        <div class="severity-grid">
+                            <div class="severity-item critical">
+                                <h4>致命 (Critical)</h4>
+                                <p>系统崩溃、数据丢失、核心功能无法使用</p>
+                            </div>
+                            <div class="severity-item major">
+                                <h4>严重 (Major)</h4>
+                                <p>主要功能异常，但有替代方案</p>
+                            </div>
+                            <div class="severity-item normal">
+                                <h4>一般 (Normal)</h4>
+                                <p>次要功能异常，不影响主流程</p>
+                            </div>
+                            <div class="severity-item minor">
+                                <h4>轻微 (Minor)</h4>
+                                <p>界面问题、提示信息错误等</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section2-3" class="section">
+                    <h2>2.3 测试文档</h2>
+                    <div class="content-box">
+                        <div class="doc-grid">
+                            <div class="doc-card">
+                                <h4>📄 测试计划</h4>
+                                <p>定义测试范围、策略、资源和进度安排</p>
+                            </div>
+                            <div class="doc-card">
+                                <h4>📝 测试用例</h4>
+                                <p>详细的测试步骤、预期结果和实际结果</p>
+                            </div>
+                            <div class="doc-card">
+                                <h4>🐛 缺陷报告</h4>
+                                <p>记录发现的缺陷，包含重现步骤和截图</p>
+                            </div>
+                            <div class="doc-card">
+                                <h4>📊 测试报告</h4>
+                                <p>总结测试结果，评估产品质量</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </section>
+
+            <!-- 第三章：接口测试 -->
+            <section id="chapter3" class="chapter-content">
+                <div class="chapter-header">
+                    <h1>3. 接口测试</h1>
+                    <p class="chapter-intro">接口测试是测试系统组件间接口的一种测试，主要用于检测系统之间的交互点。</p>
+                </div>
+
+                <div class="sections-container">
+                    <article id="section3-1" class="section active">
+                        <h2>3.1 接口测试基础</h2>
+                    <div class="content-box">
+                        <div class="info-box">
+                            <h3>为什么要做接口测试？</h3>
+                            <ul class="benefit-list">
+                                <li>
+                                    <span class="icon">⚡</span>
+                                    <div>
+                                        <strong>更早发现问题</strong>
+                                        <p>接口测试可以在UI开发完成前进行</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="icon">🎯</span>
+                                    <div>
+                                        <strong>更容易定位缺陷</strong>
+                                        <p>直接测试业务逻辑，问题定位更准确</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="icon">🚀</span>
+                                    <div>
+                                        <strong>更高的测试效率</strong>
+                                        <p>接口测试执行速度快，易于自动化</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3>HTTP方法</h3>
+                        <div class="http-grid">
+                            <div class="http-card get">
+                                <span class="method">GET</span>
+                                <p>获取资源，不修改服务器数据</p>
+                            </div>
+                            <div class="http-card post">
+                                <span class="method">POST</span>
+                                <p>创建新资源，提交数据到服务器</p>
+                            </div>
+                            <div class="http-card put">
+                                <span class="method">PUT</span>
+                                <p>更新资源，替换整个资源</p>
+                            </div>
+                            <div class="http-card delete">
+                                <span class="method">DELETE</span>
+                                <p>删除资源</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section3-2" class="section">
+                    <h2>3.2 Postman工具使用</h2>
+                    <div class="content-box">
+                        <div class="tool-intro">
+                            <p>Postman是最流行的API测试工具，提供了友好的界面和强大的功能。</p>
+                        </div>
+
+                        <h3>核心功能</h3>
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <span class="icon">📤</span>
+                                <h4>发送请求</h4>
+                                <p>支持各种HTTP方法，可以设置请求头、请求体、参数等</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="icon">✅</span>
+                                <h4>断言验证</h4>
+                                <p>使用Tests脚本验证响应状态码、响应体等</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="icon">🔄</span>
+                                <h4>环境变量</h4>
+                                <p>管理不同环境的配置</p>
+                            </div>
+                            <div class="feature-item">
+                                <span class="icon">📁</span>
+                                <h4>集合管理</h4>
+                                <p>组织和管理API请求</p>
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <h4>常用断言示例</h4>
+                            <pre><code>// 验证状态码
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// 验证响应时间
+pm.test("Response time is less than 200ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section3-3" class="section">
+                    <h2>3.3 接口测试要点</h2>
+                    <div class="content-box">
+                        <div class="point-grid">
+                            <div class="point-item">
+                                <h4>功能测试</h4>
+                                <ul>
+                                    <li>验证接口返回的数据是否正确</li>
+                                    <li>验证必填参数缺失时的处理</li>
+                                    <li>验证业务逻辑是否正确</li>
+                                </ul>
+                            </div>
+                            <div class="point-item">
+                                <h4>安全测试</h4>
+                                <ul>
+                                    <li>验证身份认证和授权</li>
+                                    <li>测试SQL注入、XSS攻击</li>
+                                    <li>验证敏感数据加密</li>
+                                </ul>
+                            </div>
+                            <div class="point-item">
+                                <h4>性能测试</h4>
+                                <ul>
+                                    <li>测试接口响应时间</li>
+                                    <li>测试并发请求处理能力</li>
+                                    <li>测试接口稳定性</li>
+                                </ul>
+                            </div>
+                            <div class="point-item">
+                                <h4>异常测试</h4>
+                                <ul>
+                                    <li>测试网络异常情况</li>
+                                    <li>测试服务器异常处理</li>
+                                    <li>测试超时处理</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </section>
+
+            <!-- 第四章：自动化测试 -->
+            <section id="chapter4" class="chapter-content">
+                <div class="chapter-header">
+                    <h1>4. 自动化测试</h1>
+                    <p class="chapter-intro">自动化测试是把以人为驱动的测试行为转化为机器执行的一种过程。</p>
+                </div>
+
+                <div class="sections-container">
+                <article id="section4-1" class="section active">
+                    <h2>4.1 自动化测试概述</h2>
+                    <div class="content-box">
+                        <div class="advantage-section">
+                            <h3>自动化测试的优势</h3>
+                            <div class="advantage-grid">
+                                <div class="adv-card">
+                                    <span class="icon">⚡</span>
+                                    <h4>提高效率</h4>
+                                    <p>自动化执行速度快，节省大量时间</p>
+                                </div>
+                                <div class="adv-card">
+                                    <span class="icon">🔄</span>
+                                    <h4>可重复执行</h4>
+                                    <p>脚本可以反复执行，适合回归测试</p>
+                                </div>
+                                <div class="adv-card">
+                                    <span class="icon">📊</span>
+                                    <h4>提高覆盖率</h4>
+                                    <p>可以执行大量测试用例</p>
+                                </div>
+                                <div class="adv-card">
+                                    <span class="icon">🎯</span>
+                                    <h4>减少人为错误</h4>
+                                    <p>避免手工测试的疏漏</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="suitable-section">
+                            <h3>什么样的项目适合自动化？</h3>
+                            <div class="suitable-grid">
+                                <div class="suitable-yes">
+                                    <span class="icon">✅</span>
+                                    <p>需求稳定，不频繁变更</p>
+                                </div>
+                                <div class="suitable-yes">
+                                    <span class="icon">✅</span>
+                                    <p>项目周期长，需要多次回归测试</p>
+                                </div>
+                                <div class="suitable-yes">
+                                    <span class="icon">✅</span>
+                                    <p>需要在多个环境下测试</p>
+                                </div>
+                                <div class="suitable-no">
+                                    <span class="icon">❌</span>
+                                    <p>需求频繁变更的项目</p>
+                                </div>
+                                <div class="suitable-no">
+                                    <span class="icon">❌</span>
+                                    <p>一次性的测试任务</p>
+                                </div>
+                                <div class="suitable-no">
+                                    <span class="icon">❌</span>
+                                    <p>项目周期很短的项目</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section4-2" class="section">
+                    <h2>4.2 Selenium Web自动化</h2>
+                    <div class="content-box">
+                        <div class="tool-intro">
+                            <p>Selenium是最流行的Web自动化测试工具，支持多种编程语言和浏览器。</p>
+                        </div>
+
+                        <h3>元素定位方法</h3>
+                        <div class="code-block">
+                            <pre><code># 通过ID定位
+driver.find_element(By.ID, "username")
+
+# 通过XPath定位
+driver.find_element(By.XPATH, "//input[@id='username']")
+
+# 通过CSS Selector定位
+driver.find_element(By.CSS_SELECTOR, "#username")</code></pre>
+                        </div>
+
+                        <h3>简单示例：登录测试</h3>
+                        <div class="code-block">
+                            <pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# 初始化浏览器
+driver = webdriver.Chrome()
+driver.get("https://example.com/login")
+
+# 输入用户名和密码
+driver.find_element(By.ID, "username").send_keys("testuser")
+driver.find_element(By.ID, "password").send_keys("password123")
+
+# 点击登录按钮
+driver.find_element(By.ID, "login-btn").click()
+
+# 验证登录成功
+assert "欢迎" in driver.page_source
+
+driver.quit()</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section4-3" class="section">
+                    <h2>4.3 Pytest测试框架</h2>
+                    <div class="content-box">
+                        <div class="tool-intro">
+                            <p>Pytest是Python最流行的测试框架，简单易用，功能强大。</p>
+                        </div>
+
+                        <h3>核心特性</h3>
+                        <ul class="feature-list">
+                            <li><strong>简单的测试编写：</strong>使用assert语句进行断言</li>
+                            <li><strong>自动发现测试：</strong>自动发现test_开头的测试文件和函数</li>
+                            <li><strong>参数化测试：</strong>使用@pytest.mark.parametrize装饰器</li>
+                            <li><strong>Fixture机制：</strong>提供强大的测试前置和后置处理</li>
+                        </ul>
+
+                        <div class="code-block">
+                            <h4>基本示例</h4>
+                            <pre><code>import pytest
+
+# 简单的测试函数
+def test_addition():
+    assert 1 + 1 == 2
+
+# 参数化测试
+@pytest.mark.parametrize("a,b,expected", [
+    (1, 2, 3),
+    (2, 3, 5),
+    (10, 20, 30)
+])
+def test_add(a, b, expected):
+    assert a + b == expected</code></pre>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section4-4" class="section">
+                    <h2>4.4 接口自动化测试</h2>
+                    <div class="content-box">
+                        <h3>使用Requests库</h3>
+                        <div class="code-block">
+                            <pre><code>import requests
+import pytest
+
+class TestAPI:
+    base_url = "https://api.example.com"
+    
+    def test_get_user(self):
+        """测试获取用户信息"""
+        response = requests.get(f"{self.base_url}/users/1")
+        assert response.status_code == 200
+        assert response.json()["id"] == 1
+    
+    def test_create_user(self):
+        """测试创建用户"""
+        data = {"name": "Test User", "email": "test@example.com"}
+        response = requests.post(f"{self.base_url}/users", json=data)
+        assert response.status_code == 201</code></pre>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </section>
+
+            <!-- 第五章：性能测试 -->
+            <section id="chapter5" class="chapter-content">
+                <div class="chapter-header">
+                    <h1>5. 性能测试</h1>
+                    <p class="chapter-intro">性能测试是通过自动化工具模拟多种负载条件来对系统的各项性能指标进行测试。</p>
+                </div>
+
+                <div class="sections-container">
+                <article id="section5-1" class="section active">
+                    <h2>5.1 性能测试基础</h2>
+                    <div class="content-box">
+                        <h3>性能测试类型</h3>
+                        <div class="perf-grid">
+                            <div class="perf-card">
+                                <h4>负载测试</h4>
+                                <p>逐步增加负载，测试系统在不同负载下的性能表现</p>
+                            </div>
+                            <div class="perf-card">
+                                <h4>压力测试</h4>
+                                <p>超出正常负载，测试系统的极限和稳定性</p>
+                            </div>
+                            <div class="perf-card">
+                                <h4>并发测试</h4>
+                                <p>模拟多用户同时访问，测试并发处理能力</p>
+                            </div>
+                            <div class="perf-card">
+                                <h4>稳定性测试</h4>
+                                <p>长时间运行，测试系统稳定性</p>
+                            </div>
+                        </div>
+
+                        <h3>关键性能指标</h3>
+                        <div class="metric-grid">
+                            <div class="metric-card">
+                                <span class="icon">⏱️</span>
+                                <h4>响应时间</h4>
+                                <p>从发送请求到收到响应的时间</p>
+                            </div>
+                            <div class="metric-card">
+                                <span class="icon">📈</span>
+                                <h4>吞吐量(TPS)</h4>
+                                <p>单位时间内处理的事务数量</p>
+                            </div>
+                            <div class="metric-card">
+                                <span class="icon">👥</span>
+                                <h4>并发用户数</h4>
+                                <p>同时访问系统的用户数量</p>
+                            </div>
+                            <div class="metric-card">
+                                <span class="icon">💻</span>
+                                <h4>资源利用率</h4>
+                                <p>CPU、内存、磁盘、网络使用情况</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section5-2" class="section">
+                    <h2>5.2 JMeter工具使用</h2>
+                    <div class="content-box">
+                        <div class="tool-intro">
+                            <p>Apache JMeter是一款开源的性能测试工具，功能强大，支持多种协议。</p>
+                        </div>
+
+                        <h3>JMeter核心组件</h3>
+                        <div class="component-grid">
+                            <div class="component-card">
+                                <h4>测试计划</h4>
+                                <p>整个测试的容器，包含所有测试元素</p>
+                            </div>
+                            <div class="component-card">
+                                <h4>线程组</h4>
+                                <p>模拟用户，设置并发数、循环次数等</p>
+                            </div>
+                            <div class="component-card">
+                                <h4>取样器</h4>
+                                <p>发送请求，如HTTP请求、JDBC请求等</p>
+                            </div>
+                            <div class="component-card">
+                                <h4>监听器</h4>
+                                <p>收集和展示测试结果</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section5-3" class="section">
+                    <h2>5.3 性能测试实施</h2>
+                    <div class="content-box">
+                        <h3>性能测试流程</h3>
+                        <div class="flow-steps">
+                            <div class="step">
+                                <span class="num">1</span>
+                                <h4>需求分析</h4>
+                                <p>明确性能指标和测试目标</p>
+                            </div>
+                            <div class="step">
+                                <span class="num">2</span>
+                                <h4>测试计划</h4>
+                                <p>制定测试策略和场景</p>
+                            </div>
+                            <div class="step">
+                                <span class="num">3</span>
+                                <h4>脚本开发</h4>
+                                <p>编写和调试测试脚本</p>
+                            </div>
+                            <div class="step">
+                                <span class="num">4</span>
+                                <h4>执行测试</h4>
+                                <p>按计划执行性能测试</p>
+                            </div>
+                            <div class="step">
+                                <span class="num">5</span>
+                                <h4>结果分析</h4>
+                                <p>分析测试数据，定位问题</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </section>
+
+            <!-- 第六章：进阶技能 -->
+            <section id="chapter6" class="chapter-content">
+                <div class="chapter-header">
+                    <h1>6. 进阶技能</h1>
+                    <p class="chapter-intro">掌握进阶技能，成为全栈测试工程师。</p>
+                </div>
+
+                <div class="sections-container">
+                <article id="section6-1" class="section active">
+                    <h2>6.1 持续集成/持续部署 (CI/CD)</h2>
+                    <div class="content-box">
+                        <div class="tool-intro">
+                            <p>CI/CD是一种通过在应用开发阶段引入自动化来频繁向客户交付应用的方法。</p>
+                        </div>
+
+                        <h3>Jenkins基础</h3>
+                        <div class="jenkins-grid">
+                            <div class="jenkins-card">
+                                <h4>自动化构建</h4>
+                                <p>代码提交后自动触发构建</p>
+                            </div>
+                            <div class="jenkins-card">
+                                <h4>自动化测试</h4>
+                                <p>构建完成后自动执行测试</p>
+                            </div>
+                            <div class="jenkins-card">
+                                <h4>测试报告</h4>
+                                <p>生成并展示测试报告</p>
+                            </div>
+                            <div class="jenkins-card">
+                                <h4>通知机制</h4>
+                                <p>测试失败时发送通知</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section6-2" class="section">
+                    <h2>6.2 Docker容器化</h2>
+                    <div class="content-box">
+                        <div class="tool-intro">
+                            <p>Docker是一个开源的容器化平台，可以快速构建、部署和运行应用。</p>
+                        </div>
+
+                        <h3>Docker在测试中的应用</h3>
+                        <ul class="feature-list">
+                            <li><strong>环境一致性：</strong>确保开发、测试、生产环境一致</li>
+                            <li><strong>快速部署：</strong>快速搭建测试环境</li>
+                            <li><strong>资源隔离：</strong>每个容器独立运行，互不影响</li>
+                            <li><strong>版本管理：</strong>方便管理不同版本的测试环境</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article id="section6-3" class="section">
+                    <h2>6.3 测试开发</h2>
+                    <div class="content-box">
+                        <h3>测试平台开发</h3>
+                        <div class="platform-grid">
+                            <div class="platform-card">
+                                <h4>测试用例管理平台</h4>
+                                <p>管理和组织测试用例</p>
+                            </div>
+                            <div class="platform-card">
+                                <h4>自动化测试平台</h4>
+                                <p>统一管理自动化测试</p>
+                            </div>
+                            <div class="platform-card">
+                                <h4>性能测试平台</h4>
+                                <p>集中管理性能测试</p>
+                            </div>
+                            <div class="platform-card">
+                                <h4>测试数据管理平台</h4>
+                                <p>管理测试数据</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="section6-4" class="section">
+                    <h2>6.4 移动端测试</h2>
+                    <div class="content-box">
+                        <h3>Appium移动自动化</h3>
+                        <div class="tool-intro">
+                            <p>Appium是一个开源的移动应用自动化测试工具，支持iOS和Android。</p>
+                        </div>
+
+                        <h3>移动端测试要点</h3>
+                        <div class="mobile-grid">
+                            <div class="mobile-card">
+                                <h4>功能测试</h4>
+                                <p>验证应用功能是否正常</p>
+                            </div>
+                            <div class="mobile-card">
+                                <h4>兼容性测试</h4>
+                                <p>不同设备、系统版本的兼容性</p>
+                            </div>
+                            <div class="mobile-card">
+                                <h4>性能测试</h4>
+                                <p>启动时间、内存占用、电量消耗</p>
+                            </div>
+                            <div class="mobile-card">
+                                <h4>网络测试</h4>
+                                <p>弱网、断网、切换网络等场景</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 学习资源 -->
+            <section class="resources-section">
+                <h2>📚 学习资源推荐</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h3>在线文档</h3>
+                        <ul>
+                            <li><a href="https://www.selenium.dev/documentation/" target="_blank">Selenium官方文档</a></li>
+                            <li><a href="https://docs.pytest.org/" target="_blank">Pytest官方文档</a></li>
+                            <li><a href="https://jmeter.apache.org/usermanual/" target="_blank">JMeter用户手册</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>学习网站</h3>
+                        <ul>
+                            <li><a href="https://testerhome.com/" target="_blank">TesterHome测试社区</a></li>
+                            <li><a href="https://www.guru99.com/" target="_blank">Guru99</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h3>推荐书籍</h3>
+                        <ul>
+                            <li>《软件测试的艺术》</li>
+                            <li>《Google软件测试之道》</li>
+                            <li>《Python测试驱动开发》</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/learning.js"></script>
+</body>
+</html>

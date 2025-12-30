@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        .success { border-color: #10b981; background: #10b98110; }
+        .error { border-color: #ef4444; background: #ef444410; }
+        a {
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        a:hover {
+            background: #764ba2;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 布局调试页面</h1>
+    
+    <div class="test-section">
+        <h2>页面链接</h2>
+        <a href="test.html" target="_blank">测试页面（简化版）</a>
+        <a href="learning.html" target="_blank">学习路径页面（完整版）</a>
+        <a href="index.html" target="_blank">首页</a>
+    </div>
+
+    <div class="test-section">
+        <h2>预期布局</h2>
+        <p><strong>学习路径页面应该显示为：</strong></p>
+        <ul>
+            <li>顶部：固定的白色导航栏（高度70px）</li>
+            <li>左侧：固定的深色侧边栏（宽度280px，背景色#2c3e50）</li>
+            <li>右侧：浅色内容区域（背景色#f8fafc）</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>如果布局不正确，请尝试：</h2>
+        <ol>
+            <li><strong>清除浏览器缓存：</strong>按 <code>Ctrl + Shift + Delete</code> 或 <code>Ctrl + F5</code> 强制刷新</li>
+            <li><strong>检查CSS文件：</strong>确保 <code>styles/learning.css</code> 文件存在</li>
+            <li><strong>查看浏览器控制台：</strong>按 <code>F12</code> 打开开发者工具，查看是否有CSS加载错误</li>
+            <li><strong>检查文件编码：</strong>确保所有文件都是UTF-8编码</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>CSS文件检查清单</h2>
+        <p>确保以下文件存在：</p>
+        <ul>
+            <li><code>styles/main.css</code> - 全局样式</li>
+            <li><code>styles/header.css</code> - 导航栏样式</li>
+            <li><code>styles/learning.css</code> - 学习路径页面样式</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>快速修复</h2>
+        <p>如果问题仍然存在，请在浏览器中打开 <code>learning.html</code>，然后：</p>
+        <ol>
+            <li>按 <code>F12</code> 打开开发者工具</li>
+            <li>切换到 "Network" 或 "网络" 标签</li>
+            <li>刷新页面（<code>F5</code>）</li>
+            <li>查看是否有红色的失败请求（特别是CSS文件）</li>
+        </ol>
+    </div>
+
+    <script>
+        // 检查CSS文件是否可访问
+        fetch('styles/learning.css')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ learning.css 加载成功');
+                } else {
+                    console.error('❌ learning.css 加载失败');
+                }
+            })
+            .catch(error => {
+                console.error('❌ 无法访问 learning.css:', error);
+            });
+    </script>
+</body>
+</html>

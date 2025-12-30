@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习路径 - 软件测试学习平台</title>
+    <link rel="stylesheet" href="styles/main.css?v=2">
+    <link rel="stylesheet" href="styles/header.css?v=2">
+    <link rel="stylesheet" href="styles/learning.css?v=2">
+    <style>
+        /* 内联关键CSS确保布局正确 */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .learning-container {
+            display: flex !important;
+            min-height: calc(100vh - 70px) !important;
+            margin-top: 70px !important;
+        }
+        .sidebar {
+            width: 280px !important;
+            background: #2c3e50 !important;
+            color: white !important;
+            position: fixed !important;
+            left: 0 !important;
+            top: 70px !important;
+            bottom: 0 !important;
+            overflow-y: auto !important;
+            z-index: 100 !important;
+        }
+        .content-area {
+            margin-left: 280px !important;
+            flex: 1 !important;
+            padding: 2rem 3rem !important;
+            background: #f8fafc !important;
+            min-height: calc(100vh - 70px) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">QA Study</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="learning.html" class="active">学习路径</a></li>
+                <li><a href="projects.html">项目展示</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 学习路径主体 -->
+    <div class="learning-container">
+        <!-- 左侧导航栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 学习路径</h2>
+                <p>v2.0</p>
+            </div>
+            
+            <div class="sidebar-search">
+                <input type="text" placeholder="搜索内容..." id="searchInput">
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="#chapter1" class="nav-item active">
+                        <span class="nav-number">1</span>
+                        <span>软件测试基础</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section1-1">1.1 什么是软件测试</a>
+                        <a href="#section1-2">1.2 软件测试模型</a>
+                        <a href="#section1-3">1.3 测试流程</a>
+                        <a href="#section1-4">1.4 测试类型</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter2" class="nav-item">
+                        <span class="nav-number">2</span>
+                        <span>功能测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section2-1">2.1 测试用例设计</a>
+                        <a href="#section2-2">2.2 缺陷管理</a>
+                        <a href="#section2-3">2.3 测试文档</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter3" class="nav-item">
+                        <span class="nav-number">3</span>
+                        <span>接口测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section3-1">3.1 接口测试基础</a>
+                        <a href="#section3-2">3.2 Postman工具</a>
+                        <a href="#section3-3">3.3 接口测试要点</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter4" class="nav-item">
+                        <span class="nav-number">4</span>
+                        <span>自动化测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section4-1">4.1 自动化测试概述</a>
+                        <a href="#section4-2">4.2 Selenium Web自动化</a>
+                        <a href="#section4-3">4.3 Pytest框架</a>
+                        <a href="#section4-4">4.4 接口自动化</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter5" class="nav-item">
+                        <span class="nav-number">5</span>
+                        <span>性能测试</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section5-1">5.1 性能测试基础</a>
+                        <a href="#section5-2">5.2 JMeter工具</a>
+                        <a href="#section5-3">5.3 性能测试实施</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <a href="#chapter6" class="nav-item">
+                        <span class="nav-number">6</span>
+                        <span>进阶技能</span>
+                    </a>
+                    <div class="nav-submenu">
+                        <a href="#section6-1">6.1 CI/CD</a>
+                        <a href="#section6-2">6.2 Docker容器化</a>
+                        <a href="#section6-3">6.3 测试开发</a>
+                        <a href="#section6-4">6.4 移动端测试</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 右侧内容区 -->
+        <main class="content-area">
+            <!-- 面包屑导航 -->
+            <div class="breadcrumb">
+                <a href="index.html">🏠 首页</a>
+                <span>/</span>
+                <span>学习路径</span>
+            </div>
+
+            <!-- 内容章节 -->
+            <section id="chapter1" class="chapter">
+                <div class="chapter-header">
+                    <h1>1. 欢迎进入软件测试的世界</h1>
+                    <p class="chapter-intro">软件测试是保证软件质量的重要环节，本章将带你了解软件测试的基础知识。</p>
+                </div>
+
+                <article id="section1-1" class="section">
+                    <h2>1.1 什么是软件测试</h2>
+                    <div class="content-box">
+                        <p class="intro-text">软件测试是使用人工或自动化手段来运行或测定某个软件系统的过程，其目的在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别。</p>
+                        
+                        <div class="highlight-box">
+                            <h3>🎯 测试的目的</h3>
+                            <ul class="feature-list">
+                                <li>
+                                    <strong>发现缺陷：</strong>
+                                    <span>在软件发布前发现并修复尽可能多的缺陷</span>
+                                </li>
+                                <li>
+                                    <strong>质量保证：</strong>
+                                    <span>确保软件产品符合用户需求和质量标准</span>
+                                </li>
+                                <li>
+                                    <strong>风险控制：</strong>
+                                    <span>降低软件在生产环境中出现问题的风险</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <p style="text-align: center; padding: 3rem; color: #64748b;">
+                更多内容请查看完整的 learning.html 文件
+            </p>
+        </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/learning.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .learning-container {
+            display: flex;
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #2c3e50;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 70px;
+            bottom: 0;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .content-area {
+            margin-left: 280px;
+            flex: 1;
+            padding: 2rem 3rem;
+            background: #f8fafc;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>QA Study - 布局测试</h1>
+    </header>
+
+    <div class="learning-container">
+        <aside class="sidebar">
+            <h2>📚 学习路径</h2>
+            <div class="nav-item">1. 软件测试基础</div>
+            <div class="nav-item">2. 功能测试</div>
+            <div class="nav-item">3. 接口测试</div>
+            <div class="nav-item">4. 自动化测试</div>
+            <div class="nav-item">5. 性能测试</div>
+            <div class="nav-item">6. 进阶技能</div>
+        </aside>
+
+        <main class="content-area">
+            <div class="section">
+                <h1>1. 欢迎进入软件测试的世界</h1>
+                <p>这是内容区域。左侧应该有固定的深色侧边栏，右侧是白色的内容区域。</p>
+            </div>
+            <div class="section">
+                <h2>1.1 什么是软件测试</h2>
+                <p>软件测试是使用人工或自动化手段来运行或测定某个软件系统的过程...</p>
+            </div>
+            <div class="section">
+                <h2>1.2 软件测试模型</h2>
+                <p>V模型是最经典的软件测试模型...</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
