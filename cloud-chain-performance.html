@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云链电商性能测试 - 软件测试学习平台</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <style>
+        .detail-section {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+        
+        .detail-content {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+        
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .detail-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .detail-text {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .framework-diagram {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .framework-layers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .layer {
+            background: var(--bg-white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            min-width: 150px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .test-scenarios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .scenario-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: var(--secondary-color);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-item {
+            background: var(--bg-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        
+        .metrics-container {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .metric-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .optimization-list {
+            list-style-type: decimal;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .optimization-list li {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">个人博客</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="learning.html">学习路径</a></li>
+                <li><a href="projects.html" class="active">项目展示</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 详情内容 -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="detail-content">
+                <h1 class="detail-title">云链电商性能测试</h1>
+                <p class="detail-text">基于JMeter + InfluxDB + Grafana搭建的云链电商性能测试平台，实现了系统性能的压力测试、负载测试、并发测试、稳定性测试等功能，通过监控和分析系统的性能指标，发现性能瓶颈并提供优化建议。</p>
+                
+                <h2 class="detail-subtitle">1. 技术栈</h2>
+                <div class="tech-stack">
+                    <div class="tech-item">Apache JMeter 5.5</div>
+                    <div class="tech-item">InfluxDB 2.0</div>
+                    <div class="tech-item">Grafana 9.0</div>
+                    <div class="tech-item">Java 11</div>
+                    <div class="tech-item">MySQL 8.0</div>
+                    <div class="tech-item">Redis 6.2</div>
+                    <div class="tech-item">Linux CentOS 7</div>
+                    <div class="tech-item">Nginx 1.20</div>
+                </div>
+                
+                <h2 class="detail-subtitle">2. 性能测试目标</h2>
+                <div class="detail-text">
+                    <ul>
+                        <li><strong>并发用户数：</strong>系统能够支持至少1000个并发用户同时访问</li>
+                        <li><strong>响应时间：</strong>90%的请求响应时间不超过2秒，99%的请求响应时间不超过5秒</li>
+                        <li><strong>吞吐量：</strong>每秒能够处理至少500个请求（TPS）</li>
+                        <li><strong>稳定性：</strong>系统能够稳定运行24小时，无内存泄漏和性能下降</li>
+                        <li><strong>资源使用率：</strong>CPU使用率不超过80%，内存使用率不超过70%，磁盘I/O不超过90%</li>
+                    </ul>
+                </div>
+                
+                <h2 class="detail-subtitle">3. 测试场景设计</h2>
+                <div class="test-scenarios">
+                    <div class="scenario-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">首页浏览场景</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">模拟用户访问首页、浏览商品分类、查看商品列表等操作</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">并发用户：500</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">持续时间：30分钟</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">商品详情浏览场景</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">模拟用户查看商品详情、评价、加入收藏等操作</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">并发用户：300</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">持续时间：20分钟</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">购物车操作场景</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">模拟用户添加商品到购物车、修改数量、删除商品等操作</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">并发用户：200</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">持续时间：15分钟</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">订单流程场景</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">模拟用户登录、选择商品、提交订单、支付等完整流程</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">并发用户：100</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">持续时间：20分钟</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">促销活动场景</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">模拟用户在促销活动期间的高并发访问和购买行为</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">并发用户：1000</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">持续时间：10分钟</p>
+                    </div>
+                    
+                    <div class="scenario-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">稳定性测试场景</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">模拟系统在长时间运行下的稳定性和性能衰减情况</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">并发用户：300</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">持续时间：24小时</p>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">4. 测试环境配置</h2>
+                <div class="detail-text">
+                    <h3 style="font-size: 1.2rem; margin: 1.5rem 0 1rem; color: var(--text-dark);">服务器配置</h3>
+                    <ul>
+                        <li><strong>应用服务器：</strong>4核8G，2台，负载均衡</li>
+                        <li><strong>数据库服务器：</strong>8核16G，主从架构</li>
+                        <li><strong>缓存服务器：</strong>4核8G，Redis集群</li>
+                        <li><strong>负载均衡：</strong>Nginx，支持SSL</li>
+                        <li><strong>测试客户端：</strong>8核16G，JMeter分布式部署</li>
+                    </ul>
+                    
+                    <h3 style="font-size: 1.2rem; margin: 1.5rem 0 1rem; color: var(--text-dark);">JMeter配置</h3>
+                    <ul>
+                        <li><strong>线程组：</strong>根据测试场景设置并发用户数和持续时间</li>
+                        <li><strong>HTTP请求：</strong>配置服务器地址、端口、协议等</li>
+                        <li><strong>断言：</strong>验证响应结果的正确性</li>
+                        <li><strong>监听器：</strong>聚合报告、查看结果树、图形结果、InfluxDB后端监听器</li>
+                        <li><strong>定时器：</strong>设置思考时间、同步定时器等</li>
+                        <li><strong>配置元件：</strong>HTTP Cookie管理器、HTTP请求默认值、CSV数据文件设置</li>
+                    </ul>
+                </div>
+                
+                <h2 class="detail-subtitle">5. 测试结果分析</h2>
+                <div class="metrics-container">
+                    <h3 style="margin-bottom: 2rem; color: var(--text-dark);">主要性能指标</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">1234</div>
+                            <div class="metric-label">并发用户数</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">1.8s</div>
+                            <div class="metric-label">平均响应时间</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">680</div>
+                            <div class="metric-label">每秒事务数 (TPS)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">98.5%</div>
+                            <div class="metric-label">成功率</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">4.5s</div>
+                            <div class="metric-label">99%响应时间</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">75%</div>
+                            <div class="metric-label">CPU使用率</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">65%</div>
+                            <div class="metric-label">内存使用率</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">24h</div>
+                            <div class="metric-label">稳定运行时间</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="font-size: 1.2rem; margin: 1.5rem 0 1rem; color: var(--text-dark);">测试结果分析</h3>
+                <div class="detail-text">
+                    <ul>
+                        <li><strong>并发性能：</strong>系统能够支持1234个并发用户，超过了目标的1000个并发用户</li>
+                        <li><strong>响应时间：</strong>平均响应时间为1.8秒，99%响应时间为4.5秒，符合性能目标要求</li>
+                        <li><strong>吞吐量：</strong>每秒事务数达到680个，超过了目标的500个TPS</li>
+                        <li><strong>成功率：</strong>测试成功率为98.5%，符合预期要求</li>
+                        <li><strong>资源使用：</strong>CPU使用率为75%，内存使用率为65%，均在合理范围内</li>
+                        <li><strong>稳定性：</strong>系统稳定运行24小时，无内存泄漏和性能下降现象</li>
+                    </ul>
+                </div>
+                
+                <h2 class="detail-subtitle">6. 性能优化建议</h2>
+                <ol class="optimization-list">
+                    <li><strong>数据库优化：</strong>为频繁查询的字段添加索引，优化SQL语句，使用连接池减少数据库连接开销</li>
+                    <li><strong>缓存优化：</strong>增加Redis缓存的使用范围，将热门商品数据和用户会话数据缓存到Redis中，减少数据库访问</li>
+                    <li><strong>应用服务器优化：</strong>调整JVM参数，增加内存分配，优化线程池配置，启用压缩传输</li>
+                    <li><strong>前端优化：</strong>使用CDN加速静态资源访问，压缩HTML/CSS/JS文件，减少HTTP请求数</li>
+                    <li><strong>负载均衡优化：</strong>调整负载均衡策略，根据服务器性能动态分配请求，增加服务器数量</li>
+                    <li><strong>代码优化：</strong>优化业务逻辑，减少不必要的计算和数据库操作，使用异步处理提高系统并发能力</li>
+                    <li><strong>架构优化：</strong>考虑引入消息队列处理异步任务，使用微服务架构拆分复杂业务</li>
+                </ol>
+                
+                <h2 class="detail-subtitle">7. JMeter脚本示例</h2>
+                <div class="code-block">
+# JMeter测试计划结构
+├── 测试计划
+│   ├── 用户定义的变量
+│   ├── HTTP请求默认值
+│   ├── HTTP Cookie管理器
+│   ├── 首页浏览场景
+│   │   ├── 线程组（500个并发用户，30分钟）
+│   │   ├── 同步定时器
+│   │   ├── 首页请求
+│   │   ├── 商品分类请求
+│   │   ├── 商品列表请求
+│   │   ├── 断言
+│   │   └── 监听器
+│   ├── 订单流程场景
+│   │   ├── 线程组（100个并发用户，20分钟）
+│   │   ├── CSV数据文件设置
+│   │   ├── 登录请求
+│   │   ├── 商品详情请求
+│   │   ├── 添加购物车请求
+│   │   ├── 提交订单请求
+│   │   ├── 支付请求
+│   │   ├── 断言
+│   │   └── 监听器
+│   └── 监听器
+│       ├── 聚合报告
+│       ├── 查看结果树
+│       ├── 图形结果
+│       └── InfluxDB后端监听器
+                </div>
+                
+                <h2 class="detail-subtitle">8. 测试执行命令</h2>
+                <div class="code-block">
+# 运行JMeter测试脚本
+jmeter -n -t cloud-chain-performance.jmx -l results.jtl -e -o report
+
+# 分布式运行测试
+# 启动JMeter服务器
+jmeter-server -Djava.rmi.server.hostname=192.168.1.100
+
+# 运行分布式测试
+jmeter -n -t cloud-chain-performance.jmx -R 192.168.1.100,192.168.1.101 -l results.jtl -e -o report
+
+# 生成HTML报告
+jmeter -g results.jtl -o report
+
+# 查看InfluxDB数据
+influx query "SELECT * FROM jmeter WHERE time > now() - 1h"
+
+# 启动Grafana
+systemctl start grafana-server
+                </div>
+                
+                <h2 class="detail-subtitle">9. 监控与告警</h2>
+                <div class="detail-text">
+                    <p>使用Grafana和InfluxDB搭建了实时性能监控平台，监控以下指标：</p>
+                    <ul>
+                        <li><strong>系统指标：</strong>CPU使用率、内存使用率、磁盘I/O、网络流量</li>
+                        <li><strong>应用指标：</strong>响应时间、吞吐量、错误率、并发用户数</li>
+                        <li><strong>数据库指标：</strong>查询响应时间、连接数、缓存命中率、锁等待时间</li>
+                        <li><strong>缓存指标：</strong>Redis命中率、连接数、内存使用率</li>
+                    </ul>
+                    <p>设置了告警规则，当性能指标超过阈值时，通过邮件、短信等方式及时通知相关人员。</p>
+                </div>
+                
+                <a href="projects.html" class="back-link">返回项目列表</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2025 软件测试学习平台 | 持续学习，追求卓越</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

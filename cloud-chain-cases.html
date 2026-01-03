@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云链电商测试用例 - 软件测试学习平台</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --info-color: #3b82f6;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-medium: #e2e8f0;
+            --border-color: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-medium: #64748b;
+            --text-light: #94a3b8;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .detail-section {
+            padding: 60px 20px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .detail-content {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .detail-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .detail-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-medium);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: var(--border-radius);
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Filter section */
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+        }
+
+        .filter-group select, .filter-group input {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-white);
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .filter-group select:hover, .filter-group input:hover {
+            border-color: var(--primary-color);
+        }
+
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Module cards */
+        .module-card {
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .module-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .module-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .module-toggle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .module-toggle.open {
+            transform: rotate(180deg);
+            color: var(--primary-color);
+        }
+
+        .case-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 24px;
+            padding: 0 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Test cases table */
+        .module-content {
+            overflow-x: auto;
+        }
+
+        .test-cases-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        .test-cases-table thead {
+            background: var(--bg-light);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .test-cases-table th {
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        .test-cases-table td {
+            padding: 1rem 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .test-cases-table tr {
+            transition: var(--transition);
+        }
+
+        .test-cases-table tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        /* Priority badges */
+        .priority {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .priority-high {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--error-color);
+        }
+
+        .priority-medium {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--warning-color);
+        }
+
+        .priority-low {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+        }
+
+        /* Expandable table rows */
+        .expandable-row {
+            cursor: pointer;
+        }
+
+        .expandable-content {
+            display: none;
+            background-color: var(--bg-light);
+        }
+
+        .expandable-content.open {
+            display: table-row;
+        }
+
+        .expandable-content td {
+            padding: 1.5rem;
+            background-color: var(--bg-light);
+        }
+
+        .expandable-content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .expandable-content th, .expandable-content td {
+            padding: 0.5rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .expandable-content th {
+            background-color: var(--bg-medium);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.875rem;
+        }
+
+        .back-link:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .detail-section {
+                padding: 40px 10px;
+            }
+
+            .detail-content {
+                padding: 1.5rem;
+            }
+
+            .detail-title {
+                font-size: 2rem;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .module-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .test-cases-table {
+                font-size: 0.75rem;
+            }
+
+            .test-cases-table th, .test-cases-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        /* Loading state */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">个人博客</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="learning.html">学习路径</a></li>
+                <li><a href="projects.html" class="active">项目展示</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 详情内容 -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="detail-content">
+                <h1 class="detail-title">云链电商测试用例</h1>
+                <p class="detail-subtitle">完整的云链电商平台功能测试用例设计，涵盖用户管理、商品管理、购物车、订单流程等核心模块，确保系统功能的完整性和正确性。</p>
+
+                <!-- 统计信息 -->
+                <div class="stats-section">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">功能模块</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">235</span>
+                        <span class="stat-label">测试用例</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">85</span>
+                        <span class="stat-label">高优先级</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95</span>
+                        <span class="stat-label">中优先级</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">55</span>
+                        <span class="stat-label">低优先级</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">需求覆盖</span>
+                    </div>
+                </div>
+
+                <!-- 筛选功能 -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <label for="module-filter">功能模块：</label>
+                        <select id="module-filter">
+                            <option value="">全部模块</option>
+                            <option value="user">用户管理</option>
+                            <option value="home">首页页面</option>
+                            <option value="cart">购物车</option>
+                            <option value="seckill">抢购功能</option>
+                            <option value="coupon">优惠券</option>
+                            <option value="member">会员管理</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="priority-filter">优先级：</label>
+                        <select id="priority-filter">
+                            <option value="">全部优先级</option>
+                            <option value="high">高</option>
+                            <option value="medium">中</option>
+                            <option value="low">低</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="search">搜索：</label>
+                        <input type="text" id="search" placeholder="搜索用例标题、ID或测试点...">
+                    </div>
+                </div>
+
+                <!-- 1. 用户管理模块 -->
+                <div class="module-card" data-module="user">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>1. 用户管理模块</span>
+                            <span class="case-count">50个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <th>预期结果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 登录功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-001</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（正确信息）</td>
+                                    <td>已注册的有效手机号和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>登录成功，跳转到个人中心页面，显示用户名</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>UC-002</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（格式错误 - 少于11位）</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入10位手机号<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：1380013800<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"请输入正确的手机号格式"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-003</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（格式错误 - 非数字）</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入包含字母的手机号<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800abc800<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"请输入正确的手机号格式"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-004</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（未注册）</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138999<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"账号不存在"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-005</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（密码错误）</td>
+                                    <td>已注册的有效手机号</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入错误密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：Wrong@1234<br>验证码：1234</td>
+                                    <td>提示"密码错误"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-006</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（验证码错误）</td>
+                                    <td>已注册的有效手机号和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 输入错误验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：Test@1234<br>验证码：5678</td>
+                                    <td>提示"验证码错误"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-007</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（验证码为空）</td>
+                                    <td>已注册的有效手机号和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 不输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：Test@1234<br>验证码：</td>
+                                    <td>提示"验证码不能为空"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-008</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（手机号为空）</td>
+                                    <td>已注册的有效手机号和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 不输入手机号<br>4. 输入正确密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"请输入手机号"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-009</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号登录（密码为空）</td>
+                                    <td>已注册的有效手机号</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 不输入密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：<br>验证码：1234</td>
+                                    <td>提示"请输入密码"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-010</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>邮箱登录（正确信息）</td>
+                                    <td>已注册的有效邮箱和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择邮箱登录<br>3. 输入正确邮箱<br>4. 输入正确密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
+                                    <td>邮箱：test@example.com<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>登录成功，跳转到个人中心页面，显示用户名（邮箱地址）</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-011</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>邮箱登录（格式错误）</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 选择邮箱登录<br>3. 输入错误格式邮箱<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>邮箱：testexample.com<br>密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"请输入正确的邮箱格式"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-012</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>验证码刷新功能</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 点击验证码图片</td>
+                                    <td>无</td>
+                                    <td>验证码图片更新，显示新的验证码内容</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-013</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>安全退出功能</td>
+                                    <td>已登录的用户</td>
+                                    <td>1. 登录成功后<br>2. 点击用户名旁的"安全退出"按钮</td>
+                                    <td>无</td>
+                                    <td>退出登录状态，页面显示"登录"和"注册"按钮</td>
+                                </tr>
+
+                                <!-- 注册功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-014</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（正确信息）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138001<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234</td>
+                                    <td>注册成功，弹出提示框，跳转到首页，显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-015</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（已存在）</td>
+                                    <td>已注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入已注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138000<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"账号已存在"，账号密码不消失，验证码刷新</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-016</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（密码长度不足6位）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入5位密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test1<br>确认密码：Test1<br>验证码：1234</td>
+                                    <td>提示"密码长度必须在6-16位之间"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-017</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（密码长度超过16位）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入17位密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234567890<br>确认密码：Test@1234567890<br>验证码：1234</td>
+                                    <td>提示"密码长度必须在6-16位之间"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-018</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（两次密码不一致）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 输入不同的确认密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234<br>确认密码：Test@5678<br>验证码：1234</td>
+                                    <td>提示"两次输入密码不一致"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-019</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（验证码错误）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入错误验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：5678</td>
+                                    <td>提示"验证码错误"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-020</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（未勾选协议）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 不勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"请先阅读并同意用户协议"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-021</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>邮箱注册（正确信息）</td>
+                                    <td>未注册的有效邮箱</td>
+                                    <td>1. 进入注册页面<br>2. 选择邮箱注册<br>3. 输入未注册邮箱<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>邮箱：new@example.com<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234</td>
+                                    <td>注册成功，弹出提示框，跳转到首页，显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-022</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>邮箱注册（已存在）</td>
+                                    <td>已注册的有效邮箱</td>
+                                    <td>1. 进入注册页面<br>2. 选择邮箱注册<br>3. 输入已注册邮箱<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>邮箱：test@example.com<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234</td>
+                                    <td>提示"账号已存在"，账号密码不消失，验证码刷新</td>
+                                </tr>
+
+                                <!-- 页面导航栏测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-023</td>
+                                    <td>页面导航栏</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>导航栏显示数量</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 查看导航栏显示的导航项数量</td>
+                                    <td>无</td>
+                                    <td>导航栏显示8条导航数据</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-024</td>
+                                    <td>页面导航栏</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>导航栏链接跳转</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 点击导航栏中的任意导航项</td>
+                                    <td>无</td>
+                                    <td>成功跳转到对应页面</td>
+                                </tr>
+
+                                <!-- 搜索功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-025</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>有搜索词模糊搜索（存在结果）</td>
+                                    <td>商城中存在包含搜索词的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：手机</td>
+                                    <td>显示包含"手机"的商品列表</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-026</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>有搜索词模糊搜索（无结果）</td>
+                                    <td>商城中不存在包含搜索词的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：不存在的商品名称123456</td>
+                                    <td>提示"无任何数据，换个条件试试"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-027</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>无搜索词搜索</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 搜索框为空<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：</td>
+                                    <td>无法搜索，不执行搜索操作</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-028</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>搜索历史记录保存</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键<br>4. 再次点击搜索框</td>
+                                    <td>搜索词：手机</td>
+                                    <td>搜索框下方显示历史搜索词条"手机"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-029</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>搜索历史记录保存（无结果）</td>
+                                    <td>商城中不存在包含搜索词的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键<br>4. 再次点击搜索框</td>
+                                    <td>搜索词：不存在的商品名称123456</td>
+                                    <td>搜索框下方显示历史搜索词条"不存在的商品名称123456"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-030</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>特殊字符搜索</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入特殊字符<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：@#$%</td>
+                                    <td>系统能正常处理，无错误提示</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-031</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>长搜索词搜索</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入30个字符的搜索词<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：这是一个非常长的搜索词测试字符串1234567890</td>
+                                    <td>系统能正常处理，无错误提示</td>
+                                </tr>
+
+                                <!-- 游客状态测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-032</td>
+                                    <td>用户状态</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>首次访问显示游客状态</td>
+                                    <td>清除浏览器缓存和Cookie</td>
+                                    <td>1. 打开浏览器<br>2. 访问商城首页</td>
+                                    <td>无</td>
+                                    <td>页面顶部显示"登录"和"注册"两个链接</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-033</td>
+                                    <td>用户状态</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>登录后显示登录状态</td>
+                                    <td>已注册的有效账号</td>
+                                    <td>1. 登录成功后<br>2. 查看页面顶部显示</td>
+                                    <td>无</td>
+                                    <td>页面顶部显示用户名全部内容和"安全退出"按钮</td>
+                                </tr>
+
+                                <!-- 密码规则测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-034</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>密码规则验证（纯数字）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入纯数字密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138003<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
+                                    <td>提示"密码必须包含字母和数字"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-035</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>密码规则验证（纯字母）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入纯字母密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138003<br>密码：Testtest<br>确认密码：Testtest<br>验证码：1234</td>
+                                    <td>提示"密码必须包含字母和数字"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-036</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>密码规则验证（包含字母和数字）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入包含字母和数字的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138003<br>密码：Test1234<br>确认密码：Test1234<br>验证码：1234</td>
+                                    <td>密码验证通过，可继续注册流程</td>
+                                </tr>
+
+                                <!-- 注册成功后数据库验证 -->
+                                <tr class="expandable-row">
+                                    <td>UC-037</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>注册成功后台会员列表新增记录</td>
+                                    <td>未注册的有效手机号，后台管理权限</td>
+                                    <td>1. 完成手机号注册<br>2. 登录后台管理系统<br>3. 进入会员列表页面<br>4. 查看是否新增会员记录</td>
+                                    <td>手机号：13800138004<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234</td>
+                                    <td>后台会员列表新增一条记录，包含新注册用户信息</td>
+                                </tr>
+
+                                <!-- 手机验证码注册测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-038</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机验证码注册（正确验证码）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入手机验证码注册页面<br>2. 输入未注册手机号<br>3. 获取手机验证码<br>4. 输入收到的手机验证码<br>5. 输入符合规则的密码<br>6. 再次输入相同密码<br>7. 点击注册按钮</td>
+                                    <td>手机号：13800138005<br>手机验证码：6789<br>密码：Test@1234<br>确认密码：Test@1234</td>
+                                    <td>注册成功，弹出提示框，跳转到首页，显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-039</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机验证码注册（验证码错误）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入手机验证码注册页面<br>2. 输入未注册手机号<br>3. 获取手机验证码<br>4. 输入错误的手机验证码<br>5. 输入符合规则的密码<br>6. 再次输入相同密码<br>7. 点击注册按钮</td>
+                                    <td>手机号：13800138005<br>手机验证码：1234<br>密码：Test@1234<br>确认密码：Test@1234</td>
+                                    <td>提示"验证码错误"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-040</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机验证码注册（推荐人手机号格式正确）</td>
+                                    <td>未注册的有效手机号，有效的推荐人手机号</td>
+                                    <td>1. 进入手机验证码注册页面<br>2. 输入未注册手机号<br>3. 获取手机验证码<br>4. 输入收到的手机验证码<br>5. 输入有效推荐人手机号<br>6. 输入符合规则的密码<br>7. 再次输入相同密码<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138006<br>手机验证码：6789<br>推荐人手机号：13800138000<br>密码：Test@1234<br>确认密码：Test@1234</td>
+                                    <td>注册成功，推荐人关系建立</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-041</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机验证码注册（推荐人手机号格式错误）</td>
+                                    <td>未注册的有效手机号</td>
+                                    <td>1. 进入手机验证码注册页面<br>2. 输入未注册手机号<br>3. 获取手机验证码<br>4. 输入收到的手机验证码<br>5. 输入错误格式的推荐人手机号<br>6. 输入符合规则的密码<br>7. 再次输入相同密码<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138006<br>手机验证码：6789<br>推荐人手机号：138001380<br>密码：Test@1234<br>确认密码：Test@1234</td>
+                                    <td>提示"请输入正确的推荐人手机号格式"</td>
+                                </tr>
+
+                                <!-- 密码可见性测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-042</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>密码默认隐藏</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 在密码输入框中输入密码</td>
+                                    <td>密码：Test@1234</td>
+                                    <td>密码输入框显示为圆点或星号，隐藏输入内容</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-043</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>密码手动显示</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 在密码输入框中输入密码<br>3. 点击密码可见性切换按钮</td>
+                                    <td>密码：Test@1234</td>
+                                    <td>密码输入框显示明文密码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-044</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>确认密码默认隐藏</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 在确认密码输入框中输入密码</td>
+                                    <td>密码：Test@1234</td>
+                                    <td>确认密码输入框显示为圆点或星号，隐藏输入内容</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-045</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>确认密码手动显示</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 在确认密码输入框中输入密码<br>3. 点击密码可见性切换按钮</td>
+                                    <td>密码：Test@1234</td>
+                                    <td>确认密码输入框显示明文密码</td>
+                                </tr>
+
+                                <!-- 登录状态保持测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-046</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>登录状态保持（关闭浏览器重新打开）</td>
+                                    <td>已注册的有效账号</td>
+                                    <td>1. 登录成功<br>2. 关闭浏览器<br>3. 重新打开浏览器<br>4. 访问商城首页</td>
+                                    <td>无</td>
+                                    <td>仍保持登录状态，显示用户名</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-047</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>清除Cookie后登录状态失效</td>
+                                    <td>已注册的有效账号</td>
+                                    <td>1. 登录成功<br>2. 清除浏览器Cookie<br>3. 刷新页面</td>
+                                    <td>无</td>
+                                    <td>登录状态失效，显示"登录"和"注册"按钮</td>
+                                </tr>
+
+                                <!-- 密码大小写测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-048</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>密码大小写敏感性</td>
+                                    <td>已注册的有效账号，密码包含大小写字母</td>
+                                    <td>1. 进入登录页面<br>2. 输入正确账号<br>3. 输入密码（大小写与注册时不同）<br>4. 输入正确验证码<br>5. 点击登录按钮</td>
+                                    <td>账号：test@example.com<br>密码：test@1234<br>验证码：1234</td>
+                                    <td>提示"密码错误"，密码区分大小写</td>
+                                </tr>
+
+                                <!-- 验证码大小写测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-049</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>验证码大小写不敏感</td>
+                                    <td>已注册的有效账号</td>
+                                    <td>1. 进入登录页面<br>2. 输入正确账号和密码<br>3. 输入验证码（大小写与显示不同）<br>4. 点击登录按钮</td>
+                                    <td>账号：test@example.com<br>密码：Test@1234<br>验证码：ABCD（显示为abcd）</td>
+                                    <td>验证码验证通过，可正常登录</td>
+                                </tr>
+
+                                <!-- 多浏览器兼容性测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-050</td>
+                                    <td>浏览器兼容性</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>不同浏览器登录功能</td>
+                                    <td>已注册的有效账号</td>
+                                    <td>1. 使用不同浏览器（Chrome、Firefox、IE9+、Safari）<br>2. 分别进行登录操作</td>
+                                    <td>无</td>
+                                    <td>在所有支持的浏览器中均可正常登录</td>
+                                </tr>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 输入错误验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：123456<br>验证码：5678</td>
+                                    <td>提示"验证码错误"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-006</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号登录（手机号为空）</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 不输入手机号<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：<br>密码：123456<br>验证码：1234</td>
+                                    <td>提示"请输入手机号"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-007</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号登录（密码为空）</td>
+                                    <td>已注册的有效手机号</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 不输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：<br>验证码：1234</td>
+                                    <td>提示"请输入密码"，并更新验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-008</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号登录（验证码为空）</td>
+                                    <td>已注册的有效手机号和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 不输入验证码<br>6. 点击登录按钮</td>
+                                    <td>手机号：13800138000<br>密码：123456<br>验证码：</td>
+                                    <td>提示"请输入验证码"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-009</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>邮箱登录（正确信息）</td>
+                                    <td>已注册的有效邮箱和密码</td>
+                                    <td>1. 进入登录页面<br>2. 选择邮箱登录<br>3. 输入正确邮箱<br>4. 输入正确密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
+                                    <td>邮箱：test@example.com<br>密码：123456<br>验证码：1234</td>
+                                    <td>登录成功，跳转到个人中心页面</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-010</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>邮箱登录（格式错误）</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 选择邮箱登录<br>3. 输入错误格式邮箱<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
+                                    <td>邮箱：testexample.com<br>密码：123456<br>验证码：1234</td>
+                                    <td>提示"请输入正确的邮箱格式"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-011</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>验证码刷新功能</td>
+                                    <td>无</td>
+                                    <td>1. 进入登录页面<br>2. 点击验证码图片</td>
+                                    <td>无</td>
+                                    <td>验证码图片更新，显示新的验证码</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-012</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>安全退出功能</td>
+                                    <td>已登录的用户</td>
+                                    <td>1. 登录成功后<br>2. 点击"安全退出"按钮</td>
+                                    <td>无</td>
+                                    <td>退出登录，返回首页，显示登录/注册按钮</td>
+                                </tr>
+
+                                <!-- 注册功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-013</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（正常流程）</td>
+                                    <td>未注册的手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合要求的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138001<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
+                                    <td>注册成功，弹框提示，跳转到首页，显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-014</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（已存在手机号）</td>
+                                    <td>已注册的手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入已注册手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138000<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
+                                    <td>提示"账号已存在"，验证码刷新</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-015</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（密码格式错误）</td>
+                                    <td>未注册的手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入不符合要求的密码（如少于6位）<br>5. 再次输入相同密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：123<br>确认密码：123<br>验证码：1234</td>
+                                    <td>提示"密码长度必须为6-16位"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-016</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（两次密码不一致）</td>
+                                    <td>未注册的手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 输入不同的确认密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138003<br>密码：123456<br>确认密码：654321<br>验证码：1234</td>
+                                    <td>提示"两次输入密码不一致"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-017</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号注册（手机号格式错误）</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入错误格式手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
+                                    <td>提示"请输入正确的手机号格式"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-018</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号注册（验证码错误）</td>
+                                    <td>未注册的手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入错误验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138004<br>密码：123456<br>确认密码：123456<br>验证码：5678</td>
+                                    <td>提示"验证码错误"，验证码刷新</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-019</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号注册（未勾选协议）</td>
+                                    <td>未注册的手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入验证码<br>7. 不勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>手机号：13800138005<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
+                                    <td>提示"请阅读并同意用户协议"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-020</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>邮箱注册（正常流程）</td>
+                                    <td>未注册的邮箱</td>
+                                    <td>1. 进入注册页面<br>2. 选择邮箱注册<br>3. 输入未注册邮箱<br>4. 输入符合要求的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
+                                    <td>邮箱：newuser@example.com<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
+                                    <td>注册成功，弹框提示，跳转到首页，显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-021</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>注册页面协议链接</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 点击"用户协议"链接</td>
+                                    <td>无</td>
+                                    <td>打开用户协议页面，显示完整协议内容</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-022</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>注册密码可见性切换</td>
+                                    <td>无</td>
+                                    <td>1. 进入注册页面<br>2. 输入密码<br>3. 点击密码可见性切换按钮</td>
+                                    <td>无</td>
+                                    <td>密码显示/隐藏状态切换</td>
+                                </tr>
+
+                                <!-- 其他用户管理测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-023</td>
+                                    <td>导航栏</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>导航栏显示</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 查看导航栏</td>
+                                    <td>无</td>
+                                    <td>导航栏正常显示8条数据，按照排序逆序显示</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-024</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>搜索功能（有搜索词）</td>
+                                    <td>有搜索词对应的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框输入关键词<br>3. 点击搜索按钮</td>
+                                    <td>搜索词：手机</td>
+                                    <td>显示包含关键词的商品列表，支持模糊搜索</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-025</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>搜索功能（无搜索词）</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 搜索框为空<br>3. 点击搜索按钮</td>
+                                    <td>搜索词：</td>
+                                    <td>无法搜索，提示"请输入搜索关键词"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-026</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>搜索功能（无结果）</td>
+                                    <td>无匹配的搜索结果</td>
+                                    <td>1. 进入首页<br>2. 输入不存在的关键词<br>3. 点击搜索按钮</td>
+                                    <td>搜索词：不存在的商品123456</td>
+                                    <td>提示"无任何数据，换个条件试试"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-027</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>搜索历史记录</td>
+                                    <td>有搜索历史的用户</td>
+                                    <td>1. 进入首页<br>2. 点击搜索框</td>
+                                    <td>无</td>
+                                    <td>显示历史搜索词条，按照搜索时间倒序排列</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2. 首页页面模块 -->
+                <div class="module-card" data-module="home">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>2. 首页页面模块</span>
+                            <span class="case-count">65个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <th>预期结果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 商品分类功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-001</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>一级分类默认显示数量</td>
+                                    <td>数据库中存在至少6个一级分类</td>
+                                    <td>1. 进入首页<br>2. 查看顶部商品分类栏</td>
+                                    <td>无</td>
+                                    <td>首页显示6个一级分类，与数据库中排序一致</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-002</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>一级分类展开二级和三级分类</td>
+                                    <td>数据库中存在有二级和三级分类的一级分类</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入任意一级分类</td>
+                                    <td>无</td>
+                                    <td>一级分类背景变浅，显示该分类下所有二级和三级分类</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-003</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>一级分类鼠标移入效果</td>
+                                    <td>数据库中存在一级分类</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入任意一级分类<br>3. 观察字体颜色变化</td>
+                                    <td>无</td>
+                                    <td>一级分类字体颜色变红</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-004</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>三级分类鼠标移入效果</td>
+                                    <td>数据库中存在三级分类</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入一级分类展开三级分类<br>3. 将鼠标移入任意三级分类<br>4. 观察字体颜色变化</td>
+                                    <td>无</td>
+                                    <td>三级分类字体颜色变红</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-005</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>分类点击跳转功能</td>
+                                    <td>数据库中存在有效的分类数据</td>
+                                    <td>1. 进入首页<br>2. 点击任意一级分类<br>3. 观察跳转结果</td>
+                                    <td>无</td>
+                                    <td>跳转到对应的分类商品筛选界面，显示该分类下的商品</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-006</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>分类数据排序显示</td>
+                                    <td>数据库中存在带有排序字段的分类数据</td>
+                                    <td>1. 进入首页<br>2. 查看分类显示顺序<br>3. 与数据库中排序字段对比</td>
+                                    <td>无</td>
+                                    <td>分类显示顺序与数据库中排序字段一致</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-007</td>
+                                    <td>商品分类</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>分类层级关系正确显示</td>
+                                    <td>数据库中存在完整的三级分类结构</td>
+                                    <td>1. 进入首页<br>2. 展开所有一级分类<br>3. 检查二级和三级分类的层级关系</td>
+                                    <td>无</td>
+                                    <td>所有分类的层级关系正确，二级分类属于对应的一级分类，三级分类属于对应的二级分类</td>
+                                </tr>
+                                
+                                <!-- Banner轮播图功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-008</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>Banner图片数量显示限制（1张）</td>
+                                    <td>后台配置1张Banner图片</td>
+                                    <td>1. 进入首页<br>2. 查看Banner区域</td>
+                                    <td>无</td>
+                                    <td>仅显示1张Banner图片，不自动轮播</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-009</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>Banner图片数量显示限制（5张）</td>
+                                    <td>后台配置5张Banner图片</td>
+                                    <td>1. 进入首页<br>2. 查看Banner区域<br>3. 观察轮播效果</td>
+                                    <td>无</td>
+                                    <td>显示5张Banner图片，自动轮播，3秒切换一张</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-010</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner自动轮播功能</td>
+                                    <td>后台配置2张及以上Banner图片</td>
+                                    <td>1. 进入首页<br>2. 等待观察至少2次轮播切换</td>
+                                    <td>无</td>
+                                    <td>Banner图片自动轮播，每次切换间隔3秒</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-011</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner鼠标悬停暂停轮播</td>
+                                    <td>后台配置2张及以上Banner图片</td>
+                                    <td>1. 进入首页<br>2. 当Banner轮播时，将鼠标悬停在Banner图片上<br>3. 观察轮播状态</td>
+                                    <td>无</td>
+                                    <td>鼠标悬停时轮播停止，鼠标移开后恢复轮播</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-012</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner手动切换功能（指示器）</td>
+                                    <td>后台配置3张Banner图片</td>
+                                    <td>1. 进入首页<br>2. 点击Banner指示器中的任意虚圆圈<br>3. 观察Banner切换结果</td>
+                                    <td>无</td>
+                                    <td>Banner切换到对应指示器的图片，点击的指示器变为实心</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-013</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner手动切换功能（左右箭头）</td>
+                                    <td>后台配置3张Banner图片</td>
+                                    <td>1. 进入首页<br>2. 点击Banner左侧箭头<br>3. 观察Banner切换结果<br>4. 点击Banner右侧箭头<br>5. 观察Banner切换结果</td>
+                                    <td>无</td>
+                                    <td>点击左侧箭头切换到上一张图片，点击右侧箭头切换到下一张图片，循环切换</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-014</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>Banner图片点击跳转功能</td>
+                                    <td>后台配置带有跳转链接的Banner图片</td>
+                                    <td>1. 进入首页<br>2. 点击任意Banner图片<br>3. 观察跳转结果</td>
+                                    <td>无</td>
+                                    <td>点击Banner图片后跳转到配置的链接地址</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-015</td>
+                                    <td>Banner轮播</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>Banner轮播循环切换</td>
+                                    <td>后台配置3张Banner图片</td>
+                                    <td>1. 进入首页<br>2. 观察轮播到最后一张图片后的切换</td>
+                                    <td>无</td>
+                                    <td>轮播到最后一张图片后，自动切换到第一张图片，形成循环</td>
+                                </tr>
+                                
+                                <!-- 商品分类楼层功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-016</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>楼层控制显示功能</td>
+                                    <td>后台配置多个热门分类（is_hot为1）</td>
+                                    <td>1. 进入首页<br>2. 查看页面右侧或底部的楼层控制</td>
+                                    <td>无</td>
+                                    <td>显示楼层控制，包含所有热门一级分类的名称或标识</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-017</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>楼层点击定位功能</td>
+                                    <td>后台配置多个热门分类和对应的楼层</td>
+                                    <td>1. 进入首页<br>2. 点击楼层控制中的任意楼层<br>3. 观察页面滚动结果</td>
+                                    <td>无</td>
+                                    <td>页面自动滚动到对应楼层，显示该分类的商品信息</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-018</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>楼层商品一级分类名称显示</td>
+                                    <td>后台配置热门分类和商品</td>
+                                    <td>1. 进入首页<br>2. 查看任意楼层的标题</td>
+                                    <td>无</td>
+                                    <td>每个楼层顶部显示对应一级分类的名称</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-019</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层二级分类链接功能</td>
+                                    <td>后台配置热门分类及其二级分类</td>
+                                    <td>1. 进入首页<br>2. 查看任意楼层的二级分类链接<br>3. 点击其中一个二级分类链接</td>
+                                    <td>无</td>
+                                    <td>点击二级分类链接后跳转到对应类型的商品列表页面</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-020</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>楼层商品数量显示限制（6个）</td>
+                                    <td>某一级分类下有超过6个热门商品（is_hot为1）</td>
+                                    <td>1. 进入首页<br>2. 查看对应楼层的商品列表</td>
+                                    <td>无</td>
+                                    <td>仅显示该分类下前6条热门商品数据</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-021</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层商品仅显示在售产品</td>
+                                    <td>某一级分类下有在售商品和下架商品，其中包含热门商品</td>
+                                    <td>1. 进入首页<br>2. 查看对应楼层的商品列表<br>3. 检查商品状态</td>
+                                    <td>无</td>
+                                    <td>楼层中仅显示在售商品，不显示下架商品</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-022</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层热门推荐商品显示（4个）</td>
+                                    <td>某一级分类下有超过4个推荐商品（is_recommend为1）</td>
+                                    <td>1. 进入首页<br>2. 查看对应楼层的热门推荐区域</td>
+                                    <td>无</td>
+                                    <td>热门推荐区域默认显示4个推荐商品</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-023</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>热门推荐商品轮播功能</td>
+                                    <td>某一级分类下有超过4个推荐商品</td>
+                                    <td>1. 进入首页<br>2. 观察热门推荐区域的商品轮播</td>
+                                    <td>无</td>
+                                    <td>热门推荐商品自动轮播，每次向上更新一个新商品</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-024</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>热门推荐商品鼠标移入效果</td>
+                                    <td>楼层有热门推荐商品</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入热门推荐商品<br>3. 观察商品背景变化</td>
+                                    <td>无</td>
+                                    <td>鼠标移入的商品背景变为灰色</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-025</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层更多按钮跳转功能</td>
+                                    <td>楼层有商品显示</td>
+                                    <td>1. 进入首页<br>2. 点击任意楼层的"更多"按钮<br>3. 观察跳转结果</td>
+                                    <td>无</td>
+                                    <td>跳转到该楼层对应一级分类的商品列表页面</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-026</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层广告位显示功能</td>
+                                    <td>后台为某一楼层配置了广告位</td>
+                                    <td>1. 进入首页<br>2. 查看对应楼层的广告位</td>
+                                    <td>无</td>
+                                    <td>显示配置的广告图片或内容</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-027</td>
+                                    <td>商品楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层广告位点击跳转功能</td>
+                                    <td>后台为某一楼层配置了带有跳转链接的广告位</td>
+                                    <td>1. 进入首页<br>2. 点击楼层广告位<br>3. 观察跳转结果</td>
+                                    <td>无</td>
+                                    <td>点击广告位后跳转到配置的链接地址</td>
+                                </tr>
+                                
+                                <!-- 首页整体功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-028</td>
+                                    <td>首页整体</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>首页页面加载速度</td>
+                                    <td>网络环境正常</td>
+                                    <td>1. 清除浏览器缓存<br>2. 输入首页URL并访问<br>3. 记录页面完全加载时间</td>
+                                    <td>无</td>
+                                    <td>页面在3秒内完全加载完成</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-029</td>
+                                    <td>首页整体</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>首页响应式布局（桌面端）</td>
+                                    <td>无</td>
+                                    <td>1. 使用桌面浏览器访问首页<br>2. 检查页面布局和元素显示</td>
+                                    <td>屏幕分辨率：1920×1080</td>
+                                    <td>页面布局正常，所有元素显示完整，无重叠或错位</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-030</td>
+                                    <td>首页整体</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>首页响应式布局（平板端）</td>
+                                    <td>无</td>
+                                    <td>1. 使用平板设备或浏览器平板模式访问首页<br>2. 检查页面布局和元素显示</td>
+                                    <td>屏幕分辨率：768×1024</td>
+                                    <td>页面布局自适应调整，元素大小和位置适合平板屏幕，无显示问题</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-031</td>
+                                    <td>首页整体</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>首页响应式布局（移动端）</td>
+                                    <td>无</td>
+                                    <td>1. 使用移动设备或浏览器移动模式访问首页<br>2. 检查页面布局和元素显示</td>
+                                    <td>屏幕分辨率：375×667</td>
+                                    <td>页面布局自适应调整为移动端布局，元素大小和位置适合移动屏幕，触摸区域足够大</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-032</td>
+                                    <td>首页整体</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>首页浏览器兼容性</td>
+                                    <td>无</td>
+                                    <td>1. 使用不同浏览器访问首页<br>2. 检查页面显示和功能</td>
+                                    <td>浏览器：Chrome、Firefox、Safari、Edge</td>
+                                    <td>在所有主流浏览器中页面显示正常，所有功能可用</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2. 首页页面模块 -->
+                <div class="module-card" data-module="home">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>2. 首页页面模块</span>
+                            <span class="case-count">65个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <th>预期结果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 全部商品分类测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-001</td>
+                                    <td>全部商品分类</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>一级分类显示</td>
+                                    <td>系统中存在商品分类数据</td>
+                                    <td>1. 进入首页<br>2. 查看左侧商品分类</td>
+                                    <td>无</td>
+                                    <td>默认显示6个一级分类，布局正常</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-002</td>
+                                    <td>全部商品分类</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>二级和三级分类显示</td>
+                                    <td>系统中存在多级商品分类数据</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入一级分类</td>
+                                    <td>无</td>
+                                    <td>显示该一级分类下的所有二级和三级分类，背景颜色变浅</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-003</td>
+                                    <td>全部商品分类</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>分类鼠标悬停效果</td>
+                                    <td>系统中存在商品分类数据</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入一级分类<br>3. 将鼠标移入三级分类</td>
+                                    <td>无</td>
+                                    <td>一级和三级分类鼠标移入后字体变红</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-004</td>
+                                    <td>全部商品分类</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>分类点击跳转</td>
+                                    <td>系统中存在商品分类数据</td>
+                                    <td>1. 进入首页<br>2. 点击任意分类</td>
+                                    <td>无</td>
+                                    <td>跳转到对应的分类商品筛选界面，显示该分类下的商品</td>
+                                </tr>
+
+                                <!-- Banner轮播图测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-005</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>Banner图片显示</td>
+                                    <td>系统中存在Banner图片数据</td>
+                                    <td>1. 进入首页<br>2. 查看Banner区域</td>
+                                    <td>无</td>
+                                    <td>显示1-5张Banner图片，布局正常</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-006</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>Banner自动轮播</td>
+                                    <td>系统中存在多张Banner图片数据</td>
+                                    <td>1. 进入首页<br>2. 观察Banner轮播</td>
+                                    <td>无</td>
+                                    <td>自动轮播，3秒切换一张图片</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-007</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner鼠标悬停停止轮播</td>
+                                    <td>系统中存在多张Banner图片数据</td>
+                                    <td>1. 进入首页<br>2. 将鼠标悬停在Banner图片上</td>
+                                    <td>无</td>
+                                    <td>停止轮播，鼠标移开后继续轮播</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-008</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner指示器点击</td>
+                                    <td>系统中存在多张Banner图片数据</td>
+                                    <td>1. 进入首页<br>2. 点击Banner指示器（圆圈）</td>
+                                    <td>无</td>
+                                    <td>跳转到对应Banner图片，当前指示器为实心</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-009</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner左右切换</td>
+                                    <td>系统中存在多张Banner图片数据</td>
+                                    <td>1. 进入首页<br>2. 点击左右切换按钮</td>
+                                    <td>无</td>
+                                    <td>每次切换一张图片，循环切换</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-010</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>Banner点击跳转</td>
+                                    <td>系统中存在Banner图片数据且配置了跳转链接</td>
+                                    <td>1. 进入首页<br>2. 点击Banner图片</td>
+                                    <td>无</td>
+                                    <td>跳转到Banner配置的目标页面</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-011</td>
+                                    <td>Banner轮播图</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>单张Banner不轮播</td>
+                                    <td>系统中只存在1张Banner图片数据</td>
+                                    <td>1. 进入首页<br>2. 观察Banner区域</td>
+                                    <td>无</td>
+                                    <td>不自动轮播，显示唯一的Banner图片</td>
+                                </tr>
+
+                                <!-- 商品分类楼层测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-012</td>
+                                    <td>商品分类楼层</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>楼层控制显示</td>
+                                    <td>系统中存在热门一级分类</td>
+                                    <td>1. 进入首页<br>2. 查看楼层控制区域</td>
+                                    <td>无</td>
+                                    <td>显示热门一级分类，可点击切换楼层</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-013</td>
+                                    <td>商品分类楼层</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>楼层商品显示</td>
+                                    <td>系统中存在商品数据，且配置了热门分类</td>
+                                    <td>1. 进入首页<br>2. 查看各楼层商品</td>
+                                    <td>无</td>
+                                    <td>每个楼层显示对应一级分类的前6条商品数据，仅显示在售产品</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-014</td>
+                                    <td>商品分类楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层商品轮播</td>
+                                    <td>系统中存在商品数据，且配置了推荐商品</td>
+                                    <td>1. 进入首页<br>2. 观察楼层热门推荐商品</td>
+                                    <td>无</td>
+                                    <td>热门推荐商品轮播显示，每次向上更新一个新商品</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-015</td>
+                                    <td>商品分类楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层商品鼠标悬停效果</td>
+                                    <td>系统中存在商品数据</td>
+                                    <td>1. 进入首页<br>2. 将鼠标移入楼层商品</td>
+                                    <td>无</td>
+                                    <td>商品背景显示为灰色</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-016</td>
+                                    <td>商品分类楼层</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>楼层"更多"按钮</td>
+                                    <td>系统中存在商品分类数据</td>
+                                    <td>1. 进入首页<br>2. 点击楼层"更多"按钮</td>
+                                    <td>无</td>
+                                    <td>进入当前楼层商品一级分类的商品列表页</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>HC-017</td>
+                                    <td>商品分类楼层</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>楼层广告位</td>
+                                    <td>系统中配置了楼层广告位</td>
+                                    <td>1. 进入首页<br>2. 点击楼层广告位</td>
+                                    <td>无</td>
+                                    <td>跳转到对应商品详情页</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 3. 购物车模块 -->
+                <div class="module-card" data-module="cart">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>3. 购物车模块</span>
+                            <span class="case-count">45个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <td>预期结果</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 购物车显示测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>CC-001</td>
+                                    <td>购物车显示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>未登录购物车提示</td>
+                                    <td>未登录用户</td>
+                                    <td>1. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>提示"购物车内暂时没有商品，登录后将显示您之前加入的商品"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-002</td>
+                                    <td>购物车显示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>已登录空购物车提示</td>
+                                    <td>已登录用户，购物车为空</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>提示"购物车内暂时没有商品，去购物吧"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-003</td>
+                                    <td>购物车显示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>购物车商品显示</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>显示购物车内商品内容，包括商品图片、名称、价格、数量等</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-004</td>
+                                    <td>购物车显示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>商品价格和小计计算</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>商品价格与加入购物车时一致，小计正确计算（单价*数量）</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-005</td>
+                                    <td>购物车显示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>已选择商品数量和总价计算</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 选择部分商品</td>
+                                    <td>无</td>
+                                    <td>"已选择n件商品"显示正确，总价为已选中商品的总价</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-006</td>
+                                    <td>购物车显示</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>商品点击跳转</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击商品图片或名称</td>
+                                    <td>无</td>
+                                    <td>跳转到商品详情页面</td>
+                                </tr>
+
+                                <!-- 购物车添加商品测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>CC-007</td>
+                                    <td>购物车添加商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>从商品详情页添加商品</td>
+                                    <td>已登录用户，商品详情页有在售商品</td>
+                                    <td>1. 登录后<br>2. 进入商品详情页<br>3. 选择商品规格（如有）<br>4. 点击"加入购物车"按钮</td>
+                                    <td>无</td>
+                                    <td>商品成功加入购物车，购物车数量增加，提示"添加成功"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-008</td>
+                                    <td>购物车添加商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>添加商品数量限制（最小值）</td>
+                                    <td>已登录用户，商品详情页有在售商品</td>
+                                    <td>1. 登录后<br>2. 进入商品详情页<br>3. 将商品数量修改为0<br>4. 点击"加入购物车"按钮</td>
+                                    <td>商品数量：0</td>
+                                    <td>提示"商品数量不能小于1"，无法添加</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-009</td>
+                                    <td>购物车添加商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>添加商品数量限制（最大值）</td>
+                                    <td>已登录用户，商品详情页有在售商品，库存大于200</td>
+                                    <td>1. 登录后<br>2. 进入商品详情页<br>3. 将商品数量修改为201<br>4. 点击"加入购物车"按钮</td>
+                                    <td>商品数量：201</td>
+                                    <td>提示"单个商品添加数量不能超过200"，无法添加</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-010</td>
+                                    <td>购物车添加商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>添加商品数量限制（超过库存）</td>
+                                    <td>已登录用户，商品详情页有在售商品，库存为10</td>
+                                    <td>1. 登录后<br>2. 进入商品详情页<br>3. 将商品数量修改为11<br>4. 点击"加入购物车"按钮</td>
+                                    <td>商品数量：11</td>
+                                    <td>提示"商品数量不能超过库存"，无法添加</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-011</td>
+                                    <td>购物车添加商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>购物车商品种类限制</td>
+                                    <td>已登录用户，购物车中已有20种不同商品</td>
+                                    <td>1. 登录后<br>2. 进入任意商品详情页<br>3. 点击"加入购物车"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"购物车商品种类不能超过20种"，无法添加</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-012</td>
+                                    <td>购物车添加商品</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>数量增减按钮功能</td>
+                                    <td>已登录用户，商品详情页有在售商品</td>
+                                    <td>1. 登录后<br>2. 进入商品详情页<br>3. 点击数量"+"和"-"按钮</td>
+                                    <td>无</td>
+                                    <td>数量正确增减，当数量为1时，"-"按钮失效</td>
+                                </tr>
+
+                                <!-- 购物车删除商品测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>CC-013</td>
+                                    <td>购物车删除商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>删除单个商品</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击某个商品的删除按钮<br>4. 确认删除</td>
+                                    <td>无</td>
+                                    <td>该商品从购物车中删除，购物车数量减少，总价重新计算</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-014</td>
+                                    <td>购物车删除商品</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>删除选中商品</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选部分商品<br>4. 点击"删除选中商品"按钮<br>5. 确认删除</td>
+                                    <td>无</td>
+                                    <td>选中的商品从购物车中删除，购物车数量减少，总价重新计算</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-015</td>
+                                    <td>购物车删除商品</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>全选删除所有商品</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击"全选"按钮<br>4. 点击"删除选中商品"按钮<br>5. 确认删除</td>
+                                    <td>无</td>
+                                    <td>所有商品从购物车中删除，购物车为空，显示空购物车提示</td>
+                                </tr>
+
+                                <!-- 购物车编辑商品数量测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>CC-016</td>
+                                    <td>购物车编辑商品数量</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>通过增减按钮修改数量</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击商品数量的"+"和"-"按钮</td>
+                                    <td>无</td>
+                                    <td>数量正确增减，小计和总价重新计算</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-017</td>
+                                    <td>购物车编辑商品数量</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>增减按钮边界控制</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 将商品数量调整为1，点击"-"按钮<br>4. 将商品数量调整为200，点击"+"按钮</td>
+                                    <td>无</td>
+                                    <td>数量为1时，"-"按钮失效；数量为200时，"+"按钮失效</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-018</td>
+                                    <td>购物车编辑商品数量</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>直接修改数量输入框</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 直接修改商品数量输入框<br>4. 点击其他位置或按回车</td>
+                                    <td>商品数量：5</td>
+                                    <td>数量更新，小计和总价重新计算</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-019</td>
+                                    <td>购物车编辑商品数量</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>数量输入框边界验证（最小值）</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 将商品数量修改为0<br>4. 点击其他位置或按回车</td>
+                                    <td>商品数量：0</td>
+                                    <td>提示"商品数量不能小于1"，数量恢复为1</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-020</td>
+                                    <td>购物车编辑商品数量</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>数量输入框边界验证（最大值）</td>
+                                    <td>已登录用户，购物车中有商品，库存大于200</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 将商品数量修改为201<br>4. 点击其他位置或按回车</td>
+                                    <td>商品数量：201</td>
+                                    <td>提示"单个商品数量不能超过200"，数量恢复为200</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>CC-021</td>
+                                    <td>购物车编辑商品数量</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>数量输入框边界验证（超过库存）</td>
+                                    <td>已登录用户，购物车中有商品，库存为10</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 将商品数量修改为11<br>4. 点击其他位置或按回车</td>
+                                    <td>商品数量：11</td>
+                                    <td>提示"商品数量不能超过库存"，数量恢复为库存数量</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4. 抢购功能模块 -->
+                <div class="module-card" data-module="seckill">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>4. 抢购功能模块</span>
+                            <span class="case-count">40个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</

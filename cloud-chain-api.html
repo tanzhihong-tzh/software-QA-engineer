@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云链电商接口自动化测试 - 软件测试学习平台</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <style>
+        .detail-section {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+        
+        .detail-content {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+        
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .detail-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .detail-text {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .framework-diagram {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .framework-layers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .layer {
+            background: var(--bg-white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            min-width: 150px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .endpoint-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .endpoint-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .endpoint-method {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .method-get { background: #10b981; color: white; }
+        .method-post { background: #3b82f6; color: white; }
+        .method-put { background: #f59e0b; color: white; }
+        .method-delete { background: #ef4444; color: white; }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: var(--secondary-color);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-item {
+            background: var(--bg-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">个人博客</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="learning.html">学习路径</a></li>
+                <li><a href="projects.html" class="active">项目展示</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 详情内容 -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="detail-content">
+                <h1 class="detail-title">云链电商接口自动化测试</h1>
+                <p class="detail-text">基于Python + Requests + Pytest搭建的云链电商API接口自动化测试框架，实现了接口测试的自动化执行、数据驱动、报告生成等功能，确保API接口的功能正确性和稳定性。</p>
+                
+                <h2 class="detail-subtitle">1. 技术栈</h2>
+                <div class="tech-stack">
+                    <div class="tech-item">Python 3.9</div>
+                    <div class="tech-item">Requests</div>
+                    <div class="tech-item">Pytest</div>
+                    <div class="tech-item">Allure Report</div>
+                    <div class="tech-item">JSON Schema</div>
+                    <div class="tech-item">Postman</div>
+                    <div class="tech-item">Git</div>
+                </div>
+                
+                <h2 class="detail-subtitle">2. 测试框架架构</h2>
+                <div class="framework-diagram">
+                    <h3 style="margin-bottom: 2rem; color: var(--text-dark);">API自动化测试框架架构</h3>
+                    <div class="framework-layers">
+                        <div class="layer">
+                            <h4>测试用例层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">测试用例编写</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--primary-color);">↓</div>
+                        <div class="layer">
+                            <h4>业务逻辑层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">接口封装、数据处理</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--primary-color);">↓</div>
+                        <div class="layer">
+                            <h4>工具层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">请求处理、断言封装</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--primary-color);">↓</div>
+                        <div class="layer">
+                            <h4>基础层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">配置管理、日志记录</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">3. 核心测试接口</h2>
+                <div class="endpoint-list">
+                    <div class="endpoint-card">
+                        <div class="endpoint-method method-post">POST</div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">/api/v1/users/register</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">用户注册接口</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">参数：</p>
+                        <p style="color: var(--text-light); font-size: 0.85rem;">username, email, password</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <div class="endpoint-method method-post">POST</div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">/api/v1/users/login</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">用户登录接口</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">参数：</p>
+                        <p style="color: var(--text-light); font-size: 0.85rem;">username, password</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <div class="endpoint-method method-get">GET</div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">/api/v1/products</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">商品列表接口</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">参数：</p>
+                        <p style="color: var(--text-light); font-size: 0.85rem;">page, limit, category</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <div class="endpoint-method method-get">GET</div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">/api/v1/products/{id}</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">商品详情接口</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">参数：</p>
+                        <p style="color: var(--text-light); font-size: 0.85rem;">id (路径参数)</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <div class="endpoint-method method-post">POST</div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">/api/v1/cart</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">添加购物车接口</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">参数：</p>
+                        <p style="color: var(--text-light); font-size: 0.85rem;">product_id, quantity</p>
+                    </div>
+                    
+                    <div class="endpoint-card">
+                        <div class="endpoint-method method-post">POST</div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">/api/v1/orders</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">创建订单接口</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 500;">参数：</p>
+                        <p style="color: var(--text-light); font-size: 0.85rem;">address_id, payment_method</p>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">4. 自动化脚本示例</h2>
+                <h3 style="font-size: 1.2rem; margin: 1.5rem 0 1rem; color: var(--text-dark);">用户登录接口测试脚本</h3>
+                <div class="code-block">
+import pytest
+import requests
+from utils.logger import logger
+from utils.assertions import assert_json
+
+class TestUserLogin:
+    """用户登录接口测试"""
+    
+    def setup_class(self):
+        self.url = "https://api.cloudchain.com/api/v1/users/login"
+        self.headers = {"Content-Type": "application/json"}
+    
+    def test_login_success(self):
+        """测试登录成功"""
+        payload = {
+            "username": "test_user",
+            "password": "Test@1234"
+        }
+        
+        response = requests.post(self.url, json=payload, headers=self.headers)
+        logger.info(f"登录接口响应: {response.json()}")
+        
+        # 断言
+        assert response.status_code == 200
+        assert_json(response.json(), {
+            "success": True,
+            "data": {
+                "token": "string",
+                "user_id": "integer"
+            },
+            "message": "登录成功"
+        })
+    
+    def test_login_failure_wrong_password(self):
+        """测试密码错误登录失败"""
+        payload = {
+            "username": "test_user",
+            "password": "Wrong@1234"
+        }
+        
+        response = requests.post(self.url, json=payload, headers=self.headers)
+        logger.info(f"登录接口响应: {response.json()}")
+        
+        # 断言
+        assert response.status_code == 401
+        assert response.json()["success"] == False
+        assert "密码错误" in response.json()["message"]
+                </div>
+                
+                <h2 class="detail-subtitle">5. 测试报告</h2>
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 15px; border: 1px solid var(--border-color); margin: 1.5rem 0;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Allure测试报告示例</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">98.5%</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">测试通过率</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">120</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">测试用例数</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #f59e0b, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">2</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">失败用例数</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">15s</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">总执行时间</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">6. 测试执行命令</h2>
+                <div class="code-block">
+# 安装依赖
+pip install -r requirements.txt
+
+# 运行所有API测试用例
+pytest tests/api/ -v -s
+
+# 生成Allure报告
+pytest tests/api/ --alluredir=./allure-results
+
+# 查看Allure报告
+allure serve ./allure-results
+                </div>
+                
+                <a href="projects.html" class="back-link">返回项目列表</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2025 软件测试学习平台 | 持续学习，追求卓越</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

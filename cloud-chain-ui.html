@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云链电商UI自动化测试 - 软件测试学习平台</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <style>
+        .detail-section {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+        
+        .detail-content {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+        
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .detail-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .detail-text {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .framework-diagram {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .framework-layers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .layer {
+            background: var(--bg-white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            min-width: 150px;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .test-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .module-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: var(--secondary-color);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-item {
+            background: var(--bg-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        
+        .pom-diagram {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+        
+        .pom-layers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">个人博客</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="learning.html">学习路径</a></li>
+                <li><a href="projects.html" class="active">项目展示</a></li>
+                <li><a href="contact.html">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 详情内容 -->
+    <section class="detail-section">
+        <div class="container">
+            <div class="detail-content">
+                <h1 class="detail-title">云链电商UI自动化测试</h1>
+                <p class="detail-text">基于Selenium + Pytest + Python搭建的云链电商UI自动化测试框架，采用Page Object Model (POM)设计模式，实现了Web界面的自动化测试、数据驱动、报告生成等功能，确保用户界面的功能正确性和稳定性。</p>
+                
+                <h2 class="detail-subtitle">1. 技术栈</h2>
+                <div class="tech-stack">
+                    <div class="tech-item">Python 3.9</div>
+                    <div class="tech-item">Selenium 4</div>
+                    <div class="tech-item">Pytest</div>
+                    <div class="tech-item">Allure Report</div>
+                    <div class="tech-item">WebDriver Manager</div>
+                    <div class="tech-item">Page Object Model</div>
+                    <div class="tech-item">Data Driven Testing</div>
+                    <div class="tech-item">ChromeDriver</div>
+                </div>
+                
+                <h2 class="detail-subtitle">2. POM设计模式</h2>
+                <div class="pom-diagram">
+                    <h3 style="margin-bottom: 2rem; color: var(--text-dark);">Page Object Model 架构</h3>
+                    <div class="pom-layers">
+                        <div class="layer">
+                            <h4>测试用例层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">测试逻辑和断言</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--primary-color);">↓</div>
+                        <div class="layer">
+                            <h4>Page层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">页面元素和操作方法</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--primary-color);">↓</div>
+                        <div class="layer">
+                            <h4>Base层</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">基础操作封装</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--primary-color);">↓</div>
+                        <div class="layer">
+                            <h4>浏览器驱动</h4>
+                            <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">WebDriver实例</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">3. 核心测试模块</h2>
+                <div class="test-modules">
+                    <div class="module-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">登录模块</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">用户登录、退出、记住密码、忘记密码等功能测试</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">商品模块</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">商品列表浏览、搜索、筛选、详情查看等功能测试</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">购物车模块</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">添加/删除商品、修改数量、结算流程等功能测试</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">订单模块</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">创建订单、选择支付方式、订单确认等功能测试</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">会员模块</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">个人信息管理、地址管理、订单历史查询等功能测试</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-dark);">支付模块</h4>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">在线支付模拟、支付成功/失败流程等功能测试</p>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">4. 自动化脚本示例</h2>
+                <h3 style="font-size: 1.2rem; margin: 1.5rem 0 1rem; color: var(--text-dark);">登录页面元素定位类</h3>
+                <div class="code-block">
+from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
+
+class LoginPage(BasePage):
+    """登录页面元素和操作方法"""
+    
+    # 页面元素定位
+    USERNAME_INPUT = (By.ID, "username")
+    PASSWORD_INPUT = (By.ID, "password")
+    LOGIN_BUTTON = (By.ID, "login_btn")
+    ERROR_MESSAGE = (By.CLASS_NAME, "error_msg")
+    REMEMBER_ME = (By.ID, "remember_me")
+    
+    def enter_username(self, username):
+        """输入用户名"""
+        self.input_text(self.USERNAME_INPUT, username)
+    
+    def enter_password(self, password):
+        """输入密码"""
+        self.input_text(self.PASSWORD_INPUT, password)
+    
+    def click_login(self):
+        """点击登录按钮"""
+        self.click(self.LOGIN_BUTTON)
+    
+    def select_remember_me(self):
+        """勾选记住我"""
+        self.click(self.REMEMBER_ME)
+    
+    def get_error_message(self):
+        """获取错误信息"""
+        return self.get_text(self.ERROR_MESSAGE)
+    
+    def login(self, username, password, remember_me=False):
+        """完整登录流程"""
+        self.enter_username(username)
+        self.enter_password(password)
+        if remember_me:
+            self.select_remember_me()
+        self.click_login()
+                </div>
+                
+                <h3 style="font-size: 1.2rem; margin: 1.5rem 0 1rem; color: var(--text-dark);">登录功能测试用例</h3>
+                <div class="code-block">
+import pytest
+import allure
+from pages.login_page import LoginPage
+from pages.home_page import HomePage
+from utils.logger import logger
+
+class TestLogin:
+    """登录功能测试"""
+    
+    @allure.feature("登录功能")
+    @allure.story("成功登录")
+    def test_login_success(self, setup_driver):
+        """测试使用正确用户名和密码登录成功"""
+        driver = setup_driver
+        login_page = LoginPage(driver)
+        home_page = HomePage(driver)
+        
+        # 访问登录页面
+        login_page.open_url("https://www.cloudchain.com/login")
+        
+        # 登录操作
+        login_page.login("test_user", "Test@1234")
+        
+        # 断言登录成功
+        assert home_page.is_user_logged_in(), "用户登录失败"
+        assert "首页" in driver.title, "登录后未跳转到首页"
+        
+        logger.info("登录成功测试用例执行通过")
+    
+    @allure.feature("登录功能")
+    @allure.story("失败登录")
+    def test_login_failure_wrong_password(self, setup_driver):
+        """测试使用错误密码登录失败"""
+        driver = setup_driver
+        login_page = LoginPage(driver)
+        
+        # 访问登录页面
+        login_page.open_url("https://www.cloudchain.com/login")
+        
+        # 使用错误密码登录
+        login_page.login("test_user", "Wrong@1234")
+        
+        # 断言登录失败
+        error_msg = login_page.get_error_message()
+        assert "密码错误" in error_msg, "未显示预期的错误信息"
+        
+        logger.info("密码错误登录失败测试用例执行通过")
+    
+    @allure.feature("登录功能")
+    @allure.story("失败登录")
+    def test_login_failure_empty_fields(self, setup_driver):
+        """测试空用户名和密码登录失败"""
+        driver = setup_driver
+        login_page = LoginPage(driver)
+        
+        # 访问登录页面
+        login_page.open_url("https://www.cloudchain.com/login")
+        
+        # 直接点击登录
+        login_page.click_login()
+        
+        # 断言登录失败
+        error_msg = login_page.get_error_message()
+        assert "请输入用户名" in error_msg, "未显示预期的错误信息"
+        
+        logger.info("空字段登录失败测试用例执行通过")
+                </div>
+                
+                <h2 class="detail-subtitle">5. BasePage基础类</h2>
+                <div class="code-block">
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.select import Select
+import time
+
+class BasePage:
+    """基础页面类，封装通用的页面操作方法"""
+    
+    def __init__(self, driver):
+        self.driver = driver
+        self.wait = WebDriverWait(driver, 10)
+    
+    def open_url(self, url):
+        """打开URL"""
+        self.driver.get(url)
+        self.driver.maximize_window()
+    
+    def find_element(self, locator):
+        """定位单个元素"""
+        return self.wait.until(EC.presence_of_element_located(locator))
+    
+    def find_elements(self, locator):
+        """定位多个元素"""
+        return self.wait.until(EC.presence_of_all_elements_located(locator))
+    
+    def click(self, locator):
+        """点击元素"""
+        element = self.find_element(locator)
+        self.wait.until(EC.element_to_be_clickable(locator))
+        element.click()
+    
+    def input_text(self, locator, text):
+        """输入文本"""
+        element = self.find_element(locator)
+        element.clear()
+        element.send_keys(text)
+    
+    def get_text(self, locator):
+        """获取元素文本"""
+        element = self.find_element(locator)
+        return element.text
+    
+    def is_element_present(self, locator):
+        """判断元素是否存在"""
+        try:
+            self.find_element(locator)
+            return True
+        except:
+            return False
+    
+    def switch_to_frame(self, locator):
+        """切换到iframe"""
+        frame = self.find_element(locator)
+        self.driver.switch_to.frame(frame)
+    
+    def switch_to_default_content(self):
+        """切换回默认内容"""
+        self.driver.switch_to.default_content()
+    
+    def hover(self, locator):
+        """鼠标悬停"""
+        element = self.find_element(locator)
+        ActionChains(self.driver).move_to_element(element).perform()
+    
+    def select_dropdown_by_text(self, locator, text):
+        """通过文本选择下拉框"""
+        element = self.find_element(locator)
+        select = Select(element)
+        select.select_by_visible_text(text)
+    
+    def get_screenshot(self, filename):
+        """截取屏幕截图"""
+        self.driver.save_screenshot(filename)
+                </div>
+                
+                <h2 class="detail-subtitle">6. 测试报告</h2>
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 15px; border: 1px solid var(--border-color); margin: 1.5rem 0;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Allure测试报告示例</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">96.8%</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">测试通过率</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">85</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">测试用例数</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #f59e0b, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">3</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">失败用例数</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; font-weight: 700; background: linear-gradient(135deg, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">2m 15s</div>
+                            <p style="color: var(--text-light); margin-top: 0.5rem;">总执行时间</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="detail-subtitle">7. 测试执行命令</h2>
+                <div class="code-block">
+# 安装依赖
+pip install -r requirements.txt
+
+# 运行所有UI测试用例
+pytest tests/ui/ -v -s
+
+# 生成Allure报告
+pytest tests/ui/ --alluredir=./allure-results
+
+# 查看Allure报告
+allure serve ./allure-results
+
+# 运行特定测试模块
+pytest tests/ui/test_login.py -v
+
+# 并行运行测试用例
+pytest tests/ui/ -n 3 -v
+                </div>
+                
+                <a href="projects.html" class="back-link">返回项目列表</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2025 软件测试学习平台 | 持续学习，追求卓越</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
