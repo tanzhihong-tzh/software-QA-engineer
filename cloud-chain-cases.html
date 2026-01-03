@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -664,9 +664,53 @@
                                     <td>退出登录状态，页面显示"登录"和"注册"按钮</td>
                                 </tr>
 
-                                <!-- 注册功能测试用例 -->
                                 <tr class="expandable-row">
                                     <td>UC-014</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>第三方登录-支付宝（成功）</td>
+                                    <td>已在支付宝注册的账号</td>
+                                    <td>1. 进入登录页面<br>2. 点击"支付宝登录"按钮<br>3. 在支付宝授权页面输入正确的支付宝账号和密码<br>4. 点击"授权登录"按钮</td>
+                                    <td>支付宝账号：test@alipay.com<br>密码：Alipay@123</td>
+                                    <td>授权成功，自动登录到商城，页面显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-015</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>第三方登录-QQ（成功）</td>
+                                    <td>已在QQ注册的账号</td>
+                                    <td>1. 进入登录页面<br>2. 点击"QQ登录"按钮<br>3. 在QQ授权页面输入正确的QQ账号和密码<br>4. 点击"授权登录"按钮</td>
+                                    <td>QQ账号：123456789<br>密码：Qq@123456</td>
+                                    <td>授权成功，自动登录到商城，页面显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-016</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>第三方登录-微信（成功）</td>
+                                    <td>已在微信注册的账号</td>
+                                    <td>1. 进入登录页面<br>2. 点击"微信登录"按钮<br>3. 使用微信扫码授权登录</td>
+                                    <td>无</td>
+                                    <td>授权成功，自动登录到商城，页面显示登录状态</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-017</td>
+                                    <td>登录</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>第三方登录-支付宝（授权失败）</td>
+                                    <td>已在支付宝注册的账号</td>
+                                    <td>1. 进入登录页面<br>2. 点击"支付宝登录"按钮<br>3. 在支付宝授权页面点击"取消"按钮</td>
+                                    <td>无</td>
+                                    <td>授权取消，返回商城登录页面，未登录状态</td>
+                                </tr>
+
+                                <!-- 注册功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-022</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（正确信息）</td>
@@ -677,7 +721,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-015</td>
+                                    <td>UC-023</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（已存在）</td>
@@ -688,7 +732,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-016</td>
+                                    <td>UC-024</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（密码长度不足6位）</td>
@@ -699,7 +743,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-017</td>
+                                    <td>UC-025</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（密码长度超过16位）</td>
@@ -710,7 +754,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-018</td>
+                                    <td>UC-022</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（两次密码不一致）</td>
@@ -721,7 +765,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-019</td>
+                                    <td>UC-023</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（验证码错误）</td>
@@ -732,7 +776,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-020</td>
+                                    <td>UC-024</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机号注册（未勾选协议）</td>
@@ -743,7 +787,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-021</td>
+                                    <td>UC-025</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>邮箱注册（正确信息）</td>
@@ -764,9 +808,53 @@
                                     <td>提示"账号已存在"，账号密码不消失，验证码刷新</td>
                                 </tr>
 
-                                <!-- 页面导航栏测试用例 -->
                                 <tr class="expandable-row">
                                     <td>UC-023</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（填写有效推荐人）</td>
+                                    <td>未注册的有效手机号，已注册的有效推荐人手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 输入已注册的有效推荐人手机号<br>8. 勾选同意协议<br>9. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234<br>推荐人手机号：13800138000</td>
+                                    <td>注册成功，弹出提示框，跳转到首页，显示登录状态，推荐人关系建立</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-024</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>手机号注册（推荐人格式错误）</td>
+                                    <td>未注册的有效手机号，格式错误的推荐人手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 输入格式错误的推荐人手机号<br>8. 勾选同意协议<br>9. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234<br>推荐人手机号：1380013800</td>
+                                    <td>提示"推荐人手机号格式错误"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-025</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手机号注册（推荐人不存在）</td>
+                                    <td>未注册的有效手机号，不存在的推荐人手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 输入不存在的推荐人手机号<br>8. 勾选同意协议<br>9. 点击注册按钮</td>
+                                    <td>手机号：13800138002<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234<br>推荐人手机号：13899999999</td>
+                                    <td>提示"推荐人不存在"</td>
+                                </tr>
+
+                                <tr class="expandable-row">
+                                    <td>UC-026</td>
+                                    <td>注册</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>邮箱注册（填写有效推荐人）</td>
+                                    <td>未注册的有效邮箱，已注册的有效推荐人手机号</td>
+                                    <td>1. 进入注册页面<br>2. 选择邮箱注册<br>3. 输入未注册邮箱<br>4. 输入符合规则的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 输入已注册的有效推荐人手机号<br>8. 勾选同意协议<br>9. 点击注册按钮</td>
+                                    <td>邮箱：new2@example.com<br>密码：Test@1234<br>确认密码：Test@1234<br>验证码：1234<br>推荐人手机号：13800138000</td>
+                                    <td>注册成功，弹出提示框，跳转到首页，显示登录状态，推荐人关系建立</td>
+                                </tr>
+
+                                <!-- 页面导航栏测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>UC-027</td>
                                     <td>页面导航栏</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>导航栏显示数量</td>
@@ -777,7 +865,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-024</td>
+                                    <td>UC-028</td>
                                     <td>页面导航栏</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>导航栏链接跳转</td>
@@ -789,7 +877,7 @@
 
                                 <!-- 搜索功能测试用例 -->
                                 <tr class="expandable-row">
-                                    <td>UC-025</td>
+                                    <td>UC-029</td>
                                     <td>搜索功能</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>有搜索词模糊搜索（存在结果）</td>
@@ -800,7 +888,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-026</td>
+                                    <td>UC-030</td>
                                     <td>搜索功能</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>有搜索词模糊搜索（无结果）</td>
@@ -811,7 +899,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-027</td>
+                                    <td>UC-030</td>
                                     <td>搜索功能</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>无搜索词搜索</td>
@@ -822,7 +910,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-028</td>
+                                    <td>UC-031</td>
                                     <td>搜索功能</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>搜索历史记录保存</td>
@@ -833,7 +921,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-029</td>
+                                    <td>UC-032</td>
                                     <td>搜索功能</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>搜索历史记录保存（无结果）</td>
@@ -844,7 +932,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-030</td>
+                                    <td>UC-033</td>
                                     <td>搜索功能</td>
                                     <td><span class="priority priority-low">低</span></td>
                                     <td>特殊字符搜索</td>
@@ -901,7 +989,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-035</td>
+                                    <td>UC-030</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>密码规则验证（纯字母）</td>
@@ -912,7 +1000,7 @@
                                 </tr>
 
                                 <tr class="expandable-row">
-                                    <td>UC-036</td>
+                                    <td>UC-031</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>密码规则验证（包含字母和数字）</td>
@@ -924,7 +1012,7 @@
 
                                 <!-- 注册成功后数据库验证 -->
                                 <tr class="expandable-row">
-                                    <td>UC-037</td>
+                                    <td>UC-032</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>注册成功后台会员列表新增记录</td>
@@ -936,7 +1024,7 @@
 
                                 <!-- 手机验证码注册测试用例 -->
                                 <tr class="expandable-row">
-                                    <td>UC-038</td>
+                                    <td>UC-033</td>
                                     <td>注册</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>手机验证码注册（正确验证码）</td>
@@ -1082,254 +1170,8 @@
                                     <td>无</td>
                                     <td>在所有支持的浏览器中均可正常登录</td>
                                 </tr>
-                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 输入错误验证码<br>6. 点击登录按钮</td>
-                                    <td>手机号：13800138000<br>密码：123456<br>验证码：5678</td>
-                                    <td>提示"验证码错误"，并更新验证码</td>
-                                </tr>
 
-                                <tr class="expandable-row">
-                                    <td>UC-006</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>手机号登录（手机号为空）</td>
-                                    <td>无</td>
-                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 不输入手机号<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
-                                    <td>手机号：<br>密码：123456<br>验证码：1234</td>
-                                    <td>提示"请输入手机号"，并更新验证码</td>
-                                </tr>
 
-                                <tr class="expandable-row">
-                                    <td>UC-007</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>手机号登录（密码为空）</td>
-                                    <td>已注册的有效手机号</td>
-                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 不输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
-                                    <td>手机号：13800138000<br>密码：<br>验证码：1234</td>
-                                    <td>提示"请输入密码"，并更新验证码</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-008</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>手机号登录（验证码为空）</td>
-                                    <td>已注册的有效手机号和密码</td>
-                                    <td>1. 进入登录页面<br>2. 选择手机号登录<br>3. 输入正确手机号<br>4. 输入正确密码<br>5. 不输入验证码<br>6. 点击登录按钮</td>
-                                    <td>手机号：13800138000<br>密码：123456<br>验证码：</td>
-                                    <td>提示"请输入验证码"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-009</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>邮箱登录（正确信息）</td>
-                                    <td>已注册的有效邮箱和密码</td>
-                                    <td>1. 进入登录页面<br>2. 选择邮箱登录<br>3. 输入正确邮箱<br>4. 输入正确密码<br>5. 输入正确验证码<br>6. 点击登录按钮</td>
-                                    <td>邮箱：test@example.com<br>密码：123456<br>验证码：1234</td>
-                                    <td>登录成功，跳转到个人中心页面</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-010</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>邮箱登录（格式错误）</td>
-                                    <td>无</td>
-                                    <td>1. 进入登录页面<br>2. 选择邮箱登录<br>3. 输入错误格式邮箱<br>4. 输入密码<br>5. 输入验证码<br>6. 点击登录按钮</td>
-                                    <td>邮箱：testexample.com<br>密码：123456<br>验证码：1234</td>
-                                    <td>提示"请输入正确的邮箱格式"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-011</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>验证码刷新功能</td>
-                                    <td>无</td>
-                                    <td>1. 进入登录页面<br>2. 点击验证码图片</td>
-                                    <td>无</td>
-                                    <td>验证码图片更新，显示新的验证码</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-012</td>
-                                    <td>登录</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>安全退出功能</td>
-                                    <td>已登录的用户</td>
-                                    <td>1. 登录成功后<br>2. 点击"安全退出"按钮</td>
-                                    <td>无</td>
-                                    <td>退出登录，返回首页，显示登录/注册按钮</td>
-                                </tr>
-
-                                <!-- 注册功能测试用例 -->
-                                <tr class="expandable-row">
-                                    <td>UC-013</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>手机号注册（正常流程）</td>
-                                    <td>未注册的手机号</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入符合要求的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138001<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
-                                    <td>注册成功，弹框提示，跳转到首页，显示登录状态</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-014</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>手机号注册（已存在手机号）</td>
-                                    <td>已注册的手机号</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入已注册手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138000<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
-                                    <td>提示"账号已存在"，验证码刷新</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-015</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>手机号注册（密码格式错误）</td>
-                                    <td>未注册的手机号</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入不符合要求的密码（如少于6位）<br>5. 再次输入相同密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138002<br>密码：123<br>确认密码：123<br>验证码：1234</td>
-                                    <td>提示"密码长度必须为6-16位"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-016</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>手机号注册（两次密码不一致）</td>
-                                    <td>未注册的手机号</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 输入不同的确认密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138003<br>密码：123456<br>确认密码：654321<br>验证码：1234</td>
-                                    <td>提示"两次输入密码不一致"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-017</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>手机号注册（手机号格式错误）</td>
-                                    <td>无</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入错误格式手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
-                                    <td>提示"请输入正确的手机号格式"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-018</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>手机号注册（验证码错误）</td>
-                                    <td>未注册的手机号</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入错误验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138004<br>密码：123456<br>确认密码：123456<br>验证码：5678</td>
-                                    <td>提示"验证码错误"，验证码刷新</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-019</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>手机号注册（未勾选协议）</td>
-                                    <td>未注册的手机号</td>
-                                    <td>1. 进入注册页面<br>2. 选择手机号注册<br>3. 输入未注册手机号<br>4. 输入密码<br>5. 再次输入密码<br>6. 输入验证码<br>7. 不勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>手机号：13800138005<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
-                                    <td>提示"请阅读并同意用户协议"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-020</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>邮箱注册（正常流程）</td>
-                                    <td>未注册的邮箱</td>
-                                    <td>1. 进入注册页面<br>2. 选择邮箱注册<br>3. 输入未注册邮箱<br>4. 输入符合要求的密码<br>5. 再次输入相同密码<br>6. 输入正确验证码<br>7. 勾选同意协议<br>8. 点击注册按钮</td>
-                                    <td>邮箱：newuser@example.com<br>密码：123456<br>确认密码：123456<br>验证码：1234</td>
-                                    <td>注册成功，弹框提示，跳转到首页，显示登录状态</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-021</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>注册页面协议链接</td>
-                                    <td>无</td>
-                                    <td>1. 进入注册页面<br>2. 点击"用户协议"链接</td>
-                                    <td>无</td>
-                                    <td>打开用户协议页面，显示完整协议内容</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-022</td>
-                                    <td>注册</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>注册密码可见性切换</td>
-                                    <td>无</td>
-                                    <td>1. 进入注册页面<br>2. 输入密码<br>3. 点击密码可见性切换按钮</td>
-                                    <td>无</td>
-                                    <td>密码显示/隐藏状态切换</td>
-                                </tr>
-
-                                <!-- 其他用户管理测试用例 -->
-                                <tr class="expandable-row">
-                                    <td>UC-023</td>
-                                    <td>导航栏</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>导航栏显示</td>
-                                    <td>无</td>
-                                    <td>1. 进入首页<br>2. 查看导航栏</td>
-                                    <td>无</td>
-                                    <td>导航栏正常显示8条数据，按照排序逆序显示</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-024</td>
-                                    <td>搜索功能</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>搜索功能（有搜索词）</td>
-                                    <td>有搜索词对应的商品</td>
-                                    <td>1. 进入首页<br>2. 在搜索框输入关键词<br>3. 点击搜索按钮</td>
-                                    <td>搜索词：手机</td>
-                                    <td>显示包含关键词的商品列表，支持模糊搜索</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-025</td>
-                                    <td>搜索功能</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>搜索功能（无搜索词）</td>
-                                    <td>无</td>
-                                    <td>1. 进入首页<br>2. 搜索框为空<br>3. 点击搜索按钮</td>
-                                    <td>搜索词：</td>
-                                    <td>无法搜索，提示"请输入搜索关键词"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-026</td>
-                                    <td>搜索功能</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>搜索功能（无结果）</td>
-                                    <td>无匹配的搜索结果</td>
-                                    <td>1. 进入首页<br>2. 输入不存在的关键词<br>3. 点击搜索按钮</td>
-                                    <td>搜索词：不存在的商品123456</td>
-                                    <td>提示"无任何数据，换个条件试试"</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>UC-027</td>
-                                    <td>搜索功能</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>搜索历史记录</td>
-                                    <td>有搜索历史的用户</td>
-                                    <td>1. 进入首页<br>2. 点击搜索框</td>
-                                    <td>无</td>
-                                    <td>显示历史搜索词条，按照搜索时间倒序排列</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -1359,9 +1201,99 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- 商品分类功能测试用例 -->
+                                <!-- 页面导航栏测试用例 -->
                                 <tr class="expandable-row">
                                     <td>HC-001</td>
+                                    <td>页面导航栏</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>导航栏显示数量</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 查看导航栏显示的导航项数量</td>
+                                    <td>无</td>
+                                    <td>导航栏显示8条导航数据</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-002</td>
+                                    <td>页面导航栏</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>导航栏排序显示</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 查看导航栏数据排序</td>
+                                    <td>无</td>
+                                    <td>导航栏数据按照排序字段逆序显示</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-003</td>
+                                    <td>页面导航栏</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>导航栏链接跳转功能</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 点击导航栏中的任意导航项</td>
+                                    <td>无</td>
+                                    <td>成功跳转到对应页面</td>
+                                </tr>
+                                
+                                <!-- 搜索功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-004</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>有搜索词模糊搜索（存在结果）</td>
+                                    <td>商城中存在包含搜索词的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：手机</td>
+                                    <td>显示包含"手机"的商品列表，支持模糊搜索</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-005</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>有搜索词模糊搜索（无结果）</td>
+                                    <td>商城中不存在包含搜索词的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：不存在的商品名称123456</td>
+                                    <td>提示"无任何数据，换个条件试试"</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-006</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>无搜索词搜索</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 搜索框为空<br>3. 点击搜索按钮或按回车键</td>
+                                    <td>搜索词：</td>
+                                    <td>无法搜索，不执行搜索操作</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-039</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>搜索历史记录保存（有结果）</td>
+                                    <td>无</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键<br>4. 再次点击搜索框</td>
+                                    <td>搜索词：手机</td>
+                                    <td>搜索框下方显示历史搜索词条"手机"</td>
+                                </tr>
+                                
+                                <tr class="expandable-row">
+                                    <td>HC-040</td>
+                                    <td>搜索功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>搜索历史记录保存（无结果）</td>
+                                    <td>商城中不存在包含搜索词的商品</td>
+                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键<br>4. 再次点击搜索框</td>
+                                    <td>搜索词：不存在的商品名称123456</td>
+                                    <td>搜索框下方显示历史搜索词条"不存在的商品名称123456"</td>
+                                </tr>
+                                
+                                <!-- 商品分类功能测试用例 -->
+                                <tr class="expandable-row">
+                                    <td>HC-034</td>
                                     <td>商品分类</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>一级分类默认显示数量</td>
@@ -1372,7 +1304,7 @@
                                 </tr>
                                 
                                 <tr class="expandable-row">
-                                    <td>HC-002</td>
+                                    <td>HC-033</td>
                                     <td>商品分类</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>一级分类展开二级和三级分类</td>
@@ -1383,7 +1315,7 @@
                                 </tr>
                                 
                                 <tr class="expandable-row">
-                                    <td>HC-003</td>
+                                    <td>HC-035</td>
                                     <td>商品分类</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>一级分类鼠标移入效果</td>
@@ -1394,7 +1326,7 @@
                                 </tr>
                                 
                                 <tr class="expandable-row">
-                                    <td>HC-004</td>
+                                    <td>HC-036</td>
                                     <td>商品分类</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>三级分类鼠标移入效果</td>
@@ -1405,7 +1337,7 @@
                                 </tr>
                                 
                                 <tr class="expandable-row">
-                                    <td>HC-005</td>
+                                    <td>HC-037</td>
                                     <td>商品分类</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>分类点击跳转功能</td>
@@ -1416,7 +1348,7 @@
                                 </tr>
                                 
                                 <tr class="expandable-row">
-                                    <td>HC-006</td>
+                                    <td>HC-038</td>
                                     <td>商品分类</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>分类数据排序显示</td>
@@ -1719,223 +1651,7 @@
                     </div>
                 </div>
 
-                <!-- 2. 首页页面模块 -->
-                <div class="module-card" data-module="home">
-                    <div class="module-header">
-                        <h2 class="module-title">
-                            <span>2. 首页页面模块</span>
-                            <span class="case-count">65个用例</span>
-                        </h2>
-                        <span class="module-toggle">▼</span>
-                    </div>
-                    <div class="module-content">
-                        <table class="test-cases-table">
-                            <thead>
-                                <tr>
-                                    <th>用例编号ID</th>
-                                    <th>功能模块</th>
-                                    <th>优先级</th>
-                                    <th>用例标题</th>
-                                    <th>预置条件</th>
-                                    <th>执行步骤</th>
-                                    <th>测试数据</th>
-                                    <th>预期结果</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- 全部商品分类测试用例 -->
-                                <tr class="expandable-row">
-                                    <td>HC-001</td>
-                                    <td>全部商品分类</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>一级分类显示</td>
-                                    <td>系统中存在商品分类数据</td>
-                                    <td>1. 进入首页<br>2. 查看左侧商品分类</td>
-                                    <td>无</td>
-                                    <td>默认显示6个一级分类，布局正常</td>
-                                </tr>
 
-                                <tr class="expandable-row">
-                                    <td>HC-002</td>
-                                    <td>全部商品分类</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>二级和三级分类显示</td>
-                                    <td>系统中存在多级商品分类数据</td>
-                                    <td>1. 进入首页<br>2. 将鼠标移入一级分类</td>
-                                    <td>无</td>
-                                    <td>显示该一级分类下的所有二级和三级分类，背景颜色变浅</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-003</td>
-                                    <td>全部商品分类</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>分类鼠标悬停效果</td>
-                                    <td>系统中存在商品分类数据</td>
-                                    <td>1. 进入首页<br>2. 将鼠标移入一级分类<br>3. 将鼠标移入三级分类</td>
-                                    <td>无</td>
-                                    <td>一级和三级分类鼠标移入后字体变红</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-004</td>
-                                    <td>全部商品分类</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>分类点击跳转</td>
-                                    <td>系统中存在商品分类数据</td>
-                                    <td>1. 进入首页<br>2. 点击任意分类</td>
-                                    <td>无</td>
-                                    <td>跳转到对应的分类商品筛选界面，显示该分类下的商品</td>
-                                </tr>
-
-                                <!-- Banner轮播图测试用例 -->
-                                <tr class="expandable-row">
-                                    <td>HC-005</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>Banner图片显示</td>
-                                    <td>系统中存在Banner图片数据</td>
-                                    <td>1. 进入首页<br>2. 查看Banner区域</td>
-                                    <td>无</td>
-                                    <td>显示1-5张Banner图片，布局正常</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-006</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>Banner自动轮播</td>
-                                    <td>系统中存在多张Banner图片数据</td>
-                                    <td>1. 进入首页<br>2. 观察Banner轮播</td>
-                                    <td>无</td>
-                                    <td>自动轮播，3秒切换一张图片</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-007</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>Banner鼠标悬停停止轮播</td>
-                                    <td>系统中存在多张Banner图片数据</td>
-                                    <td>1. 进入首页<br>2. 将鼠标悬停在Banner图片上</td>
-                                    <td>无</td>
-                                    <td>停止轮播，鼠标移开后继续轮播</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-008</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>Banner指示器点击</td>
-                                    <td>系统中存在多张Banner图片数据</td>
-                                    <td>1. 进入首页<br>2. 点击Banner指示器（圆圈）</td>
-                                    <td>无</td>
-                                    <td>跳转到对应Banner图片，当前指示器为实心</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-009</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>Banner左右切换</td>
-                                    <td>系统中存在多张Banner图片数据</td>
-                                    <td>1. 进入首页<br>2. 点击左右切换按钮</td>
-                                    <td>无</td>
-                                    <td>每次切换一张图片，循环切换</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-010</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>Banner点击跳转</td>
-                                    <td>系统中存在Banner图片数据且配置了跳转链接</td>
-                                    <td>1. 进入首页<br>2. 点击Banner图片</td>
-                                    <td>无</td>
-                                    <td>跳转到Banner配置的目标页面</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-011</td>
-                                    <td>Banner轮播图</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>单张Banner不轮播</td>
-                                    <td>系统中只存在1张Banner图片数据</td>
-                                    <td>1. 进入首页<br>2. 观察Banner区域</td>
-                                    <td>无</td>
-                                    <td>不自动轮播，显示唯一的Banner图片</td>
-                                </tr>
-
-                                <!-- 商品分类楼层测试用例 -->
-                                <tr class="expandable-row">
-                                    <td>HC-012</td>
-                                    <td>商品分类楼层</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>楼层控制显示</td>
-                                    <td>系统中存在热门一级分类</td>
-                                    <td>1. 进入首页<br>2. 查看楼层控制区域</td>
-                                    <td>无</td>
-                                    <td>显示热门一级分类，可点击切换楼层</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-013</td>
-                                    <td>商品分类楼层</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>楼层商品显示</td>
-                                    <td>系统中存在商品数据，且配置了热门分类</td>
-                                    <td>1. 进入首页<br>2. 查看各楼层商品</td>
-                                    <td>无</td>
-                                    <td>每个楼层显示对应一级分类的前6条商品数据，仅显示在售产品</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-014</td>
-                                    <td>商品分类楼层</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>楼层商品轮播</td>
-                                    <td>系统中存在商品数据，且配置了推荐商品</td>
-                                    <td>1. 进入首页<br>2. 观察楼层热门推荐商品</td>
-                                    <td>无</td>
-                                    <td>热门推荐商品轮播显示，每次向上更新一个新商品</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-015</td>
-                                    <td>商品分类楼层</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>楼层商品鼠标悬停效果</td>
-                                    <td>系统中存在商品数据</td>
-                                    <td>1. 进入首页<br>2. 将鼠标移入楼层商品</td>
-                                    <td>无</td>
-                                    <td>商品背景显示为灰色</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-016</td>
-                                    <td>商品分类楼层</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>楼层"更多"按钮</td>
-                                    <td>系统中存在商品分类数据</td>
-                                    <td>1. 进入首页<br>2. 点击楼层"更多"按钮</td>
-                                    <td>无</td>
-                                    <td>进入当前楼层商品一级分类的商品列表页</td>
-                                </tr>
-
-                                <tr class="expandable-row">
-                                    <td>HC-017</td>
-                                    <td>商品分类楼层</td>
-                                    <td><span class="priority priority-low">低</span></td>
-                                    <td>楼层广告位</td>
-                                    <td>系统中配置了楼层广告位</td>
-                                    <td>1. 进入首页<br>2. 点击楼层广告位</td>
-                                    <td>无</td>
-                                    <td>跳转到对应商品详情页</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
                 <!-- 3. 购物车模块 -->
                 <div class="module-card" data-module="cart">
@@ -2195,6 +1911,266 @@
                                     <td>商品数量：11</td>
                                     <td>提示"商品数量不能超过库存"，数量恢复为库存数量</td>
                                 </tr>
+                                
+                                <!-- 购物车商品选择功能 -->
+                                <tr class="expandable-row">
+                                    <td>CC-022</td>
+                                    <td>购物车商品选择</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>单个商品勾选</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选单个商品</td>
+                                    <td>无</td>
+                                    <td>勾选成功，小计和总价重新计算</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-023</td>
+                                    <td>购物车商品选择</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>全选商品</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击全选按钮</td>
+                                    <td>无</td>
+                                    <td>所有商品勾选成功，小计和总价重新计算</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-024</td>
+                                    <td>购物车商品选择</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>取消全选商品</td>
+                                    <td>已登录用户，购物车中所有商品已勾选</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击全选按钮取消全选</td>
+                                    <td>无</td>
+                                    <td>所有商品取消勾选，总价归零</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-025</td>
+                                    <td>购物车商品选择</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>部分商品勾选</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选部分商品</td>
+                                    <td>无</td>
+                                    <td>勾选的商品显示选中状态，小计和总价按选中商品重新计算</td>
+                                </tr>
+                                
+                                <!-- 购物车结算功能 -->
+                                <tr class="expandable-row">
+                                    <td>CC-026</td>
+                                    <td>购物车结算</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>选中商品结算</td>
+                                    <td>已登录用户，购物车中有选中商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选部分或全部商品<br>4. 点击"结算"按钮</td>
+                                    <td>无</td>
+                                    <td>跳转到订单确认页面，显示选中商品信息和总价</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-027</td>
+                                    <td>购物车结算</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>未选中商品结算</td>
+                                    <td>已登录用户，购物车中有商品但未勾选</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 不勾选任何商品<br>4. 点击"结算"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"请选择要结算的商品"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-028</td>
+                                    <td>购物车结算</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>结算时商品价格更新</td>
+                                    <td>已登录用户，购物车中有商品，该商品价格已变动</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选商品<br>4. 点击"结算"按钮</td>
+                                    <td>无</td>
+                                    <td>提示商品价格已更新，确认是否继续结算</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-029</td>
+                                    <td>购物车结算</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>结算时商品库存不足</td>
+                                    <td>已登录用户，购物车中有商品，该商品库存已不足</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选商品<br>4. 点击"结算"按钮</td>
+                                    <td>无</td>
+                                    <td>提示商品库存不足，建议修改数量或取消该商品</td>
+                                </tr>
+                                
+                                <!-- 购物车商品价格更新 -->
+                                <tr class="expandable-row">
+                                    <td>CC-030</td>
+                                    <td>购物车商品价格</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>商品价格自动更新</td>
+                                    <td>已登录用户，购物车中有商品，该商品价格已变动</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>商品价格显示最新价格，小计和总价重新计算</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-031</td>
+                                    <td>购物车商品价格</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>促销活动价格更新</td>
+                                    <td>已登录用户，购物车中有商品，该商品参加促销活动</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 查看商品价格</td>
+                                    <td>无</td>
+                                    <td>显示促销价格，原价划线显示</td>
+                                </tr>
+                                
+                                <!-- 购物车商品库存检查 -->
+                                <tr class="expandable-row">
+                                    <td>CC-032</td>
+                                    <td>购物车商品库存</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>商品库存不足提醒</td>
+                                    <td>已登录用户，购物车中有商品，该商品库存已减少</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>提示商品库存不足，建议修改数量</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-033</td>
+                                    <td>购物车商品库存</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>商品下架提醒</td>
+                                    <td>已登录用户，购物车中有商品，该商品已下架</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>提示商品已下架，建议删除该商品</td>
+                                </tr>
+                                
+                                <!-- 购物车清空功能 -->
+                                <tr class="expandable-row">
+                                    <td>CC-034</td>
+                                    <td>购物车清空</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>清空购物车</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击"清空购物车"按钮<br>4. 确认清空</td>
+                                    <td>无</td>
+                                    <td>购物车清空，显示空购物车提示</td>
+                                </tr>
+                                
+                                <!-- 购物车商品过期处理 -->
+                                <tr class="expandable-row">
+                                    <td>CC-035</td>
+                                    <td>购物车商品过期</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>商品长时间未结算自动清理</td>
+                                    <td>已登录用户，购物车中有商品，超过系统设定的保留时间</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>超过保留时间的商品自动从购物车中移除</td>
+                                </tr>
+                                
+                                <!-- 多设备同步购物车 -->
+                                <tr class="expandable-row">
+                                    <td>CC-036</td>
+                                    <td>购物车同步</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>多设备购物车同步</td>
+                                    <td>已登录用户，在A设备购物车中添加商品</td>
+                                    <td>1. 在A设备登录并添加商品到购物车<br>2. 在B设备登录同一账号<br>3. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>B设备购物车显示A设备添加的商品</td>
+                                </tr>
+                                
+                                <!-- 购物车商品分类显示 -->
+                                <tr class="expandable-row">
+                                    <td>CC-037</td>
+                                    <td>购物车商品分类</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>商品按店铺分类显示</td>
+                                    <td>已登录用户，购物车中有不同店铺的商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面</td>
+                                    <td>无</td>
+                                    <td>商品按店铺分类显示，每个店铺单独计算小计</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-038</td>
+                                    <td>购物车商品分类</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>店铺商品批量操作</td>
+                                    <td>已登录用户，购物车中有不同店铺的商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 点击某店铺的全选按钮</td>
+                                    <td>无</td>
+                                    <td>该店铺下所有商品被勾选，小计和总价重新计算</td>
+                                </tr>
+                                
+                                <!-- 购物车性能测试 -->
+                                <tr class="expandable-row">
+                                    <td>CC-039</td>
+                                    <td>购物车性能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>购物车页面加载速度</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 记录页面加载时间</td>
+                                    <td>无</td>
+                                    <td>页面在3秒内加载完成</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-040</td>
+                                    <td>购物车性能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>购物车操作响应速度</td>
+                                    <td>已登录用户，购物车中有多个商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 进行勾选、修改数量、删除等操作<br>4. 记录操作响应时间</td>
+                                    <td>无</td>
+                                    <td>所有操作响应时间不超过1秒</td>
+                                </tr>
+                                
+                                <!-- 购物车异常处理 -->
+                                <tr class="expandable-row">
+                                    <td>CC-041</td>
+                                    <td>购物车异常</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>网络异常时购物车操作</td>
+                                    <td>已登录用户，购物车中有商品，模拟网络异常</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 模拟网络断开<br>4. 尝试修改商品数量<br>5. 恢复网络</td>
+                                    <td>无</td>
+                                    <td>网络异常时提示网络错误，恢复后操作成功</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-042</td>
+                                    <td>购物车异常</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>并发操作购物车</td>
+                                    <td>已登录用户，在多个设备同时操作购物车</td>
+                                    <td>1. 在A设备登录并进入购物车页面<br>2. 在B设备登录同一账号并进入购物车页面<br>3. 同时在两个设备修改同一商品数量</td>
+                                    <td>无</td>
+                                    <td>系统正确处理并发操作，数据保持一致性</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-043</td>
+                                    <td>购物车优惠券</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>购物车中选择优惠券</td>
+                                    <td>已登录用户，购物车中有商品，账户中有可用优惠券</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选商品<br>4. 点击"选择优惠券"</td>
+                                    <td>无</td>
+                                    <td>显示可用优惠券列表，选择后总价正确扣减</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-044</td>
+                                    <td>购物车积分</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>购物车中使用积分抵扣</td>
+                                    <td>已登录用户，购物车中有商品，账户中有可用积分</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选商品<br>4. 勾选"使用积分抵扣"</td>
+                                    <td>无</td>
+                                    <td>积分正确抵扣，总价重新计算</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>CC-045</td>
+                                    <td>购物车发票</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>购物车中选择发票信息</td>
+                                    <td>已登录用户，购物车中有商品</td>
+                                    <td>1. 登录后<br>2. 进入购物车页面<br>3. 勾选商品<br>4. 点击"发票信息"</td>
+                                    <td>无</td>
+                                    <td>显示发票类型选择，填写发票信息后正确保存</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2217,4 +2193,1088 @@
                                     <th>功能模块</th>
                                     <th>优先级</th>
                                     <th>用例标题</th>
-                                    <th>预置条件</
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <th>预期结果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 抢购商品展示测试 -->
+                                <tr class="expandable-row">
+                                    <td>SC-001</td>
+                                    <td>抢购商品展示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>抢购商品列表展示</td>
+                                    <td>抢购活动已创建并上线</td>
+                                    <td>1. 进入首页<br>2. 点击"抢购专区"</td>
+                                    <td>无</td>
+                                    <td>显示所有当前有效的抢购商品，包含商品图片、名称、原价、抢购价、剩余库存和倒计时</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-002</td>
+                                    <td>抢购商品展示</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品详情页展示</td>
+                                    <td>抢购活动已创建并上线，有可用的抢购商品</td>
+                                    <td>1. 进入抢购专区<br>2. 点击任意抢购商品</td>
+                                    <td>无</td>
+                                    <td>显示商品详细信息、抢购价格、剩余库存、活动时间和倒计时，以及"立即抢购"按钮</td>
+                                </tr>
+                                
+                                <!-- 抢购活动时间验证 -->
+                                <tr class="expandable-row">
+                                    <td>SC-003</td>
+                                    <td>抢购活动时间验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>活动未开始时的显示</td>
+                                    <td>存在未开始的抢购活动</td>
+                                    <td>1. 进入抢购专区<br>2. 查看未开始的活动</td>
+                                    <td>无</td>
+                                    <td>显示"即将开始"状态和倒计时，"立即抢购"按钮不可点击</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-004</td>
+                                    <td>抢购活动时间验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>活动进行中的显示</td>
+                                    <td>存在正在进行的抢购活动</td>
+                                    <td>1. 进入抢购专区<br>2. 查看进行中的活动</td>
+                                    <td>无</td>
+                                    <td>显示"立即抢购"按钮可点击，显示剩余时间</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-005</td>
+                                    <td>抢购活动时间验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>活动已结束的显示</td>
+                                    <td>存在已结束的抢购活动</td>
+                                    <td>1. 进入抢购专区<br>2. 查看已结束的活动</td>
+                                    <td>无</td>
+                                    <td>显示"已结束"状态，"立即抢购"按钮不可点击</td>
+                                </tr>
+                                
+                                <!-- 抢购资格验证 -->
+                                <tr class="expandable-row">
+                                    <td>SC-006</td>
+                                    <td>抢购资格验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>未登录用户抢购</td>
+                                    <td>存在进行中的抢购活动</td>
+                                    <td>1. 未登录状态下进入抢购专区<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示用户需要登录，跳转到登录页面</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-007</td>
+                                    <td>抢购资格验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>已登录用户抢购</td>
+                                    <td>已登录用户，存在进行中的抢购活动</td>
+                                    <td>1. 登录后进入抢购专区<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>进入订单确认页面，显示抢购商品信息</td>
+                                </tr>
+                                
+                                <!-- 抢购库存验证 -->
+                                <tr class="expandable-row">
+                                    <td>SC-008</td>
+                                    <td>抢购库存验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>有库存时抢购</td>
+                                    <td>已登录用户，抢购商品有库存</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"立即抢购"按钮<br>3. 确认订单信息<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，扣除对应库存</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-009</td>
+                                    <td>抢购库存验证</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>无库存时抢购</td>
+                                    <td>已登录用户，抢购商品库存为0</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"商品已抢完"，无法提交订单</td>
+                                </tr>
+                                
+                                <!-- 抢购下单流程 -->
+                                <tr class="expandable-row">
+                                    <td>SC-010</td>
+                                    <td>抢购下单流程</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>完整抢购下单流程</td>
+                                    <td>已登录用户，抢购商品有库存，活动进行中</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"立即抢购"按钮<br>3. 填写收货地址<br>4. 选择支付方式<br>5. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，生成抢购订单，扣除库存</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-011</td>
+                                    <td>抢购下单流程</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购下单后取消订单</td>
+                                    <td>已登录用户，已提交抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到抢购订单<br>3. 点击"取消订单"</td>
+                                    <td>无</td>
+                                    <td>订单取消成功，库存恢复</td>
+                                </tr>
+                                
+                                <!-- 抢购失败场景 -->
+                                <tr class="expandable-row">
+                                    <td>SC-012</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>活动未开始时抢购</td>
+                                    <td>已登录用户，抢购活动未开始</td>
+                                    <td>1. 登录后进入未开始的抢购商品详情页<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"活动尚未开始"，无法提交订单</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-013</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>活动已结束时抢购</td>
+                                    <td>已登录用户，抢购活动已结束</td>
+                                    <td>1. 登录后进入已结束的抢购商品详情页<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"活动已结束"，无法提交订单</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-014</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>重复抢购同一商品</td>
+                                    <td>已登录用户，已购买过该抢购商品</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-015</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>超出每人限购数量</td>
+                                    <td>已登录用户，抢购商品设置每人限购1件，已购买1件</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"已达到该商品的购买上限"，无法提交订单</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-016</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>网络异常时抢购</td>
+                                    <td>已登录用户，抢购商品有库存，活动进行中</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 模拟网络断开<br>3. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示网络错误，无法提交订单</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-017</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>提交订单超时</td>
+                                    <td>已登录用户，抢购商品有库存，活动进行中</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"立即抢购"按钮<br>3. 在订单确认页停留超过15分钟<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>提示"订单已超时，请重新抢购"，无法提交订单</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-018</td>
+                                    <td>抢购支付流程</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>抢购订单支付成功</td>
+                                    <td>已登录用户，已提交抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到待支付的抢购订单<br>3. 选择支付方式<br>4. 完成支付</td>
+                                    <td>无</td>
+                                    <td>支付成功，订单状态更新为已支付</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-019</td>
+                                    <td>抢购支付流程</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购订单支付失败</td>
+                                    <td>已登录用户，已提交抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到待支付的抢购订单<br>3. 选择支付方式<br>4. 模拟支付失败</td>
+                                    <td>无</td>
+                                    <td>支付失败，订单状态保持为待支付，可重新支付</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-020</td>
+                                    <td>抢购支付流程</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购订单支付超时</td>
+                                    <td>已登录用户，已提交抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到待支付的抢购订单<br>3. 超过支付时间限制（30分钟）<br>4. 尝试支付</td>
+                                    <td>无</td>
+                                    <td>提示"支付已超时，订单已关闭"，无法支付</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-021</td>
+                                    <td>抢购订单管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>查看抢购订单详情</td>
+                                    <td>已登录用户，已提交抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到抢购订单<br>3. 点击"订单详情"</td>
+                                    <td>无</td>
+                                    <td>显示订单详细信息，包括商品信息、价格、支付状态和物流信息</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-022</td>
+                                    <td>抢购订单管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购订单退款</td>
+                                    <td>已登录用户，已支付的抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到已支付的抢购订单<br>3. 点击"申请退款"</td>
+                                    <td>无</td>
+                                    <td>退款申请提交成功，等待商家处理</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-023</td>
+                                    <td>抢购活动管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购活动创建</td>
+                                    <td>管理员账号</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购活动管理<br>3. 点击"创建活动"<br>4. 填写活动信息<br>5. 点击"保存"</td>
+                                    <td>无</td>
+                                    <td>活动创建成功，前台显示该活动</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-024</td>
+                                    <td>抢购活动管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购活动编辑</td>
+                                    <td>管理员账号，已创建抢购活动</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购活动管理<br>3. 找到待编辑活动<br>4. 点击"编辑"<br>5. 修改活动信息<br>6. 点击"保存"</td>
+                                    <td>无</td>
+                                    <td>活动编辑成功，前台显示更新后的活动信息</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-025</td>
+                                    <td>抢购活动管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购活动删除</td>
+                                    <td>管理员账号，已创建抢购活动</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购活动管理<br>3. 找到待删除活动<br>4. 点击"删除"<br>5. 确认删除</td>
+                                    <td>无</td>
+                                    <td>活动删除成功，前台不再显示该活动</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-026</td>
+                                    <td>抢购活动管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购活动上下架</td>
+                                    <td>管理员账号，已创建抢购活动</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购活动管理<br>3. 找到待操作活动<br>4. 点击"下架"按钮</td>
+                                    <td>无</td>
+                                    <td>活动下架成功，前台不再显示该活动</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-027</td>
+                                    <td>抢购性能测试</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>高并发抢购</td>
+                                    <td>抢购商品有库存100件，活动进行中</td>
+                                    <td>1. 模拟1000个用户同时点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>系统能够正确处理并发请求，100件商品抢购成功，其余用户提示"商品已抢完"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-028</td>
+                                    <td>抢购性能测试</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购页面加载速度</td>
+                                    <td>抢购活动已上线</td>
+                                    <td>1. 进入抢购专区页面<br>2. 记录页面加载时间</td>
+                                    <td>无</td>
+                                    <td>页面在3秒内加载完成</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-029</td>
+                                    <td>抢购性能测试</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购按钮响应速度</td>
+                                    <td>已登录用户，抢购商品有库存，活动进行中</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"立即抢购"按钮<br>3. 记录响应时间</td>
+                                    <td>无</td>
+                                    <td>按钮点击后响应时间不超过1秒</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-030</td>
+                                    <td>抢购安全测试</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购接口防刷</td>
+                                    <td>已登录用户，抢购商品有库存，活动进行中</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 使用脚本模拟多次点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>系统限制频繁请求，提示"请求过于频繁，请稍后重试"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-031</td>
+                                    <td>抢购安全测试</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购价格篡改</td>
+                                    <td>已登录用户，抢购商品有库存，活动进行中</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 使用开发者工具修改商品价格<br>3. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>系统检测到价格异常，提示"操作失败，请重新尝试"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-032</td>
+                                    <td>抢购安全测试</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购数量篡改</td>
+                                    <td>已登录用户，抢购商品有库存10件，每人限购1件</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 使用开发者工具修改购买数量为2<br>3. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>系统检测到数量异常，提示"已达到该商品的购买上限"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-033</td>
+                                    <td>抢购商品管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品添加</td>
+                                    <td>管理员账号</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购商品管理<br>3. 点击"添加商品"<br>4. 填写商品信息<br>5. 点击"保存"</td>
+                                    <td>无</td>
+                                    <td>商品添加成功，前台显示该抢购商品</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-034</td>
+                                    <td>抢购商品管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品编辑</td>
+                                    <td>管理员账号，已添加抢购商品</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购商品管理<br>3. 找到待编辑商品<br>4. 点击"编辑"<br>5. 修改商品信息<br>6. 点击"保存"</td>
+                                    <td>无</td>
+                                    <td>商品编辑成功，前台显示更新后的商品信息</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-035</td>
+                                    <td>抢购商品管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品删除</td>
+                                    <td>管理员账号，已添加抢购商品</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购商品管理<br>3. 找到待删除商品<br>4. 点击"删除"<br>5. 确认删除</td>
+                                    <td>无</td>
+                                    <td>商品删除成功，前台不再显示该抢购商品</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-036</td>
+                                    <td>抢购商品管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品库存修改</td>
+                                    <td>管理员账号，已添加抢购商品</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购商品管理<br>3. 找到待修改商品<br>4. 点击"编辑"<br>5. 修改商品库存<br>6. 点击"保存"</td>
+                                    <td>无</td>
+                                    <td>库存修改成功，前台显示更新后的库存数量</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-037</td>
+                                    <td>抢购商品管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品限购数量修改</td>
+                                    <td>管理员账号，已添加抢购商品</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购商品管理<br>3. 找到待修改商品<br>4. 点击"编辑"<br>5. 修改每人限购数量<br>6. 点击"保存"</td>
+                                    <td>无</td>
+                                    <td>限购数量修改成功，系统按照新的限购规则限制用户购买</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-038</td>
+                                    <td>抢购数据统计</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购活动参与人数统计</td>
+                                    <td>管理员账号，已结束的抢购活动</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购活动管理<br>3. 找到已结束的活动<br>4. 点击"查看统计"</td>
+                                    <td>无</td>
+                                    <td>显示活动参与人数、成功购买人数和失败人数</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-039</td>
+                                    <td>抢购数据统计</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购商品销售统计</td>
+                                    <td>管理员账号，已结束的抢购活动</td>
+                                    <td>1. 登录后台管理系统<br>2. 进入抢购商品管理<br>3. 找到已结束活动的商品<br>4. 点击"查看统计"</td>
+                                    <td>无</td>
+                                    <td>显示商品销售数量、销售金额和剩余库存</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-040</td>
+                                    <td>抢购用户体验</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>抢购倒计时准确性</td>
+                                    <td>抢购活动未开始</td>
+                                    <td>1. 进入抢购专区<br>2. 观察未开始活动的倒计时<br>3. 等待倒计时结束</td>
+                                    <td>无</td>
+                                    <td>倒计时准确，活动开始时间到达后，"立即抢购"按钮变为可点击状态</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-014</td>
+                                    <td>抢购失败场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>重复抢购同一商品</td>
+                                    <td>已登录用户，已购买过该抢购商品</td>
+                                    <td>1. 登录后进入已购买的抢购商品详情页<br>2. 点击"立即抢购"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"每人限购一件"，无法再次购买</td>
+                                </tr>
+                                
+                                <!-- 抢购成功场景 -->
+                                <tr class="expandable-row">
+                                    <td>SC-015</td>
+                                    <td>抢购成功场景</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>抢购成功后订单状态</td>
+                                    <td>已成功提交抢购订单</td>
+                                    <td>1. 登录后进入我的订单<br>2. 查看抢购订单状态</td>
+                                    <td>无</td>
+                                    <td>订单状态显示为"待支付"，订单类型标记为"抢购订单"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-016</td>
+                                    <td>抢购成功场景</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>抢购成功后支付</td>
+                                    <td>已成功提交抢购订单，订单状态为待支付</td>
+                                    <td>1. 登录后进入我的订单<br>2. 找到待支付的抢购订单<br>3. 点击"立即支付"<br>4. 完成支付</td>
+                                    <td>无</td>
+                                    <td>支付成功，订单状态更新为"待发货"</td>
+                                </tr>
+                                
+                                <!-- 抢购商品购物车功能 -->
+                                <tr class="expandable-row">
+                                    <td>SC-017</td>
+                                    <td>抢购商品购物车功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>将抢购商品加入购物车</td>
+                                    <td>已登录用户，抢购商品有库存</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"加入购物车"按钮</td>
+                                    <td>无</td>
+                                    <td>商品成功加入购物车，显示抢购价格</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-018</td>
+                                    <td>抢购商品购物车功能</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>购物车中抢购商品数量限制</td>
+                                    <td>已登录用户，将同一抢购商品加入购物车</td>
+                                    <td>1. 登录后进入抢购商品详情页<br>2. 点击"加入购物车"按钮<br>3. 再次点击"加入购物车"按钮</td>
+                                    <td>无</td>
+                                    <td>提示"每人限购一件"，购物车中该商品数量仍为1</td>
+                                </tr>
+                                
+                                <!-- 抢购活动管理 -->
+                                <tr class="expandable-row">
+                                    <td>SC-019</td>
+                                    <td>抢购活动管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>抢购活动创建</td>
+                                    <td>已登录管理员账号</td>
+                                    <td>1. 登录管理员账号<br>2. 进入抢购活动管理页面<br>3. 点击"创建活动"<br>4. 填写活动信息<br>5. 提交保存</td>
+                                    <td>活动名称：测试抢购活动<br>开始时间：当前时间+1小时<br>结束时间：当前时间+2小时<br>商品：测试商品<br>库存：100<br>抢购价格：99.9</td>
+                                    <td>活动创建成功，在抢购专区显示该活动</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>SC-020</td>
+                                    <td>抢购活动管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>抢购活动编辑</td>
+                                    <td>已登录管理员账号，存在已创建的抢购活动</td>
+                                    <td>1. 登录管理员账号<br>2. 进入抢购活动管理页面<br>3. 找到已创建的活动<br>4. 点击"编辑"按钮<br>5. 修改活动信息<br>6. 提交保存</td>
+                                    <td>修改后的活动名称：更新测试抢购活动</td>
+                                    <td>活动更新成功，在抢购专区显示更新后的活动信息</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 5. 优惠券模块 -->
+                <div class="module-card" data-module="coupon">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>5. 优惠券模块</span>
+                            <span class="case-count">30个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <th>预期结果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 优惠券展示 -->
+                                <tr class="expandable-row">
+                                    <td>C-001</td>
+                                    <td>优惠券展示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>优惠券列表展示</td>
+                                    <td>已登录用户，系统中存在可用优惠券</td>
+                                    <td>1. 登录后进入个人中心<br>2. 点击"优惠券"选项</td>
+                                    <td>无</td>
+                                    <td>显示所有可用优惠券，包含优惠券名称、面额、使用条件、有效期</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-002</td>
+                                    <td>优惠券展示</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>优惠券分类展示</td>
+                                    <td>已登录用户，系统中存在不同类型的优惠券</td>
+                                    <td>1. 登录后进入个人中心<br>2. 点击"优惠券"选项<br>3. 切换不同优惠券分类</td>
+                                    <td>无</td>
+                                    <td>按分类正确显示优惠券，包括可用、已使用、已过期</td>
+                                </tr>
+                                
+                                <!-- 优惠券领取 -->
+                                <tr class="expandable-row">
+                                    <td>C-003</td>
+                                    <td>优惠券领取</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>用户领取优惠券</td>
+                                    <td>已登录用户，存在可领取的优惠券</td>
+                                    <td>1. 登录后进入优惠券中心<br>2. 找到可领取的优惠券<br>3. 点击"立即领取"按钮</td>
+                                    <td>无</td>
+                                    <td>优惠券领取成功，显示在个人优惠券列表中</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-004</td>
+                                    <td>优惠券领取</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>优惠券领取数量限制</td>
+                                    <td>已登录用户，同一优惠券每人限领1张</td>
+                                    <td>1. 登录后领取某优惠券<br>2. 再次尝试领取同一优惠券</td>
+                                    <td>无</td>
+                                    <td>提示"该优惠券已领取"，无法重复领取</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-005</td>
+                                    <td>优惠券领取</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>优惠券领取时间限制</td>
+                                    <td>已登录用户，优惠券领取活动未开始</td>
+                                    <td>1. 登录后进入优惠券中心<br>2. 尝试领取未开始活动的优惠券</td>
+                                    <td>无</td>
+                                    <td>提示"活动尚未开始"，无法领取</td>
+                                </tr>
+                                
+                                <!-- 优惠券使用 -->
+                                <tr class="expandable-row">
+                                    <td>C-006</td>
+                                    <td>优惠券使用</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>购物时使用优惠券</td>
+                                    <td>已登录用户，有可用优惠券，购物车中有符合条件的商品</td>
+                                    <td>1. 登录后购物车中有商品<br>2. 进入订单确认页面<br>3. 选择可用的优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，优惠券使用成功，订单金额扣除优惠券面额</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-007</td>
+                                    <td>优惠券使用</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>不符合条件时使用优惠券</td>
+                                    <td>已登录用户，有可用优惠券，购物车商品金额未达到使用条件</td>
+                                    <td>1. 登录后购物车中有商品（金额低于优惠券使用条件）<br>2. 进入订单确认页面<br>3. 尝试选择优惠券</td>
+                                    <td>优惠券使用条件：满100元可用<br>商品金额：80元</td>
+                                    <td>该优惠券不可选，提示"订单金额未达到使用条件"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-008</td>
+                                    <td>优惠券使用</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>多商品订单使用优惠券</td>
+                                    <td>已登录用户，有可用优惠券，购物车中有多个商品</td>
+                                    <td>1. 登录后购物车中有多个商品<br>2. 进入订单确认页面<br>3. 选择可用的优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，优惠券使用成功，订单总金额扣除优惠券面额</td>
+                                </tr>
+                                
+                                <!-- 优惠券有效期 -->
+                                <tr class="expandable-row">
+                                    <td>C-009</td>
+                                    <td>优惠券有效期</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>有效期内使用优惠券</td>
+                                    <td>已登录用户，有可用且在有效期内的优惠券</td>
+                                    <td>1. 登录后购物车中有符合条件的商品<br>2. 进入订单确认页面<br>3. 选择有效期内的优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，优惠券使用成功</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-010</td>
+                                    <td>优惠券有效期</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>过期优惠券使用</td>
+                                    <td>已登录用户，有已过期的优惠券</td>
+                                    <td>1. 登录后购物车中有符合条件的商品<br>2. 进入订单确认页面<br>3. 尝试选择已过期的优惠券</td>
+                                    <td>无</td>
+                                    <td>该优惠券不可选，显示为"已过期"状态</td>
+                                </tr>
+                                
+                                <!-- 优惠券使用限制 -->
+                                <tr class="expandable-row">
+                                    <td>C-011</td>
+                                    <td>优惠券使用限制</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>特定商品可用优惠券</td>
+                                    <td>已登录用户，有仅适用于特定商品的优惠券</td>
+                                    <td>1. 登录后购物车中有符合条件的特定商品<br>2. 进入订单确认页面<br>3. 选择特定商品优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，优惠券使用成功</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-012</td>
+                                    <td>优惠券使用限制</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>特定商品优惠券使用错误商品</td>
+                                    <td>已登录用户，有仅适用于特定商品的优惠券，购物车中是其他商品</td>
+                                    <td>1. 登录后购物车中有不符合条件的商品<br>2. 进入订单确认页面<br>3. 尝试选择特定商品优惠券</td>
+                                    <td>无</td>
+                                    <td>该优惠券不可选，提示"商品不符合使用条件"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-013</td>
+                                    <td>优惠券使用限制</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>优惠券叠加使用</td>
+                                    <td>已登录用户，有多种可叠加使用的优惠券</td>
+                                    <td>1. 登录后购物车中有符合条件的商品<br>2. 进入订单确认页面<br>3. 选择多个可叠加的优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，所有选中的优惠券均可使用，订单金额正确扣除</td>
+                                </tr>
+                                
+                                <!-- 优惠券过期处理 -->
+                                <tr class="expandable-row">
+                                    <td>C-014</td>
+                                    <td>优惠券过期处理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>优惠券过期自动失效</td>
+                                    <td>已登录用户，有即将过期的优惠券</td>
+                                    <td>1. 登录后查看优惠券列表<br>2. 等待优惠券过期<br>3. 再次查看优惠券列表</td>
+                                    <td>无</td>
+                                    <td>优惠券过期后自动从"可用"分类移至"已过期"分类</td>
+                                </tr>
+                                
+                                <!-- 优惠券管理（管理员功能） -->
+                                <tr class="expandable-row">
+                                    <td>C-015</td>
+                                    <td>优惠券管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>管理员创建优惠券</td>
+                                    <td>已登录管理员账号</td>
+                                    <td>1. 登录管理员账号<br>2. 进入优惠券管理页面<br>3. 点击"创建优惠券"<br>4. 填写优惠券信息<br>5. 提交保存</td>
+                                    <td>优惠券名称：满100减20<br>面额：20元<br>使用条件：满100元<br>有效期：7天</td>
+                                    <td>优惠券创建成功，显示在优惠券列表中</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-016</td>
+                                    <td>优惠券管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>管理员编辑优惠券</td>
+                                    <td>已登录管理员账号，存在已创建的优惠券</td>
+                                    <td>1. 登录管理员账号<br>2. 进入优惠券管理页面<br>3. 找到已创建的优惠券<br>4. 点击"编辑"按钮<br>5. 修改优惠券信息<br>6. 提交保存</td>
+                                    <td>修改后的面额：30元</td>
+                                    <td>优惠券更新成功，信息已修改</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-017</td>
+                                    <td>优惠券管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>管理员停用优惠券</td>
+                                    <td>已登录管理员账号，存在已创建的优惠券</td>
+                                    <td>1. 登录管理员账号<br>2. 进入优惠券管理页面<br>3. 找到已创建的优惠券<br>4. 点击"停用"按钮</td>
+                                    <td>无</td>
+                                    <td>优惠券状态变为"已停用"，用户无法领取和使用</td>
+                                </tr>
+                                
+                                <!-- 优惠券边界条件 -->
+                                <tr class="expandable-row">
+                                    <td>C-018</td>
+                                    <td>优惠券边界条件</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>刚好达到使用条件的优惠券使用</td>
+                                    <td>已登录用户，有满100减20的优惠券</td>
+                                    <td>1. 登录后购物车中加入100元的商品<br>2. 进入订单确认页面<br>3. 选择满100减20优惠券<br>4. 提交订单</td>
+                                    <td>商品金额：100元<br>优惠券：满100减20</td>
+                                    <td>订单提交成功，优惠券使用成功，订单金额显示80元</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-019</td>
+                                    <td>优惠券边界条件</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>优惠券有效期最后一天使用</td>
+                                    <td>已登录用户，有有效期当天结束的优惠券</td>
+                                    <td>1. 登录后购物车中加入符合条件的商品<br>2. 进入订单确认页面<br>3. 选择当天到期的优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，优惠券使用成功</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-020</td>
+                                    <td>优惠券边界条件</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>优惠券有效期最后一小时使用</td>
+                                    <td>已登录用户，有有效期最后一小时的优惠券</td>
+                                    <td>1. 登录后购物车中加入符合条件的商品<br>2. 进入订单确认页面<br>3. 选择最后一小时到期的优惠券<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单提交成功，优惠券使用成功</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-021</td>
+                                    <td>优惠券边界条件</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>最大优惠券数量限制</td>
+                                    <td>已登录用户，系统设置每人最多拥有50张优惠券</td>
+                                    <td>1. 登录后领取多张优惠券，使总数达到50张<br>2. 尝试领取第51张优惠券</td>
+                                    <td>无</td>
+                                    <td>提示"已达到最大优惠券数量限制"，无法继续领取</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-022</td>
+                                    <td>优惠券边界条件</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>最小优惠券面额使用</td>
+                                    <td>已登录用户，有1元面额的优惠券</td>
+                                    <td>1. 登录后购物车中加入符合条件的商品<br>2. 进入订单确认页面<br>3. 选择1元面额优惠券<br>4. 提交订单</td>
+                                    <td>商品金额：2元<br>优惠券：1元无门槛</td>
+                                    <td>订单提交成功，优惠券使用成功，订单金额显示1元</td>
+                                </tr>
+                                
+                                <!-- 优惠券异常处理 -->
+                                <tr class="expandable-row">
+                                    <td>C-023</td>
+                                    <td>优惠券异常处理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>领取优惠券时网络异常</td>
+                                    <td>已登录用户，存在可领取的优惠券，模拟网络异常</td>
+                                    <td>1. 登录后进入优惠券中心<br>2. 找到可领取的优惠券<br>3. 点击"立即领取"按钮，同时断开网络</td>
+                                    <td>无</td>
+                                    <td>提示"网络异常，请稍后重试"，优惠券未成功领取</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-024</td>
+                                    <td>优惠券异常处理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>使用优惠券时网络异常</td>
+                                    <td>已登录用户，有可用优惠券，购物车中有符合条件的商品</td>
+                                    <td>1. 登录后进入订单确认页面<br>2. 选择可用优惠券<br>3. 提交订单，同时断开网络</td>
+                                    <td>无</td>
+                                    <td>提示"网络异常，请稍后重试"，订单未提交成功，优惠券未使用</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-025</td>
+                                    <td>优惠券异常处理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>无效优惠券码使用</td>
+                                    <td>已登录用户，系统支持输入优惠券码</td>
+                                    <td>1. 登录后进入订单确认页面<br>2. 输入无效的优惠券码<br>3. 点击"使用"按钮</td>
+                                    <td>优惠券码：INVALID123</td>
+                                    <td>提示"优惠券码无效"，无法使用该优惠券</td>
+                                </tr>
+                                
+                                <!-- 优惠券并发场景 -->
+                                <tr class="expandable-row">
+                                    <td>C-026</td>
+                                    <td>优惠券并发场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>并发领取限量优惠券</td>
+                                    <td>多个用户同时尝试领取限量优惠券（库存100张）</td>
+                                    <td>1. 准备150个模拟用户<br>2. 同时触发领取同一张限量优惠券的请求<br>3. 检查领取结果</td>
+                                    <td>优惠券库存：100张<br>并发用户数：150</td>
+                                    <td>只有100个用户领取成功，其他用户提示"优惠券已领完"，无超发情况</td>
+                                </tr>
+                                
+                                <!-- 优惠券安全性 -->
+                                <tr class="expandable-row">
+                                    <td>C-027</td>
+                                    <td>优惠券安全性</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>防止优惠券领取刷取</td>
+                                    <td>已登录用户，系统存在防刷机制</td>
+                                    <td>1. 登录后快速多次点击领取同一优惠券<br>2. 检查领取结果</td>
+                                    <td>无</td>
+                                    <td>系统限制领取频率，提示"操作过于频繁，请稍后重试"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>C-028</td>
+                                    <td>优惠券安全性</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>未授权用户访问优惠券</td>
+                                    <td>未登录用户，尝试访问优惠券相关功能</td>
+                                    <td>1. 未登录状态下访问优惠券中心<br>2. 尝试领取优惠券<br>3. 尝试使用优惠券</td>
+                                    <td>无</td>
+                                    <td>提示用户先登录，无法领取和使用优惠券</td>
+                                </tr>
+                                
+                                <!-- 优惠券性能测试 -->
+                                <tr class="expandable-row">
+                                    <td>C-029</td>
+                                    <td>优惠券性能测试</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>优惠券列表加载性能</td>
+                                    <td>已登录用户，拥有大量优惠券（50张）</td>
+                                    <td>1. 登录后进入优惠券中心<br>2. 测量优惠券列表加载时间</td>
+                                    <td>优惠券数量：50张</td>
+                                    <td>优惠券列表加载时间不超过2秒，页面无卡顿</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 6. 会员管理模块 -->
+                <div class="module-card" data-module="membership">
+                    <div class="module-header">
+                        <h2 class="module-title">
+                            <span>6. 会员管理模块</span>
+                            <span class="case-count">30个用例</span>
+                        </h2>
+                        <span class="module-toggle">▼</span>
+                    </div>
+                    <div class="module-content">
+                        <table class="test-cases-table">
+                            <thead>
+                                <tr>
+                                    <th>用例编号ID</th>
+                                    <th>功能模块</th>
+                                    <th>优先级</th>
+                                    <th>用例标题</th>
+                                    <th>预置条件</th>
+                                    <th>执行步骤</th>
+                                    <th>测试数据</th>
+                                    <th>预期结果</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 会员等级展示 -->
+                                <tr class="expandable-row">
+                                    <td>M-001</td>
+                                    <td>会员等级展示</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>会员等级信息展示</td>
+                                    <td>已登录用户，系统中存在会员等级体系</td>
+                                    <td>1. 登录后进入个人中心<br>2. 点击"会员中心"选项</td>
+                                    <td>无</td>
+                                    <td>显示当前会员等级、成长值、升级进度和各等级权益</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-002</td>
+                                    <td>会员等级展示</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员等级权益详情展示</td>
+                                    <td>已登录用户，系统中存在会员等级体系</td>
+                                    <td>1. 登录后进入个人中心<br>2. 点击"会员中心"选项<br>3. 查看会员等级权益详情</td>
+                                    <td>无</td>
+                                    <td>详细展示各等级的专属权益，包括折扣、积分倍数、专属客服等</td>
+                                </tr>
+                                
+                                <!-- 会员成长值获取 -->
+                                <tr class="expandable-row">
+                                    <td>M-003</td>
+                                    <td>会员成长值获取</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>购物获得成长值</td>
+                                    <td>已登录用户，完成商品购买</td>
+                                    <td>1. 登录后购买商品并完成支付<br>2. 进入会员中心查看成长值</td>
+                                    <td>无</td>
+                                    <td>成长值增加，增加数值符合系统规则</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-004</td>
+                                    <td>会员成长值获取</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>评价获得成长值</td>
+                                    <td>已登录用户，有已完成订单未评价</td>
+                                    <td>1. 登录后进入我的订单<br>2. 对已完成订单进行评价<br>3. 进入会员中心查看成长值</td>
+                                    <td>无</td>
+                                    <td>成长值增加，增加数值符合系统规则</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-005</td>
+                                    <td>会员成长值获取</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>每日签到获得成长值</td>
+                                    <td>已登录用户</td>
+                                    <td>1. 登录后进入会员中心<br>2. 点击"每日签到"按钮</td>
+                                    <td>无</td>
+                                    <td>签到成功，成长值增加，显示连续签到天数</td>
+                                </tr>
+                                
+                                <!-- 会员等级升级 -->
+                                <tr class="expandable-row">
+                                    <td>M-006</td>
+                                    <td>会员等级升级</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>成长值达到升级条件自动升级</td>
+                                    <td>已登录用户，成长值接近升级条件</td>
+                                    <td>1. 登录后进行购物获得成长值<br>2. 确保成长值达到升级条件<br>3. 进入会员中心查看会员等级</td>
+                                    <td>无</td>
+                                    <td>会员等级自动提升，显示升级通知和新等级权益</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-007</td>
+                                    <td>会员等级升级</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>手动升级会员等级</td>
+                                    <td>已登录用户，系统支持付费升级会员</td>
+                                    <td>1. 登录后进入会员中心<br>2. 选择要升级的会员等级<br>3. 点击"立即升级"并完成支付</td>
+                                    <td>无</td>
+                                    <td>会员等级立即提升，显示升级成功通知</td>
+                                </tr>
+                                
+                                <!-- 会员专属权益 -->
+                                <tr class="expandable-row">
+                                    <td>M-008</td>
+                                    <td>会员专属权益</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>会员专享折扣</td>
+                                    <td>已登录会员用户，存在会员专享折扣商品</td>
+                                    <td>1. 登录后浏览会员专享商品<br>2. 查看商品价格</td>
+                                    <td>无</td>
+                                    <td>显示会员专享价格，价格低于非会员价格</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-009</td>
+                                    <td>会员专属权益</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员专属优惠券</td>
+                                    <td>已登录会员用户，系统定期发放会员专属优惠券</td>
+                                    <td>1. 登录后进入会员中心<br>2. 查看会员专属优惠券</td>
+                                    <td>无</td>
+                                    <td>显示会员专属优惠券，可正常领取和使用</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-010</td>
+                                    <td>会员专属权益</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员生日福利</td>
+                                    <td>已登录会员用户，填写了生日信息，当前日期为会员生日</td>
+                                    <td>1. 登录后进入会员中心<br>2. 查看生日福利</td>
+                                    <td>无</td>
+                                    <td>显示生日专属福利，如优惠券、积分等</td>
+                                </tr>
+                                
+                                <!-- 会员积分管理 -->
+                                <tr class="expandable-row">
+                                    <td>M-011</td>
+                                    <td>会员积分管理</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>购物获得积分</td>
+                                    <td>已登录用户，完成商品购买</td>
+                                    <td>1. 登录后购买商品并完成支付<br>2. 进入会员中心查看积分</td>
+                                    <td>无</td>
+                                    <td>积分增加，增加数值符合系统规则（如消费金额的1%）</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-012</td>
+                                    <td>会员积分管理</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>积分抵扣消费</td>
+                                    <td>已登录用户，有足够的积分</td>
+                                    <td>1. 登录后购物车中有商品<br>2. 进入订单确认页面<br>3. 选择使用积分抵扣<br>4. 提交订单</td>
+                                    <td>无</td>
+                                    <td>订单金额减少，减少数值符合积分抵扣规则，积分相应扣除</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-013</td>
+                                    <td>会员积分管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>积分兑换商品</td>
+                                    <td>已登录用户，有足够的积分，系统中存在可积分兑换的商品</td>
+                                    <td>1. 登录后进入积分商城<br>2. 选择可兑换的商品<br>3. 点击"立即兑换"</td>
+                                    <td>无</td>
+                                    <td>商品兑换成功，积分相应扣除</td>
+                                </tr>
+                                
+                                <!-- 会员资格到期 -->
+                                <tr class="expandable-row">
+                                    <td>M-014</td>
+                                    <td>会员资格到期</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员资格到期自动降级</td>
+                                    <td>已登录付费会员用户，会员资格即将到期</td>
+                                    <td>1. 登录后进入会员中心查看会员有效期<br>2. 等待会员资格到期<br>3. 再次查看会员等级</td>
+                                    <td>无</td>
+                                    <td>会员等级自动降级到普通会员，显示降级通知</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-015</td>
+                                    <td>会员资格到期</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员资格到期前提醒</td>
+                                    <td>已登录付费会员用户，会员资格即将到期</td>
+                                    <td>1. 登录后进入会员中心<br>2. 查看会员有效期提醒</td>
+                                    <td>无</td>
+                                    <td>显示会员资格即将到期的提醒信息</td>
+                                </tr>
+                                
+                                <!-- 会员信息管理 -->
+                                <tr class="expandable-row">
+                                    <td>M-016</td>
+                                    <td>会员信息管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>修改会员个人信息</td>
+                                    <td>已登录用户</td>
+                                    <td>1. 登录后进入个人中心<br>2. 点击"编辑资料"<br>3. 修改个人信息<br>4. 保存修改</td>
+                                    <td>昵称：新昵称<br>生日：2000-01-01</td>
+                                    <td>个人信息修改成功，显示修改成功通知</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-017</td>
+                                    <td>会员信息管理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>设置会员偏好</td>
+                                    <td>已登录用户</td>
+                                    <td>1. 登录后进入个人中心<br>2. 点击"会员偏好设置"<br>3. 设置偏好信息<br>4. 保存设置</td>
+                                    <td>无</td>
+                                    <td>偏好设置保存成功，系统根据偏好推荐商品</td>
+                                </tr>
+                                
+                                <!-- 会员管理（管理员功能） -->
+                                <tr class="expandable-row">
+                                    <td>M-018</td>
+                                    <td>会员管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>管理员查看会员列表</td>
+                                    <td>已登录管理员账号</td>
+                                    <td>1. 登录管理员账号<br>2. 进入会员管理页面<br>3. 查看会员列表</td>
+                                    <td>无</td>
+                                    <td>显示所有会员信息，包括会员等级、成长值、积分等</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-019</td>
+                                    <td>会员管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>管理员修改会员等级</td>
+                                    <td>已登录管理员账号，存在会员用户</td>
+                                    <td>1. 登录管理员账号<br>2. 进入会员管理页面<br>3. 找到要修改的会员<br>4. 调整会员等级<br>5. 保存修改</td>
+                                    <td>无</td>
+                                    <td>会员等级修改成功，会员端显示新等级</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-020</td>
+                                    <td>会员管理</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>管理员设置会员权益</td>
+                                    <td>已登录管理员账号</td>
+                                    <td>1. 登录管理员账号<br>2. 进入会员权益管理页面<br>3. 设置各等级会员权益<br>4. 保存设置</td>
+                                    <td>无</td>
+                                    <td>会员权益设置成功，会员端显示更新后的权益</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
