@@ -224,6 +224,41 @@
 .journey-content p {
     color: var(--text-light);
     line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.journey-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.journey-details li {
+    color: var(--text-light);
+    line-height: 1.8;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.journey-details li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.journey-details li:hover {
+    color: var(--text-dark);
+    padding-left: 1.8rem;
+}
+
+.journey-details li:hover::before {
+    transform: translateX(0.2rem) scale(1.2);
+    color: var(--accent-dark);
 }
 
 .achievements {

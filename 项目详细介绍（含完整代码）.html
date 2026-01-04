@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云链电商平台UI自动化回归测试</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        h4 {
+            color: #95a5a6;
+            margin-top: 15px;
+        }
+        p {
+            text-indent: 2em;
+            margin-bottom: 15px;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        ul, ol {
+            margin-left: 40px;
+            margin-bottom: 15px;
+        }
+        .file-structure {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+            margin-bottom: 20px;
+        }
+        .file-structure ul {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+        .file-structure li {
+            margin-bottom: 5px;
+        }
+        .file-structure li:before {
+            content: "├── ";
+        }
+        .file-structure ul ul li:before {
+            content: "│   ├── ";
+        }
+        .file-structure ul ul ul li:before {
+            content: "│   │   ├── ";
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .module-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .module-table th, .module-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .module-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .test-case {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 5px solid #4682b4;
+        }
+        .test-case h4 {
+            margin-top: 0;
+            color: #4682b4;
+        }
+        .code-title {
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        .full-code {
+            margin-top: 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <h1>云链电商平台UI自动化回归测试</h1>
+
+        <h2>1. 概述</h2>
+        <p>一个基于Selenium和Python的UI自动化回归测试框架，用于测试云链电商平台的核心功能。项目采用了Page Object Model (POM) 设计模式，将页面元素定位、操作和业务逻辑分离，提高了测试用例的可维护性和可扩展性。</p>
+        
+        <div class="highlight">
+            <p><strong>目标：</strong>通过自动化测试确保云链电商平台的核心功能在持续开发和迭代过程中保持稳定，减少人工回归测试的工作量，提高测试效率和质量。</p>
+        </div>
+
+        <h2>2. 技术架构</h2>
+        <h3>2.1 核心技术栈</h3>
+        <ul>
+            <li><strong>自动化测试框架：</strong>Selenium WebDriver</li>
+            <li><strong>编程语言：</strong>Python 3.9</li>
+            <li><strong>测试运行器：</strong>pytest</li>
+            <li><strong>设计模式：</strong>Page Object Model (POM)</li>
+        </ul>
+
+        <h3>2.2 项目架构</h3>
+        <p>项目采用了分层架构设计，主要分为以下几层：</p>
+        <ol>
+            <li><strong>工具层 (util)：</strong>提供通用的工具函数和浏览器驱动管理</li>
+            <li><strong>页面对象层 (Pages)：</strong>封装页面元素定位和基础操作</li>
+            <li><strong>业务逻辑层：</strong>封装业务流程和测试场景</li>
+            <li><strong>测试用例层 (Shop_UI)：</strong>实现具体的测试用例</li>
+        </ol>
+
+        <h2>3. 目录结构</h2>
+        <div class="file-structure">
+            <ul>
+                <li>PythonProject1/
+                    <ul>
+                        <li>Pages/ - 页面对象模型目录
+                            <ul>
+                                <li>__pycache__/ - Python编译缓存</li>
+                                <li>cart_page.py - 购物车页面对象</li>
+                                <li>index_page.py - 首页页面对象</li>
+                                <li>login_page.py - 登录页面对象</li>
+                                <li>product_detail_page.py - 商品详情页面对象</li>
+                                <li>search_page.py - 搜索页面对象</li>
+                                <li>user_center_page.py - 用户中心页面对象</li>
+                            </ul>
+                        </li>
+                        <li>Shop_UI/ - 测试用例目录
+                            <ul>
+                                <li>__pycache__/ - Python编译缓存</li>
+                                <li>cart.py - 购物车功能测试</li>
+                                <li>login.py - 登录功能测试</li>
+                                <li>product_detail.py - 商品详情功能测试</li>
+                                <li>search.py - 搜索功能测试</li>
+                                <li>test_selenium.py - Selenium测试示例</li>
+                                <li>user_center.py - 用户中心功能测试</li>
+                            </ul>
+                        </li>
+                        <li>__pycache__/ - Python编译缓存</li>
+                        <li>main.py - 项目入口文件</li>
+                        <li>simple_test.py - 简单测试示例</li>
+                        <li>util.py - 工具函数</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>4. 核心模块介绍</h2>
+        
+        <h3>4.1 工具层 (util.py)</h3>
+        <p>工具层提供了通用的工具函数和浏览器驱动管理，主要包括：</p>
+        <ul>
+            <li><strong>Driver_util类：</strong>实现浏览器驱动的单例模式管理，确保整个测试过程中只使用一个浏览器实例</li>
+            <li><strong>get_alter_msg函数：</strong>获取弹窗消息</li>
+        </ul>
+        
+        <p class="code-title">util.py - 完整代码</p>
+        <pre class="full-code"><code>from time import sleep
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+
+def get_alter_msg():
+    sleep(2)
+    msg = Driver_util.get_chrome().find_element(By.CLASS_NAME, 'layui-layer-content').text
+    return msg
+
+class Driver_util(object):
+
+    __driver = None
+
+    @classmethod
+    def get_chrome(cls):
+        if cls.__driver is None:
+            cls.__driver = webdriver.Chrome()
+            cls.__driver.get("http://192.168.11.131/index.php")
+            cls.__driver.maximize_window()
+            cls.__driver.implicitly_wait(10)
+        return cls.__driver
+
+    @classmethod
+    def close_driver(cls):
+        if cls.__driver is not None:
+            sleep(2)
+            cls.__driver.quit()
+            cls.__driver = None
+
+if __name__ == '__main__':
+    Driver_util.get_chrome()
+    sleep(2)
+    Driver_util.close_driver()</code></pre>
+
+        <h3>4.2 页面对象层 (Pages)</h3>
+        <p>页面对象层采用了三层结构设计：</p>
+        <ol>
+            <li><strong>定位层：</strong>封装页面元素的定位方式和特征值</li>
+            <li><strong>操作层：</strong>封装对页面元素的操作方法</li>
+            <li><strong>业务层：</strong>封装业务流程和测试场景</li>
+        </ol>
+        
+        <h4>4.2.1 登录页面对象 (login_page.py)</h4>
+        <p>封装登录页面的元素定位和操作，支持正常登录和通过Cookie绕过验证码登录。</p>
+        
+        <p class="code-title">login_page.py - 完整代码</p>
+        <pre class="full-code"><code>"""
+登录页面
+"""
+from selenium.webdriver.common.by import By
+
+from util import Driver_util
+
+
+class Login_Page(object):#创建定位元素对象类
+    def __init__(self):#获取浏览器对象
+        # 说明：将元素的定位方法及特征值封装成属性，自能够实现集中中管理目标元素的定位方法及特征值
+        self.driver = Driver_util.get_chrome()
+        self.name = (By.ID, 'username')#用户名
+        self.pwd = (By.ID, 'password')#密码
+        self.code = (By.ID, 'verify_code')#验证码
+        self.login = (By.NAME, 'sbtbutton')#登录按钮
+        self.yes_01 =(By.CLASS_NAME,'layui-layer-btn0')#确认按钮
+        self.index_01 = (By.XPATH,'/html/body/div[1]/div/div[1]/a')#首页按钮
+    def find_username(self):#定位用户名元素
+        return self.driver.find_element(self.name[0],self.name[1])
+    def find_password(self):#定位密码元素
+        return self.driver.find_element(self.pwd[0],self.pwd[1])
+    def find_verify_code(self):#定位验证码元素
+        return self.driver.find_element(self.code[0],self.code[1])
+    def click_login(self):#定位登录按钮元素
+        return self.driver.find_element(self.login[0],self.login[1])
+    def yes(self):
+        return self.driver.find_element(self.yes_01[0],self.yes_01[1])
+    def find_index(self):
+        return self.driver.find_element(self.index_01[0],self.index_01[1])
+
+class Login_handler(object):#创建操作对象类
+    def __init__(self):#获取定位元素对象
+        self.find = Login_Page()
+    def send_username(self,username):#输入用户名
+        self.find.find_username().clear()
+        self.find.find_username().send_keys(username)
+    def send_password(self,password):#输入密码
+        self.find.find_password().clear()
+        self.find.find_password().send_keys(password)
+    def send_verify_code(self,code):#输入验证码
+        self.find.find_verify_code().clear()
+        self.find.find_verify_code().send_keys(code)
+    def click_login(self):#点击登录
+        self.find.click_login().click()
+    def click_yes(self):
+        self.find.yes().click()
+    def click_index(self):
+        self.find.find_index().click()
+
+class Login_task(object):#创建业务对象类
+    def __init__(self):#获取操作对象
+        self.handler = Login_handler()
+        self.driver = self.handler.find.driver
+    def task_login(self,username,password,code):#登录业务层
+        self.handler.send_username(username)#输入用户名业务
+        self.handler.send_password(password)#输入密码业务
+        self.handler.send_verify_code(code)#输入验证码业务
+        self.handler.click_login()#点击登录按钮业务
+    def task_yes(self):#错误提示点击确认按钮
+        self.handler.click_yes()
+    def task_index(self):
+        self.handler.click_index()
+    def login_with_cookie(self):#通过cookie绕过验证码登录
+        # 添加cookie绕过验证码
+        cookie_value = {
+            'name':'parent_region',
+            'value':'%5B%7B%22id%22%3A3%2C%22name%22%3A%22%u4E1C%u57CE%u533A%22%7D%2C%7B%22id%22%3A14%2C%22name%22%3A%22%u897F%u57CE%u533A%22%7D%2C%7B%22id%22%3A22%2C%22name%22%3A%22%u5D07%u6587%u533A%22%7D%2C%7B%22id%22%3A30%2C%22name%22%3A%22%u5BA3%u6B66%u533A%22%7D%2C%7B%22id%22%3A39%2C%22name%22%3A%22%u671D%u9633%u533A%22%7D%2C%7B%22id%22%3A83%2C%22name%22%3A%22%u4E30%u53F0%u533A%22%7D%2C%7B%22id%22%3A105%2C%22name%22%3A%22%u77F3%u666F%u5C71%u533A%22%7D%2C%7B%22id%22%3A115%2C%22name%22%3A%22%u6D77%u6DC0%u533A%22%7D%2C%7B%22id%22%3A145%2C%22name%22%3A%22%u95E8%u5934%u6C9F%u533A%22%7D%2C%7B%22id%22%3A159%2C%22name%22%3A%22%u623F%u5C71%u533A%22%7D%2C%7B%22id%22%3A188%2C%22name%22%3A%22%u901A%u5DDE%u533A%22%7D%2C%7B%22id%22%3A204%2C%22name%22%3A%22%u987A%u4E49%u533A%22%7D%2C%7B%22id%22%3A227%2C%22name%22%3A%22%u660C%u5E73%u533A%22%7D%2C%7B%22id%22%3A245%2C%22name%22%3A%22%u5927%u5174%u533A%22%7D%2C%7B%22id%22%3A264%2C%22name%22%3A%22%u6000%u67D4%u533A%22%7D%2C%7B%22id%22%3A281%2C%22name%22%3A%22%u5E73%u8C37%u533A%22%7D%5D'
+        }
+        cookie_value2 = {
+            'name':'PHPSESSID',
+            'value':'ente2aei5419j6ie4rgaq6jse6'
+        }
+        
+        # 访问登录页面
+        self.driver.get("http://192.168.11.131/Home/user/login.html")
+        
+        # 添加cookie
+        self.driver.add_cookie(cookie_value)
+        self.driver.add_cookie(cookie_value2)
+        
+        # 刷新页面
+        self.driver.refresh()</code></pre>
+        
+        <h4>4.2.2 购物车页面对象 (cart_page.py)</h4>
+        <p>封装购物车页面的元素定位和操作，支持添加商品、修改数量、删除商品、清空购物车等功能。</p>
+        
+        <p class="code-title">cart_page.py - 完整代码</p>
+        <pre class="full-code"><code>"""
+购物车页面
+"""
+from selenium.webdriver.common.by import By
+from util import Driver_util
+
+
+class Cart_Page(object):#创建定位元素对象类
+    def __init__(self):#获取浏览器对象
+        self.driver = Driver_util.get_chrome()
+        # 购物车商品相关元素
+        self.cart_items = (By.CSS_SELECTOR, '.u-fn-cart .c-item ')#购物车商品项
+        self.checkbox_all = (By.CLASS_NAME, 'checkall checkFull checkall-true ')#全选复选框
+        self.checkbox_item = (By.CSS_SELECTOR, '.checkall')#单个商品复选框
+        # 商品信息
+        self.product_names = (By.CSS_SELECTOR, '.detail-ggsl')#商品名称
+        self.product_prices = (By.CSS_SELECTOR, '.shop-price-cou .shop-price-le ul .bigpri_jj')#商品单价
+        self.product_nums = (By.CSS_SELECTOR, '.standard .minus-plus input ')#商品数量
+        # 操作按钮
+        self.reduce_btn = (By.CLASS_NAME, 'mins')#减少数量按钮
+        self.add_btn = (By.CLASS_NAME, 'add')#增加数量按钮
+        self.delete_btn = (By.CLASS_NAME, 'deleteGoods deleteItem')#删除商品按钮
+        self.clear_cart_btn = (By.ID, 'clearCart')#清空购物车按钮
+        # 结算相关
+        self.total_price = (By.ID, 'cart_2_total_price')#合计价格
+        self.checkout_btn = (By.CLASS_NAME, 'paytotal')#结算按钮
+        # 空购物车提示
+        self.empty_cart_tip = (By.CLASS_NAME, 'txt nologin')#空购物车提示
+    
+    def find_checkbox_all(self):#定位全选复选框
+        return self.driver.find_element(self.checkbox_all[0], self.checkbox_all[1])
+    
+    def find_checkbox_item(self):#定位所有单个商品复选框
+        return self.driver.find_elements(self.checkbox_item[0], self.checkbox_item[1])
+    
+    def find_cart_items(self):#定位所有购物车商品项
+        return self.driver.find_elements(self.cart_items[0], self.cart_items[1])
+    
+    def find_product_names(self):#定位所有商品名称
+        return self.driver.find_elements(self.product_names[0], self.product_names[1])
+    
+    def find_product_prices(self):#定位所有商品单价
+        return self.driver.find_elements(self.product_prices[0], self.product_prices[1])
+    
+    def find_product_nums(self):#定位所有商品数量输入框
+        return self.driver.find_elements(self.product_nums[0], self.product_nums[1])
+    
+    def find_reduce_btn(self):#定位所有减少数量按钮
+        return self.driver.find_elements(self.reduce_btn[0], self.reduce_btn[1])
+    
+    def find_add_btn(self):#定位所有增加数量按钮
+        return self.driver.find_elements(self.add_btn[0], self.add_btn[1])
+    
+    def find_delete_btn(self):#定位所有删除商品按钮
+        return self.driver.find_elements(self.delete_btn[0], self.delete_btn[1])
+    
+    def find_clear_cart_btn(self):#定位清空购物车按钮
+        return self.driver.find_element(self.clear_cart_btn[0], self.clear_cart_btn[1])
+    
+    def find_total_price(self):#定位合计价格
+        return self.driver.find_element(self.total_price[0], self.total_price[1])
+    
+    def find_checkout_btn(self):#定位结算按钮
+        return self.driver.find_element(self.checkout_btn[0], self.checkout_btn[1])
+    
+    def find_empty_cart_tip(self):#定位空购物车提示
+        return self.driver.find_element(self.empty_cart_tip[0], self.empty_cart_tip[1])
+
+
+class Cart_handler(object):#创建操作对象类
+    def __init__(self):#获取定位元素对象
+        self.find = Cart_Page()
+    
+    def click_checkbox_all(self):#点击全选复选框
+        self.find.find_checkbox_all().click()
+    
+    def click_checkbox_item(self, index):#点击指定索引的商品复选框
+        items = self.find.find_checkbox_item()
+        if index < len(items):
+            items[index].click()
+    
+    def get_cart_items_count(self):#获取购物车商品数量
+        return len(self.find.find_cart_items())
+    
+    def get_product_names(self):#获取所有商品名称
+        return [item.text for item in self.find.find_product_names()]
+    
+    def get_product_prices(self):#获取所有商品单价
+        return [item.text for item in self.find.find_product_prices()]
+    
+    def get_product_nums(self):#获取所有商品数量
+        return [item.get_attribute('value') for item in self.find.find_product_nums()]
+    
+    def set_product_num(self, index, num):#设置指定商品的数量
+        nums = self.find.find_product_nums()
+        if index < len(nums):
+            nums[index].clear()
+            nums[index].send_keys(num)
+    
+    def click_reduce_btn(self, index):#点击指定商品的减少数量按钮
+        btns = self.find.find_reduce_btn()
+        if index < len(btns):
+            btns[index].click()
+    
+    def click_add_btn(self, index):#点击指定商品的增加数量按钮
+        btns = self.find.find_add_btn()
+        if index < len(btns):
+            btns[index].click()
+    
+    def click_delete_btn(self, index):#点击指定商品的删除按钮
+        btns = self.find.find_delete_btn()
+        if index < len(btns):
+            btns[index].click()
+    
+    def click_clear_cart(self):#点击清空购物车按钮
+        self.find.find_clear_cart_btn().click()
+    
+    def get_total_price(self):#获取合计价格
+        return self.find.find_total_price().text
+    
+    def click_checkout(self):#点击结算按钮
+        self.find.find_checkout_btn().click()
+    
+    def is_cart_empty(self):#判断购物车是否为空
+        try:
+            return self.find.find_empty_cart_tip().is_displayed()
+        except:
+            return False
+
+
+class Cart_task(object):#创建业务对象类
+    def __init__(self):#获取操作对象
+        self.handler = Cart_handler()
+        self.driver = self.handler.find.driver
+    
+    def task_go_to_cart(self):#进入购物车页面业务
+        self.driver.get("http://192.168.11.131/Home/Cart/index.html")
+    
+    def task_select_all_products(self):#全选商品业务
+        self.handler.click_checkbox_all()
+    
+    def task_select_product(self, index):#选择指定商品业务
+        self.handler.click_checkbox_item(index)
+    
+    def task_update_product_num(self, index, num):#更新商品数量业务
+        self.handler.set_product_num(index, num)
+    
+    def task_delete_product(self, index):#删除商品业务
+        self.handler.click_delete_btn(index)
+    
+    def task_clear_cart(self):#清空购物车业务
+        self.handler.click_clear_cart()
+    
+    def task_checkout(self):#结算业务
+        self.handler.click_checkout()
+    
+    def task_get_cart_info(self):#获取购物车信息业务
+        return {
+            'count': self.handler.get_cart_items_count(),
+            'names': self.handler.get_product_names(),
+            'prices': self.handler.get_product_prices(),
+            'nums': self.handler.get_product_nums(),
+            'total_price': self.handler.get_total_price(),
+            'is_empty': self.handler.is_cart_empty()
+        }</code></pre>
+        
+        <h4>4.2.3 搜索页面对象 (search_page.py)</h4>
+        <p>封装搜索页面的元素定位和操作，支持关键词搜索、查看搜索结果、查看商品详情等功能。</p>
+        
+        <p class="code-title">search_page.py - 完整代码</p>
+        <pre class="full-code"><code>"""
+商品搜索页面
+"""
+from selenium.webdriver.common.by import By
+from util import Driver_util
+
+
+class Search_Page(object):#创建定位元素对象类
+    def __init__(self):#获取浏览器对象
+        self.driver = Driver_util.get_chrome()
+        # 搜索相关元素
+        self.search_input = (By.ID, 'q')#搜索输入框
+        self.search_btn = (By.CLASS_NAME, 'ecsc-search-button')#搜索按钮
+        # 搜索结果相关元素
+        self.search_results = (By.CSS_SELECTOR, '.goods-list')#搜索结果列表
+        self.product_items = (By.CSS_SELECTOR, '.xs_img')#商品项
+        self.product_names = (By.CSS_SELECTOR, 'old shop_name2')#商品名称（修改为直接定位到a标签）
+        self.product_prices = (By.CSS_SELECTOR, '.li_xfo')#商品价格
+        # 分页相关元素
+        self.pagination = (By.CSS_SELECTOR, '.pagination')#分页控件
+        self.next_page = (By.ID, 'example1_next')#下一页按钮
+    
+    # 搜索功能元素定位
+    def find_search_input(self):#定位搜索输入框
+        return self.driver.find_element(self.search_input[0], self.search_input[1])
+    
+    def find_search_btn(self):#定位搜索按钮
+        return self.driver.find_element(self.search_btn[0], self.search_btn[1])
+    
+    # 搜索结果元素定位
+    def find_search_results(self):#定位搜索结果列表
+        return self.driver.find_element(self.search_results[0], self.search_results[1])
+    
+    def find_product_items(self):#定位所有商品项
+        return self.driver.find_elements(self.product_items[0], self.product_items[1])
+    
+    def find_product_names(self):#定位所有商品名称
+        return self.driver.find_elements(self.product_names[0], self.product_names[1])
+    
+    def find_product_prices(self):#定位所有商品价格
+        return self.driver.find_elements(self.product_prices[0], self.product_prices[1])
+    
+    # 分页元素定位
+    def find_pagination(self):#定位分页控件
+        return self.driver.find_element(self.pagination[0], self.pagination[1])
+    
+    def find_next_page(self):#定位下一页按钮
+        return self.driver.find_element(self.next_page[0], self.next_page[1])
+
+
+class Search_handler(object):#创建操作对象类
+    def __init__(self):#获取定位元素对象
+        self.find = Search_Page()
+    
+    def send_search_keyword(self, keyword):#输入搜索关键词
+        self.find.find_search_input().clear()
+        self.find.find_search_input().send_keys(keyword)
+    
+    def click_search_btn(self):#点击搜索按钮
+        self.find.find_search_btn().click()
+    
+    def get_product_items_count(self):#获取商品数量
+        return len(self.find.find_product_items())
+    
+    def get_product_names(self):#获取所有商品名称
+        return [item.text for item in self.find.find_product_names()]
+    
+    def get_product_prices(self):#获取所有商品价格
+        return [item.text for item in self.find.find_product_prices()]
+    
+    def click_product_by_index(self, index):#点击指定索引的商品
+        items = self.find.find_product_items()
+        if index < len(items):
+            items[index].click()
+    
+    def click_next_page(self):#点击下一页
+        self.find.find_next_page().click()
+
+
+class Search_task(object):#创建业务对象类
+    def __init__(self):#获取操作对象
+        self.handler = Search_handler()
+        self.driver = self.handler.find.driver
+    
+    def task_search(self, keyword):#搜索业务层
+        self.handler.send_search_keyword(keyword)#输入搜索关键词业务
+        self.handler.click_search_btn()#点击搜索按钮业务
+    
+    def task_search_and_get_results(self, keyword):#搜索并获取结果业务
+        self.task_search(keyword)
+        return {
+            'count': self.handler.get_product_items_count(),
+            'names': self.handler.get_product_names(),
+            'prices': self.handler.get_product_prices()
+        }
+    
+    def task_view_product_detail(self, keyword, index=0):#搜索并查看商品详情业务
+        self.task_search(keyword)
+        self.handler.click_product_by_index(index)
+        # 切换到新打开的窗口
+        self.driver.switch_to.window(self.driver.window_handles[-1])</code></pre>
+        
+        <h4>4.2.4 用户中心页面对象 (user_center_page.py)</h4>
+        <p>封装用户中心页面的元素定位和操作，支持查看用户信息、订单管理、地址管理、收藏夹管理等功能。</p>
+        
+        <p class="code-title">user_center_page.py - 完整代码</p>
+        <pre class="full-code"><code>"""
+用户中心页面
+"""
+from selenium.webdriver.common.by import By
+from util import Driver_util
+
+
+class UserCenter_Page(object):#创建定位元素对象类
+    def __init__(self):#获取浏览器对象
+        self.driver = Driver_util.get_chrome()
+        self.index =(By.CLASS_NAME,'home')
+        # 用户信息相关元素
+        self.user_info = (By.CSS_SELECTOR, '.user-info')#用户信息区域
+        self.username = (By.CSS_SELECTOR, '.username')#用户名
+        self.user_avatar = (By.CSS_SELECTOR, '.user-avatar')#用户头像
+        # 左侧导航菜单
+        self.nav_menu = (By.CSS_SELECTOR, '.user-nav li')#导航菜单项
+        self.order_manage = (By.LINK_TEXT, '订单管理')#订单管理
+        self.address_manage = (By.LINK_TEXT, '收货地址')#收货地址管理
+        self.favorite_manage = (By.LINK_TEXT, '我的收藏')#收藏夹管理
+        self.user_profile = (By.LINK_TEXT, '个人资料')#个人资料
+        # 订单管理相关元素
+        self.order_list = (By.CSS_SELECTOR, '.order-list')#订单列表
+        self.order_items = (By.CSS_SELECTOR, '.order-item')#订单项
+        self.order_status = (By.CSS_SELECTOR, '.order-status')#订单状态
+        # 收货地址相关元素
+        self.address_list = (By.CSS_SELECTOR, '.address-list')#地址列表
+        self.add_address_btn = (By.ID, 'addAddress')#添加地址按钮
+        # 收藏夹相关元素
+        self.favorite_list = (By.CSS_SELECTOR, '.favorite-list')#收藏列表
+        self.favorite_items = (By.CSS_SELECTOR, '.favorite-item')#收藏项
+
+    def find_index(self):
+        return self.driver.find_element(self.index[0],self.index[1])
+
+    def find_username(self):
+        return self.driver.find_element(self.username[0],self.username[1])
+
+    def find_user_avatar(self):
+        return self.driver.find_element(self.user_avatar[0],self.user_avatar[1])
+
+    def find_nav_menu(self):
+        return self.driver.find_elements(self.nav_menu[0],self.nav_menu[1])
+
+    def find_order_manage(self):
+        return self.driver.find_element(self.order_manage[0],self.order_manage[1])
+
+    def find_address_manage(self):
+        return self.driver.find_element(self.address_manage[0],self.address_manage[1])
+
+    def find_favorite_manage(self):
+        return self.driver.find_element(self.favorite_manage[0],self.favorite_manage[1])
+
+    def find_user_profile(self):
+        return self.driver.find_element(self.user_profile[0],self.user_profile[1])
+
+    def find_order_items(self):
+        return self.driver.find_elements( self.order_list[0], self.order_list[1])
+
+    def find_address_list(self):
+        return self.driver.find_elements(self.address_list[0],self.address_list[1])
+
+    def find_add_address_btn(self):
+        return self.driver.find_element(self.add_address_btn[0],self.add_address_btn[1])
+
+    def find_favorite_items(self):
+        return self.driver.find_elements(self.favorite_items[0],self.favorite_items[1])
+
+    def find_user_info(self):
+        return self.driver.find_element(self.user_info[0],self.user_info[1])
+
+
+class UserCenter_handler(object):#创建操作对象类
+    def __init__(self):#获取定位元素对象
+        self.find = UserCenter_Page()
+
+    def click_index(self):
+        self.find.find_index().click()
+
+    def get_username(self):#获取用户名
+        return self.find.find_username().text
+    
+    def click_nav_menu(self, index):#点击指定索引的导航菜单
+        items = self.find.find_nav_menu()
+        if index < len(items):
+            items[index].click()
+    
+    def click_order_manage(self):#点击订单管理
+        self.find.find_order_manage().click()
+    
+    def click_address_manage(self):#点击收货地址管理
+        self.find.find_address_manage().click()
+    
+    def click_favorite_manage(self):#点击收藏夹管理
+        self.find.find_favorite_manage().click()
+    
+    def click_user_profile(self):#点击个人资料
+        self.find.find_user_profile().click()
+    
+    def get_order_items_count(self):#获取订单数量
+        return len(self.find.find_order_items())
+    
+    def get_order_status_list(self):#获取所有订单状态
+        return [item.text for item in self.find.find_order_status()]
+    
+    def get_address_items_count(self):#获取收货地址数量
+        return len(self.find.find_address_list())
+    
+    def click_add_address(self):#点击添加地址按钮
+        self.find.find_add_address_btn().click()
+    
+    def get_favorite_items_count(self):#获取收藏商品数量
+        return len(self.find.find_favorite_items())
+
+
+class UserCenter_task(object):#创建业务对象类
+    def __init__(self):#获取操作对象
+        self.handler = UserCenter_handler()
+        self.driver = self.handler.find.driver
+
+    def task_index_click(self):
+        self.handler.click_index()
+
+    def task_go_to_user_center(self):#进入用户中心页面业务
+        self.driver.get("http://192.168.11.131/Home/User/index.html")
+    
+    def task_check_user_info(self):#检查用户信息业务
+        return {
+            'username': self.handler.get_username()
+        }
+    
+    def task_go_to_order_manage(self):#进入订单管理页面业务
+        self.task_go_to_user_center()
+        self.handler.click_order_manage()
+        return {
+            'order_count': self.handler.get_order_items_count(),
+            'status_list': self.handler.get_order_status_list()
+        }
+    
+    def task_go_to_address_manage(self):#进入收货地址管理页面业务
+        self.task_go_to_user_center()
+        self.handler.click_address_manage()
+        return {
+            'address_count': self.handler.get_address_items_count()
+        }
+    
+    def task_go_to_favorite_manage(self):#进入收藏夹管理页面业务
+        self.task_go_to_user_center()
+        self.handler.click_favorite_manage()
+        return {
+            'favorite_count': self.handler.get_favorite_items_count()
+        }
+    
+    def task_go_to_user_profile(self):#进入个人资料页面业务
+        self.task_go_to_user_center()
+        self.handler.click_user_profile()
+
+
+# 为UserCenter_Page添加定位方法
+def add_locator_methods():
+    # 动态添加定位方法到UserCenter_Page类
+    locators = {
+        'find_username': 'username',
+        'find_nav_menu': 'nav_menu',
+        'find_order_manage': 'order_manage',
+        'find_address_manage': 'address_manage',
+        'find_favorite_manage': 'favorite_manage',
+        'find_user_profile': 'user_profile',
+        'find_order_items': 'order_items',
+        'find_order_status': 'order_status',
+        'find_address_list': 'address_list',
+        'find_add_address_btn': 'add_address_btn',
+        'find_favorite_items': 'favorite_items'
+    }
+    
+    for method_name, locator_name in locators.items():
+        def make_method(locator_name):
+            def method(self):
+                locator = getattr(self, locator_name)
+                if isinstance(locator, tuple):
+                    if locator_name.endswith('s'):  # 如果是复数形式，使用find_elements
+                        return self.driver.find_elements(locator[0], locator[1])
+                    else:
+                        return self.driver.find_element(locator[0], locator[1])
+                return method
+        
+        setattr(UserCenter_Page, method_name, make_method(locator_name))
+
+# 调用函数添加定位方法
+add_locator_methods()</code></pre>
+
+        <h3>4.3 测试用例层 (Shop_UI)</h3>
+        <p>测试用例层实现了具体的测试用例，使用pytest作为测试运行器。</p>
+        
+        <h4>4.3.1 登录测试用例 (login.py)</h4>
+        <p>测试登录功能的各种场景，包括账号不存在、密码错误等。</p>
+        
+        <p class="code-title">login.py - 完整代码</p>
+        <pre class="full-code"><code>import pytest
+from time import sleep
+from Pages.index_page import index_task
+from Pages.login_page import Login_task
+from util import Driver_util, get_alter_msg
+
+class Test_Login(object):
+    def setup_class(self):
+        self.driver =  Driver_util()
+        self.index = index_task()#实例化首页业务层
+        self.login = Login_task()#实例化登录业务层
+        sleep(2)
+
+    def teardown_class(self):
+        self.driver.close_driver()
+
+    def setup_method(self):
+        self.driver.get_chrome()
+
+    def teardown_method(self):
+        self.login.task_yes()
+        self.login.task_index()
+        sleep(1)
+
+    def test_account_does_not_exist(self):
+        self.index.go_login()
+        # 输入错误用户名
+        self.login.task_login('13811110001','123456','8888')
+        # 拿错误信息
+        msg = get_alter_msg()
+        print('错误信息为：', msg)
+
+    def test_wrong_password(self):
+        self.index.go_login()
+        self.login.task_login('13811110000','12345','8888')
+        # 拿错误信息
+        msg = get_alter_msg()
+        print('错误信息为：', msg)
+
+if __name__ == '__main__':
+    pytest.main(['-s','login.py'])</code></pre>
+        
+        <h4>4.3.2 购物车测试用例 (cart.py)</h4>
+        <p>测试购物车功能的各种场景，包括进入购物车、添加商品、修改数量、删除商品等。</p>
+        
+        <p class="code-title">cart.py - 完整代码</p>
+        <pre class="full-code"><code>import pytest
+from time import sleep
+from Pages.search_page import Search_task
+from Pages.product_detail_page import ProductDetail_task
+from Pages.cart_page import Cart_task
+from Pages.login_page import Login_task
+from util import Driver_util
+
+
+class Test_Cart(object):
+    @classmethod
+    def setup_class(cls):
+        cls.driver_util = Driver_util()
+        cls.driver = cls.driver_util.get_chrome()
+        cls.search = Search_task()
+        cls.product_detail = ProductDetail_task()
+        cls.cart = Cart_task()
+        cls.login = Login_task()
+        
+        # 先登录，确保可以正常操作
+        cls.login.login_with_cookie()
+        sleep(2)
+        
+        # 先添加一些商品到购物车，方便测试
+        cls._add_test_products()
+    
+    @classmethod
+    def teardown_class(cls):
+        # 清空购物车
+        cls.cart.task_go_to_cart()
+        if not cls.cart.handler.is_cart_empty():
+            try:
+                cls.cart.task_clear_cart()
+                # 处理确认对话框
+                cls.driver.switch_to.alert.accept()
+                sleep(1)
+            except Exception as err:
+                pass
+        cls.driver_util.close_driver()
+    
+    def setup_method(self):
+        # 进入购物车页面
+        self.cart.task_go_to_cart()
+        sleep(2)
+    
+    def teardown_method(self):
+        pass
+    
+    @classmethod
+    def _add_test_products(cls):
+        """添加测试商品到购物车"""
+        # 商品列表
+        test_products = [
+            {'keyword': '手机', 'index': 0, 'num': 1},
+            {'keyword': '电脑', 'index': 0, 'num': 1}
+        ]
+        
+        for product in test_products:
+            # 搜索商品并进入详情页
+            cls.driver.get('http://192.168.11.131/')
+            sleep(1)
+            cls.search.task_view_product_detail(product['keyword'], product['index'])
+            sleep(2)
+            
+            # 添加到购物车
+            cls.product_detail.task_add_to_cart(product['num'])
+            sleep(2)
+            
+            # 处理弹窗
+            try:
+                cls.driver.switch_to.alert.accept()
+            except:
+                pass
+            
+            # 关闭详情页
+            try:
+                # 先保存当前窗口句柄
+                current_handles = cls.driver.window_handles
+                if len(current_handles) > 1:
+                    # 只有多个窗口时才关闭
+                    cls.driver.close()
+                    sleep(1)
+                    # 切换到第一个窗口
+                    cls.driver.switch_to.window(current_handles[0])
+            except Exception as e:
+                pass
+        
+        # 回到首页
+        cls.driver.get('http://192.168.11.131/')
+        sleep(1)
+    
+    def test_go_to_cart(self):
+        """测试进入购物车页面"""
+        current_url = self.driver.current_url
+        assert '/Cart/index.html' in current_url, f"未成功进入购物车页面，当前URL: {current_url}"
+        print("进入购物车页面测试通过")
+    
+    def test_get_cart_info(self):
+        """测试获取购物车信息"""
+        cart_info = self.cart.task_get_cart_info()
+        
+        # 验证购物车不为空
+        assert not cart_info['is_empty'], "购物车应该不为空"
+        assert cart_info['count'] > 0, "购物车商品数量应该大于0"
+        
+        # 验证购物车信息完整性
+        assert len(cart_info['names']) == cart_info['count'], "商品名称数量不匹配"
+        assert len(cart_info['prices']) == cart_info['count'], "商品价格数量不匹配"
+        assert len(cart_info['nums']) == cart_info['count'], "商品数量输入框数量不匹配"
+        
+        print(f"获取购物车信息测试通过，共有 {cart_info['count']} 件商品")
+    
+    def test_select_all_products(self):
+        """测试全选商品功能"""
+        # 先全选
+        self.cart.task_select_all_products()
+        sleep(1)
+        
+        # 验证所有复选框都被选中
+        checkboxes = self.cart.handler.find.find_checkbox_item()
+        all_selected = all(checkbox.is_selected() for checkbox in checkboxes)
+        assert all_selected, "全选功能失败，不是所有商品都被选中"
+        print("全选商品测试通过")
+    
+    def test_select_single_product(self):
+        """测试选择单个商品功能"""
+        # 先取消全选
+        if self.cart.handler.find.find_checkbox_all().is_selected():
+            self.cart.task_select_all_products()
+            sleep(1)
+        
+        # 选择第一个商品
+        self.cart.task_select_product(0)
+        sleep(1)
+        
+        # 验证只有第一个商品被选中
+        checkboxes = self.cart.handler.find.find_checkbox_item()
+        assert checkboxes[0].is_selected(), "第一个商品应该被选中"
+        for i in range(1, len(checkboxes)):
+            assert not checkboxes[i].is_selected(), f"第 {i+1} 个商品不应该被选中"
+        
+        print("选择单个商品测试通过")
+    
+    def test_update_product_num(self):
+        """测试修改商品数量功能"""
+        test_num = '2'
+        self.cart.task_update_product_num(0, test_num)
+        sleep(2)
+        
+        # 验证数量已更新
+        cart_info = self.cart.task_get_cart_info()
+        assert cart_info['nums'][0] == test_num, f"商品数量未更新，预期: {test_num}, 实际: {cart_info['nums'][0]}"
+        print(f"修改商品数量测试通过，已将商品数量更新为 {test_num}")
+    
+    def test_delete_product(self):
+        """测试删除商品功能"""
+        before_count = self.cart.handler.get_cart_items_count()
+        
+        # 删除第一个商品
+        self.cart.task_delete_product(0)
+        sleep(1)
+        
+        # 处理确认对话框
+        try:
+            alert = self.driver.switch_to.alert
+            alert.accept()
+            sleep(2)
+        except:
+            pass
+        
+        after_count = self.cart.handler.get_cart_items_count()
+        assert after_count == before_count - 1, f"删除商品失败，删除前: {before_count} 件，删除后: {after_count} 件"
+        print("删除商品测试通过")
+    
+    def test_checkout(self):
+        """测试结算功能"""
+        # 选择第一个商品
+        self.cart.task_select_product(0)
+        sleep(1)
+        
+        # 点击结算
+        self.cart.task_checkout()
+        sleep(3)
+        
+        # 验证是否跳转到结算页面
+        current_url = self.driver.current_url
+        assert '/flow/checkout.html' in current_url or '/order/confirm' in current_url, \
+            f"结算后未跳转到结算页面，当前URL: {current_url}"
+        
+        print(f"结算测试通过，已跳转到结算页面: {current_url}")
+        
+        # 回到购物车页面，方便后续测试
+        self.cart.task_go_to_cart()
+        sleep(2)
+    
+    def test_cart_empty(self):
+        """测试空购物车状态"""
+        # 先添加一个商品
+        self.driver.get('http://192.168.11.131/')
+        sleep(1)
+        self.search.task_view_product_detail('手机', 0)
+        sleep(2)
+        self.product_detail.task_add_to_cart(1)
+        sleep(2)
+        
+        try:
+            self.driver.switch_to.alert.accept()
+        except:
+            pass
+        
+        try:
+            # 先保存当前窗口句柄
+            current_handles = self.driver.window_handles
+            if len(current_handles) > 1:
+                # 只有多个窗口时才关闭
+                self.driver.close()
+                sleep(1)
+                # 切换到第一个窗口
+                self.driver.switch_to.window(current_handles[0])
+        except Exception as e:
+            pass
+        
+        self.cart.task_go_to_cart()
+        sleep(2)
+        
+        # 清空购物车
+        self.cart.task_clear_cart()
+        sleep(1)
+        
+        # 处理确认对话框
+        try:
+            alert = self.driver.switch_to.alert
+            alert.accept()
+            sleep(2)
+        except:
+            pass
+        
+        # 验证购物车为空
+        assert self.cart.handler.is_cart_empty(), "购物车应该为空"
+        print("空购物车测试通过")
+
+if __name__ == '__main__':
+    pytest.main(['-s', 'cart.py'])</code></pre>
+        
+        <h4>4.3.2 搜索测试用例 (search.py)</h4>
+        <p>测试搜索功能的各种场景，包括正常搜索、空关键词搜索、特殊字符搜索等。</p>
+        
+        <p class="code-title">search.py - 完整代码</p>
+        <pre class="full-code"><code>import pytest
+from time import sleep
+from Pages.search_page import Search_task
+from Pages.login_page import Login_task
+from Pages.user_center_page import UserCenter_task
+from util import Driver_util
+
+class Test_Search(object):
+    def setup_class(self):
+        self.driver_util = Driver_util()
+        self.driver = self.driver_util.get_chrome()
+        self.search = Search_task()
+        self.login = Login_task()
+        self.index = UserCenter_task()
+        # 先登录，确保可以正常搜索
+        self.login.login_with_cookie()
+        sleep(2)
+        self.index.task_index_click()
+    
+    def teardown_class(self):
+        self.driver_util.close_driver()
+    
+    def setup_method(self):
+        sleep(1)
+
+    def teardown_method(self):
+        # 返回首页
+        self.driver.get('http://192.168.11.131/')
+        sleep(1)
+    
+    def test_normal_search(self):
+        """正常搜索测试：使用有效关键词搜索商品"""
+        keyword = '手机'
+        results = self.search.task_search_and_get_results(keyword)
+        
+        # 验证搜索结果不为空
+        assert results['count'] > 0, "搜索结果数量应该大于0"
+
+        # 验证商品名称包含搜索关键词
+        for name in results['names']:
+            assert keyword in name, f"商品名称 {name} 不包含搜索关键词 {keyword}"
+        
+        print(f"正常搜索测试通过，搜索关键词: {keyword}, 找到 {results['count']} 个商品")
+    
+    def test_empty_search(self):
+        """空关键词搜索测试：验证空搜索的行为"""
+        keyword = ''
+        results = self.search.task_search_and_get_results(keyword)
+        
+        # 验证搜索结果数量（根据实际业务逻辑调整断言）
+        print(f"空搜索测试通过，搜索结果数量: {results['count']}")
+    
+    def  test_special_char_search(self):
+        """特殊字符搜索测试：验证特殊字符搜索的处理"""
+        keyword = '!@#$%^&*()'
+        try:
+            results = self.search.task_search_and_get_results(keyword)
+            print(f"特殊字符搜索测试通过，搜索结果数量: {results['count']}")
+        except Exception as e:
+            pytest.fail(f"特殊字符搜索失败: {str(e)}")
+    
+    def test_search_with_number(self):
+        """数字搜索测试：验证使用数字作为关键词的搜索"""
+        keyword = '2024'
+        results = self.search.task_search_and_get_results(keyword)
+        
+        print(f"数字搜索测试通过，搜索关键词: {keyword}, 找到 {results['count']} 个商品")
+    
+    def test_search_and_view_detail(self):
+        """搜索并查看商品详情测试"""
+        keyword = '手机'
+        index = 0
+        
+        self.search.task_view_product_detail(keyword, index)
+        
+        # 验证是否成功打开商品详情页
+        current_url = self.driver.current_url
+        assert '/Goods/goodsInfo/id/1.html' in current_url, "当前页面不是商品详情页"
+        
+        # 验证页面标题包含关键词
+        page_title = self.driver.title
+        assert keyword in page_title, f"页面标题 {page_title} 不包含搜索关键词 {keyword}"
+        
+        print(f"搜索并查看商品详情测试通过，商品URL: {current_url}")
+
+if __name__ == '__main__':
+    pytest.main(['-s', 'search.py'])</code></pre>
+        
+        <h4>4.3.3 用户中心测试用例 (user_center.py)</h4>
+        <p>测试用户中心功能的各种场景，包括查看用户信息、订单管理、地址管理、收藏夹管理等。</p>
+        
+        <p class="code-title">user_center.py - 完整代码</p>
+        <pre class="full-code"><code>import pytest
+from time import sleep
+from Pages.user_center_page import UserCenter_task
+from Pages.login_page import Login_task
+from util import Driver_util
+
+class Test_UserCenter(object):
+    def setup_class(self):
+        self.driver_util = Driver_util()
+        self.driver = self.driver_util.get_chrome()
+        self.user_center = UserCenter_task()
+        self.login = Login_task()
+        
+        # 先登录，确保可以正常操作
+        self.login.login_with_cookie()
+        sleep(2)
+    
+    def teardown_class(self):
+        self.driver_util.close_driver()
+    
+    def setup_method(self):
+        # 进入用户中心页面
+        self.user_center.task_go_to_user_center()
+        sleep(2)
+    
+    def teardown_method(self):
+        pass
+    
+    def test_go_to_user_center(self):
+        """测试进入用户中心页面"""
+        current_url = self.driver.current_url
+        assert '/User/index.html' in current_url, f"未成功进入用户中心页面，当前URL: {current_url}"
+        print("进入用户中心页面测试通过")
+    
+    def test_check_user_info(self):
+        """测试查看用户信息"""
+        user_info = self.user_center.task_check_user_info()
+        
+        # 验证用户名不为空
+        assert user_info['username'] != '', "用户名不能为空"
+        assert '13800138006' in user_info['username'] or 'test' in user_info['username'], \
+            f"用户名不符合预期: {user_info['username']}"
+        
+        print(f"查看用户信息测试通过，用户名: {user_info['username']}")
+    
+    def test_go_to_order_manage(self):
+        """测试进入订单管理页面"""
+        order_info = self.user_center.task_go_to_order_manage()
+        sleep(2)
+        
+        # 验证订单管理页面URL
+        current_url = self.driver.current_url
+        assert '/order' in current_url or '/Order' in current_url, \
+            f"未成功进入订单管理页面，当前URL: {current_url}"
+        
+        # 验证订单信息结构
+        assert 'order_count' in order_info, "订单信息应包含订单数量"
+        assert 'status_list' in order_info, "订单信息应包含订单状态列表"
+        
+        print(f"进入订单管理页面测试通过，共有 {order_info['order_count']} 个订单")
+    
+    def test_go_to_address_manage(self):
+        """测试进入收货地址管理页面"""
+        address_info = self.user_center.task_go_to_address_manage()
+        sleep(2)
+        
+        # 验证地址管理页面URL
+        current_url = self.driver.current_url
+        assert '/address' in current_url or '/Address' in current_url, \
+            f"未成功进入收货地址管理页面，当前URL: {current_url}"
+        
+        # 验证地址信息结构
+        assert 'address_count' in address_info, "地址信息应包含地址数量"
+        
+        print(f"进入收货地址管理页面测试通过，共有 {address_info['address_count']} 个地址")
+    
+    def test_go_to_favorite_manage(self):
+        """测试进入收藏夹管理页面"""
+        favorite_info = self.user_center.task_go_to_favorite_manage()
+        sleep(2)
+        
+        # 验证收藏夹页面URL
+        current_url = self.driver.current_url
+        assert '/favorite' in current_url or '/Favorite' in current_url, \
+            f"未成功进入收藏夹管理页面，当前URL: {current_url}"
+        
+        # 验证收藏夹信息结构
+        assert 'favorite_count' in favorite_info, "收藏夹信息应包含收藏数量"
+        
+        print(f"进入收藏夹管理页面测试通过，共有 {favorite_info['favorite_count']} 个收藏商品")
+    
+    def test_go_to_user_profile(self):
+        """测试进入个人资料页面"""
+        self.user_center.task_go_to_user_profile()
+        sleep(2)
+        
+        # 验证个人资料页面URL
+        current_url = self.driver.current_url
+        assert '/profile' in current_url or '/Profile' in current_url or '/info' in current_url, \
+            f"未成功进入个人资料页面，当前URL: {current_url}"
+        
+        print("进入个人资料页面测试通过")
+    
+    def test_nav_menu_functionality(self):
+        """测试左侧导航菜单功能"""
+        # 测试各个导航菜单
+        nav_tests = [
+            {'name': '订单管理', 'method': self.user_center.task_go_to_order_manage},
+            {'name': '收货地址', 'method': self.user_center.task_go_to_address_manage},
+            {'name': '我的收藏', 'method': self.user_center.task_go_to_favorite_manage},
+            {'name': '个人资料', 'method': self.user_center.task_go_to_user_profile}
+        ]
+        
+        for nav_test in nav_tests:
+            # 先回到用户中心首页
+            self.user_center.task_go_to_user_center()
+            sleep(2)
+            
+            # 执行导航菜单操作
+            nav_test['method']()
+            sleep(2)
+            
+            # 验证导航成功
+            print(f"导航菜单 '{nav_test['name']}' 测试通过")
+            
+            # 回到用户中心首页，方便下一次测试
+            self.user_center.task_go_to_user_center()
+            sleep(2)
+
+if __name__ == '__main__':
+    pytest.main(['-s', 'user_center.py'])</code></pre>
+
+        <h2>5. 测试用例设计</h2>
+        <h3>5.1 设计原则</h3>
+        <ul>
+            <li><strong>独立性：</strong>每个测试用例应该独立运行，不依赖其他测试用例的结果</li>
+            <li><strong>可重复性：</strong>测试用例应该可以重复运行，每次运行的结果应该一致</li>
+            <li><strong>全面性：</strong>测试用例应该覆盖各种正常和异常场景</li>
+            <li><strong>可读性：</strong>测试用例应该易于理解和维护</li>
+        </ul>
+        
+        <h3>5.2 测试用例结构</h3>
+        <p>每个测试用例类都包含以下方法：</p>
+        <ul>
+            <li><code>setup_class()</code>：测试类初始化方法，在所有测试方法执行前运行</li>
+            <li><code>teardown_class()</code>：测试类清理方法，在所有测试方法执行后运行</li>
+            <li><code>setup_method()</code>：测试方法初始化方法，在每个测试方法执行前运行</li>
+            <li><code>teardown_method()</code>：测试方法清理方法，在每个测试方法执行后运行</li>
+            <li>测试方法：以<code>test_</code>开头的方法，实现具体的测试逻辑</li>
+        </ul>
+
+        <h2>6. 运行方式</h2>
+        <h3>6.1 运行单个测试文件</h3>
+        <pre><code>python -m pytest -s Shop_UI/login.py</code></pre>
+        
+        <h3>6.2 运行单个测试用例</h3>
+        <pre><code>python -m pytest -s Shop_UI/login.py::Test_Login::test_wrong_password</code></pre>
+        
+        <h3>6.3 运行所有测试用例</h3>
+        <pre><code>python -m pytest -s Shop_UI/</code></pre>
+        
+        <h2>7. 总结</h2>
+        <p>本项目是一个基于Selenium和Python的UI自动化回归测试框架，采用了Page Object Model设计模式，实现了云链电商平台核心功能的自动化测试。项目结构清晰，代码组织合理，具有良好的可维护性和可扩展性。通过自动化测试，可以有效提高测试效率和质量，确保云链电商平台的核心功能正常。</p>
+        <div>               

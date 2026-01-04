@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>云链电商测试用例 - 软件测试学习平台</title>
+    <title>云链电商测试用例 - 个人博客</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/projects.css">
@@ -148,8 +148,32 @@
 
         .filter-group select:focus, .filter-group input:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: #6366f1;
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .search-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
         /* Module cards */
@@ -446,19 +470,19 @@
                         <span class="stat-label">功能模块</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">235</span>
+                        <span class="stat-number">245</span>
                         <span class="stat-label">测试用例</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">85</span>
+                        <span class="stat-number">96</span>
                         <span class="stat-label">高优先级</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">95</span>
+                        <span class="stat-number">128</span>
                         <span class="stat-label">中优先级</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">55</span>
+                        <span class="stat-number">21</span>
                         <span class="stat-label">低优先级</span>
                     </div>
                     <div class="stat-item">
@@ -493,6 +517,7 @@
                     <div class="filter-group">
                         <label for="search">搜索：</label>
                         <input type="text" id="search" placeholder="搜索用例标题、ID或测试点...">
+                        <button id="search-btn" class="search-button">搜索</button>
                     </div>
                 </div>
 
@@ -1182,7 +1207,7 @@
                     <div class="module-header">
                         <h2 class="module-title">
                             <span>2. 首页页面模块</span>
-                            <span class="case-count">65个用例</span>
+                            <span class="case-count">32个用例</span>
                         </h2>
                         <span class="module-toggle">▼</span>
                     </div>
@@ -1269,94 +1294,7 @@
                                     <td>无法搜索，不执行搜索操作</td>
                                 </tr>
                                 
-                                <tr class="expandable-row">
-                                    <td>HC-039</td>
-                                    <td>搜索功能</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>搜索历史记录保存（有结果）</td>
-                                    <td>无</td>
-                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键<br>4. 再次点击搜索框</td>
-                                    <td>搜索词：手机</td>
-                                    <td>搜索框下方显示历史搜索词条"手机"</td>
-                                </tr>
-                                
-                                <tr class="expandable-row">
-                                    <td>HC-040</td>
-                                    <td>搜索功能</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>搜索历史记录保存（无结果）</td>
-                                    <td>商城中不存在包含搜索词的商品</td>
-                                    <td>1. 进入首页<br>2. 在搜索框中输入搜索词<br>3. 点击搜索按钮或按回车键<br>4. 再次点击搜索框</td>
-                                    <td>搜索词：不存在的商品名称123456</td>
-                                    <td>搜索框下方显示历史搜索词条"不存在的商品名称123456"</td>
-                                </tr>
-                                
-                                <!-- 商品分类功能测试用例 -->
-                                <tr class="expandable-row">
-                                    <td>HC-034</td>
-                                    <td>商品分类</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>一级分类默认显示数量</td>
-                                    <td>数据库中存在至少6个一级分类</td>
-                                    <td>1. 进入首页<br>2. 查看顶部商品分类栏</td>
-                                    <td>无</td>
-                                    <td>首页显示6个一级分类，与数据库中排序一致</td>
-                                </tr>
-                                
-                                <tr class="expandable-row">
-                                    <td>HC-033</td>
-                                    <td>商品分类</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>一级分类展开二级和三级分类</td>
-                                    <td>数据库中存在有二级和三级分类的一级分类</td>
-                                    <td>1. 进入首页<br>2. 将鼠标移入任意一级分类</td>
-                                    <td>无</td>
-                                    <td>一级分类背景变浅，显示该分类下所有二级和三级分类</td>
-                                </tr>
-                                
-                                <tr class="expandable-row">
-                                    <td>HC-035</td>
-                                    <td>商品分类</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>一级分类鼠标移入效果</td>
-                                    <td>数据库中存在一级分类</td>
-                                    <td>1. 进入首页<br>2. 将鼠标移入任意一级分类<br>3. 观察字体颜色变化</td>
-                                    <td>无</td>
-                                    <td>一级分类字体颜色变红</td>
-                                </tr>
-                                
-                                <tr class="expandable-row">
-                                    <td>HC-036</td>
-                                    <td>商品分类</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>三级分类鼠标移入效果</td>
-                                    <td>数据库中存在三级分类</td>
-                                    <td>1. 进入首页<br>2. 将鼠标移入一级分类展开三级分类<br>3. 将鼠标移入任意三级分类<br>4. 观察字体颜色变化</td>
-                                    <td>无</td>
-                                    <td>三级分类字体颜色变红</td>
-                                </tr>
-                                
-                                <tr class="expandable-row">
-                                    <td>HC-037</td>
-                                    <td>商品分类</td>
-                                    <td><span class="priority priority-high">高</span></td>
-                                    <td>分类点击跳转功能</td>
-                                    <td>数据库中存在有效的分类数据</td>
-                                    <td>1. 进入首页<br>2. 点击任意一级分类<br>3. 观察跳转结果</td>
-                                    <td>无</td>
-                                    <td>跳转到对应的分类商品筛选界面，显示该分类下的商品</td>
-                                </tr>
-                                
-                                <tr class="expandable-row">
-                                    <td>HC-038</td>
-                                    <td>商品分类</td>
-                                    <td><span class="priority priority-medium">中</span></td>
-                                    <td>分类数据排序显示</td>
-                                    <td>数据库中存在带有排序字段的分类数据</td>
-                                    <td>1. 进入首页<br>2. 查看分类显示顺序<br>3. 与数据库中排序字段对比</td>
-                                    <td>无</td>
-                                    <td>分类显示顺序与数据库中排序字段一致</td>
-                                </tr>
+        
                                 
                                 <tr class="expandable-row">
                                     <td>HC-007</td>
@@ -1646,6 +1584,7 @@
                                     <td>浏览器：Chrome、Firefox、Safari、Edge</td>
                                     <td>在所有主流浏览器中页面显示正常，所有功能可用</td>
                                 </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -2181,7 +2120,7 @@
                     <div class="module-header">
                         <h2 class="module-title">
                             <span>4. 抢购功能模块</span>
-                            <span class="case-count">40个用例</span>
+                            <span class="case-count">47个用例</span>
                         </h2>
                         <span class="module-toggle">▼</span>
                     </div>
@@ -2609,7 +2548,7 @@
                                     <td>倒计时准确，活动开始时间到达后，"立即抢购"按钮变为可点击状态</td>
                                 </tr>
                                 <tr class="expandable-row">
-                                    <td>SC-014</td>
+                                    <td>SC-041</td>
                                     <td>抢购失败场景</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>重复抢购同一商品</td>
@@ -2621,7 +2560,7 @@
                                 
                                 <!-- 抢购成功场景 -->
                                 <tr class="expandable-row">
-                                    <td>SC-015</td>
+                                    <td>SC-042</td>
                                     <td>抢购成功场景</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>抢购成功后订单状态</td>
@@ -2631,7 +2570,7 @@
                                     <td>订单状态显示为"待支付"，订单类型标记为"抢购订单"</td>
                                 </tr>
                                 <tr class="expandable-row">
-                                    <td>SC-016</td>
+                                    <td>SC-043</td>
                                     <td>抢购成功场景</td>
                                     <td><span class="priority priority-high">高</span></td>
                                     <td>抢购成功后支付</td>
@@ -2643,7 +2582,7 @@
                                 
                                 <!-- 抢购商品购物车功能 -->
                                 <tr class="expandable-row">
-                                    <td>SC-017</td>
+                                    <td>SC-044</td>
                                     <td>抢购商品购物车功能</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>将抢购商品加入购物车</td>
@@ -2653,7 +2592,7 @@
                                     <td>商品成功加入购物车，显示抢购价格</td>
                                 </tr>
                                 <tr class="expandable-row">
-                                    <td>SC-018</td>
+                                    <td>SC-045</td>
                                     <td>抢购商品购物车功能</td>
                                     <td><span class="priority priority-medium">中</span></td>
                                     <td>购物车中抢购商品数量限制</td>
@@ -2665,7 +2604,7 @@
                                 
                                 <!-- 抢购活动管理 -->
                                 <tr class="expandable-row">
-                                    <td>SC-019</td>
+                                    <td>SC-046</td>
                                     <td>抢购活动管理</td>
                                     <td><span class="priority priority-low">低</span></td>
                                     <td>抢购活动创建</td>
@@ -2675,7 +2614,7 @@
                                     <td>活动创建成功，在抢购专区显示该活动</td>
                                 </tr>
                                 <tr class="expandable-row">
-                                    <td>SC-020</td>
+                                    <td>SC-047</td>
                                     <td>抢购活动管理</td>
                                     <td><span class="priority priority-low">低</span></td>
                                     <td>抢购活动编辑</td>
@@ -3026,6 +2965,18 @@
                                     <td>优惠券数量：50张</td>
                                     <td>优惠券列表加载时间不超过2秒，页面无卡顿</td>
                                 </tr>
+                                
+                                <!-- 优惠券用户体验 -->
+                                <tr class="expandable-row">
+                                    <td>C-030</td>
+                                    <td>优惠券用户体验</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>优惠券使用引导提示</td>
+                                    <td>已登录用户，首次使用优惠券</td>
+                                    <td>1. 登录后进入订单确认页面<br>2. 查看优惠券选择区域</td>
+                                    <td>无</td>
+                                    <td>显示优惠券使用引导，清晰提示优惠券使用规则和选择方式</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -3270,11 +3221,160 @@
                                     <td>无</td>
                                     <td>会员权益设置成功，会员端显示更新后的权益</td>
                                 </tr>
+                                
+                                <!-- 会员边界条件 -->
+                                <tr class="expandable-row">
+                                    <td>M-021</td>
+                                    <td>会员边界条件</td>
+                                    <td><span class="priority priority-high">高</span></td>
+                                    <td>刚好达到升级条件的会员升级</td>
+                                    <td>已登录用户，成长值距离升级差1点</td>
+                                    <td>1. 登录后进行购物获得1点成长值<br>2. 进入会员中心查看会员等级</td>
+                                    <td>无</td>
+                                    <td>会员等级自动提升，显示升级通知</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-022</td>
+                                    <td>会员边界条件</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>积分抵扣的边界值测试</td>
+                                    <td>已登录用户，积分刚好等于订单金额</td>
+                                    <td>1. 登录后购物车中加入100元商品<br>2. 进入订单确认页面<br>3. 选择使用10000积分（100元）抵扣<br>4. 提交订单</td>
+                                    <td>订单金额：100元<br>积分：10000分（1分=0.01元）</td>
+                                    <td>订单提交成功，订单金额显示0元，积分扣除10000分</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-023</td>
+                                    <td>会员边界条件</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员积分上限测试</td>
+                                    <td>已登录用户，积分接近系统上限</td>
+                                    <td>1. 登录后获得足够积分，使积分达到系统上限<br>2. 再次尝试获得积分</td>
+                                    <td>积分上限：100000分</td>
+                                    <td>积分达到上限后不再增加，提示"已达到积分上限"</td>
+                                </tr>
+                                
+                                <!-- 会员异常处理 -->
+                                <tr class="expandable-row">
+                                    <td>M-024</td>
+                                    <td>会员异常处理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>积分抵扣时网络异常</td>
+                                    <td>已登录用户，有足够的积分，购物车中有商品</td>
+                                    <td>1. 登录后进入订单确认页面<br>2. 选择使用积分抵扣<br>3. 提交订单，同时断开网络</td>
+                                    <td>无</td>
+                                    <td>提示"网络异常，请稍后重试"，订单未提交成功，积分未扣除</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-025</td>
+                                    <td>会员异常处理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>积分不足时尝试抵扣</td>
+                                    <td>已登录用户，积分不足</td>
+                                    <td>1. 登录后购物车中有商品<br>2. 进入订单确认页面<br>3. 尝试选择超过现有积分的抵扣金额</td>
+                                    <td>现有积分：500分<br>尝试抵扣：1000分</td>
+                                    <td>提示"积分不足"，无法选择超过现有积分的抵扣金额</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-026</td>
+                                    <td>会员异常处理</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>会员等级过期后操作</td>
+                                    <td>已登录用户，会员等级已过期</td>
+                                    <td>1. 登录后进入会员中心<br>2. 尝试使用会员专享权益</td>
+                                    <td>无</td>
+                                    <td>提示"会员资格已过期，请续费"，无法使用会员专享权益</td>
+                                </tr>
+                                
+                                <!-- 会员并发场景 -->
+                                <tr class="expandable-row">
+                                    <td>M-027</td>
+                                    <td>会员并发场景</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>并发积分兑换限量商品</td>
+                                    <td>多个用户同时尝试用积分兑换限量商品（库存10件）</td>
+                                    <td>1. 准备20个模拟用户<br>2. 同时触发积分兑换同一件限量商品的请求<br>3. 检查兑换结果</td>
+                                    <td>商品库存：10件<br>并发用户数：20</td>
+                                    <td>只有10个用户兑换成功，其他用户提示"商品已兑换完"，无超发情况</td>
+                                </tr>
+                                
+                                <!-- 会员安全性 -->
+                                <tr class="expandable-row">
+                                    <td>M-028</td>
+                                    <td>会员安全性</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>防止积分盗取</td>
+                                    <td>已登录用户，系统存在积分安全机制</td>
+                                    <td>1. 登录后尝试通过修改前端参数获取积分<br>2. 检查积分变化</td>
+                                    <td>无</td>
+                                    <td>系统拒绝非法请求，积分未增加，提示"操作异常"</td>
+                                </tr>
+                                <tr class="expandable-row">
+                                    <td>M-029</td>
+                                    <td>会员安全性</td>
+                                    <td><span class="priority priority-medium">中</span></td>
+                                    <td>未授权访问会员专属内容</td>
+                                    <td>未登录用户，尝试访问会员专属内容</td>
+                                    <td>1. 未登录状态下尝试访问会员专属商品页<br>2. 尝试使用会员专享功能</td>
+                                    <td>无</td>
+                                    <td>提示用户先登录，无法访问会员专属内容</td>
+                                </tr>
+                                
+                                <!-- 会员用户体验 -->
+                                <tr class="expandable-row">
+                                    <td>M-030</td>
+                                    <td>会员用户体验</td>
+                                    <td><span class="priority priority-low">低</span></td>
+                                    <td>会员中心导航体验</td>
+                                    <td>已登录用户</td>
+                                    <td>1. 登录后进入会员中心<br>2. 浏览会员中心各功能区域<br>3. 测试各功能入口的可用性</td>
+                                    <td>无</td>
+                                    <td>会员中心导航清晰，各功能入口易于找到，操作流畅无卡顿</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+    <script>
+        // 搜索功能实现
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBtn = document.getElementById('search-btn');
+            const searchInput = document.getElementById('search');
+            
+            // 搜索函数
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const testRows = document.querySelectorAll('.expandable-row');
+                
+                testRows.forEach(row => {
+                    const caseId = row.querySelector('td:nth-child(1)')?.textContent.toLowerCase() || '';
+                    const caseTitle = row.querySelector('td:nth-child(4)')?.textContent.toLowerCase() || '';
+                    const testPoints = row.querySelector('td:nth-child(6)')?.textContent.toLowerCase() || '';
+                    
+                    // 检查是否包含搜索关键词
+                    const matches = caseId.includes(searchTerm) || caseTitle.includes(searchTerm) || testPoints.includes(searchTerm);
+                    
+                    // 显示或隐藏行
+                    row.style.display = matches ? '' : 'none';
+                });
+            }
+            
+            // 为搜索按钮添加点击事件
+            if (searchBtn) {
+                searchBtn.addEventListener('click', performSearch);
+            }
+            
+            // 为搜索输入框添加回车键事件
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+        });
+    </script>
     </body>
 </html>
